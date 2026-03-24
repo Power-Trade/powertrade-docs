@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power Trade Guides and FAQ</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fafafa;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .nav {
+            background: white;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .nav a {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+        
+        .nav a:hover {
+            background-color: #f0f8ff;
+        }
+        
+        .content {
+            background: white;
+            margin: 2rem auto;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+            display: none;
+        }
+        
+        .section.active {
+            display: block;
+        }
+        
+        .section h2 {
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #0066cc;
+        }
+        
+        .section h3 {
+            color: #2d2d2d;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .card {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: transform 0.2s;
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .card h4 {
+            color: #0066cc;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+        
+        .feature-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        .download-buttons {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #0066cc;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+        
+        .btn:hover {
+            background: #0052a3;
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+        }
+        
+        .btn-secondary:hover {
+            background: #545b62;
+        }
+        
+        .contact-info {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .contact-item {
+            text-align: center;
+        }
+        
+        .contact-item h4 {
+            color: #0066cc;
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .container { padding: 0 1rem; }
+            .content { padding: 1.5rem; margin: 1rem; }
+            .nav-container { gap: 1rem; }
+            .download-buttons { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>Power Trade Guides and FAQ</h1>
+            <p>Learn how to use PowerTrade, the leading crypto & altcoin options exchange. Step-by-step guides on trading, deposits, fees, API, and more.</p>
+        </div>
+    </div>
+
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-container">
+                <a href="#" onclick="showSection('home')">Home</a>
+                <a href="#" onclick="showSection('getting-started')">Getting Started</a>
+                <a href="#" onclick="showSection('trading')">Trading</a>
+                <a href="#" onclick="showSection('deposits')">Deposits</a>
+                <a href="#" onclick="showSection('account')">Account</a>
+                <a href="#" onclick="showSection('api')">API</a>
+                <a href="#" onclick="showSection('legal')">Legal</a>
+                <a href="#" onclick="showSection('support')">Support</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="content">
+            <!-- HOME SECTION -->
+            <div id="home" class="section active">
+                <h2>🚀 Welcome to PowerTrade</h2>
+                <p>At <strong>PowerTrade</strong>, we're a team of crypto-native professionals and tech builders passionate about shaping the future of crypto trading. Our mission is to empower institutional firms and professional traders with a powerful, intuitive platform to access the fast-moving world of crypto derivatives.</p>
+
+                <div class="card-grid">
+                    <div class="card">
+                        <h4>🎯 Our Mission</h4>
+                        <p>We're obsessed with user experience, driven by innovation, and committed to building tools that make trading crypto options, perpetuals, and structured products seamless.</p>
+                    </div>
+                    <div class="card">
+                        <h4>📊 80+ Altcoin Options</h4>
+                        <p>Trade USD-settled, European-style options on BTC, ETH, and 80+ altcoins — more than any other platform.</p>
+                    </div>
+                    <div class="card">
+                        <h4>⚡ Professional Tools</h4>
+                        <p>Whether you're executing complex strategies or trading high-volume block trades, PowerTrade is built to support your edge.</p>
+                    </div>
+                </div>
+
+                <h3>Services we offer</h3>
+                <ul class="feature-list">
+                    <li><strong>Crypto Options Trading:</strong> Trade USD-settled, European-style options on BTC, ETH, and 80+ altcoins</li>
+                    <li><strong>Perpetuals, Futures, and Spot Markets:</strong> Deep liquidity across all markets</li>
+                    <li><strong>Request-for-Quote (RFQ) System:</strong> Execute block trades or build multi-leg structures securely</li>
+                    <li><strong>Multi-Leg Strategies:</strong> Execute complex trading strategies by combining multiple options contracts</li>
+                    <li><strong>One-click strategies builder:</strong> Select your bullish, rangebound or bearish strategy with pre-built strategies</li>
+                    <li><strong>Short-term expiration "DEGEN" options:</strong> 10-minute and 1-hour expiration options with no liquidation risk</li>
+                    <li><strong>Desktop and Mobile Applications:</strong> Seamless trading experience across all devices</li>
+                    <li><strong>API Access:</strong> Integrate your trading tools and algorithms with our platform</li>
+                    <li><strong>Competitive Fee Structure:</strong> Designed to help you maximize your trading profits</li>
+                </ul>
+
+                <h3>📱 Download PowerTrade</h3>
+                <div class="download-buttons">
+                    <a href="https://apps.apple.com/us/app/powertrade/id1548085709" class="btn">iOS App Store</a>
+                    <a href="https://play.google.com/store/apps/details?id=com.pt.powertrade" class="btn">Google Play</a>
+                    <a href="https://app.power.trade" class="btn btn-secondary">Web App</a>
+                </div>
+            </div>
+
+            <!-- GETTING STARTED SECTION -->
+            <div id="getting-started" class="section">
+                <h2>🚀 Getting Started</h2>
+                
+                <h3>Step 1: Create Account</h3>
+                <p>Welcome to PowerTrade! The following guide will walk you through signing up for a new account to trade cryptocurrency derivatives.</p>
+                
+                <div class="card">
+                    <h4>Quick Start Process</h4>
+                    <ol>
+                        <li><strong>Get Started:</strong> Tap the "Get Started" button to begin</li>
+                        <li><strong>Enter Email:</strong> Enter your email address and tap "Sign Up"</li>
+                        <li><strong>Confirm Email:</strong> Click the magic link sent to your email (expires in 1 hour)</li>
+                        <li><strong>Personal Info:</strong> Enter your full legal name and save</li>
+                        <li><strong>Terms:</strong> Accept the terms and conditions</li>
+                        <li><strong>Security PIN:</strong> Create a 4-digit security PIN for your device</li>
+                    </ol>
+                </div>
+
+                <h3>Step 2: Account Verification (KYC)</h3>
+                <p>Complete KYC verification to unlock higher trading limits, secure withdrawals, and fast account approvals.</p>
+                
+                <div class="card-grid">
+                    <div class="card">
+                        <h4>Documents Required</h4>
+                        <ul>
+                            <li>Proof of identity document (passport preferred)</li>
+                            <li>Proof of residency document (utility bill, bank statement)</li>
+                            <li>Documents must be recent (within 3 months for POA)</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4>Verification Limits</h4>
+                        <ul>
+                            <li><strong>Unverified:</strong> 1,000 USDC per 24 hours withdrawal</li>
+                            <li><strong>Verified:</strong> Unlimited withdrawals</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Step 3: Fund Your Account</h3>
+                <p>After verification, you can deposit funds and start trading!</p>
+                <a href="#" onclick="showSection('deposits')" class="btn">Learn About Deposits</a>
+            </div>
+
+            <!-- TRADING SECTION -->
+            <div id="trading" class="section">
+                <h2>📈 Trading on PowerTrade</h2>
+                
+                <h3>Options Trading</h3>
+                <p>Crypto options are financial derivatives that give traders the right, but not the obligation, to buy or sell an underlying cryptocurrency at a fixed price (the strike price) on or before a specific date.</p>
+
+                <div class="card-grid">
+                    <div class="card">
+                        <h4>📈 Call Options</h4>
+                        <p>Give you the right to <strong>buy</strong> cryptocurrency at the strike price.</p>
+                        <ul>
+                            <li>Buy calls when you expect prices to rise</li>
+                            <li>Unlimited profit potential</li>
+                            <li>Example: BTC call at $50k, if BTC hits $55k, profit $5k minus premium</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4>📉 Put Options</h4>
+                        <p>Give you the right to <strong>sell</strong> cryptocurrency at the strike price.</p>
+                        <ul>
+                            <li>Buy puts when you expect prices to fall</li>
+                            <li>Perfect for hedging downside risk</li>
+                            <li>Example: ETH put at $3k, if ETH drops to $2.5k, profit $500 minus premium</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Why Trade Options on PowerTrade?</h3>
+                <ul class="feature-list">
+                    <li><strong>European-style options:</strong> Can only be exercised at expiration, preventing early exercise risk</li>
+                    <li><strong>USDC cash-settled:</strong> No need to hold the underlying cryptocurrency</li>
+                    <li><strong>80+ altcoin markets:</strong> The widest coverage in crypto</li>
+                    <li><strong>Tight pricing & deep liquidity:</strong> Professional-grade execution</li>
+                    <li><strong>Risk-defined strategies:</strong> Limit downside while keeping upside potential</li>
+                    <li><strong>Flexible expirations:</strong> From daily to 3 months forward</li>
+                </ul>
+
+                <h3>Other Trading Products</h3>
+                <div class="card-grid">
+                    <div class="card">
+                        <h4>Perpetuals</h4>
+                        <p>Trade perpetual futures with no expiration date. Perfect for directional bets with leverage.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Futures</h4>
+                        <p>Standard futures contracts with fixed expiration dates for precise timing strategies.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Spot Trading</h4>
+                        <p>Direct cryptocurrency trading with immediate settlement.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DEPOSITS SECTION -->
+            <div id="deposits" class="section">
+                <h2>💰 Deposits on PowerTrade</h2>
+                
+                <h3>Supported Assets</h3>
+                <p>Users can fund their trading accounts with the following cryptocurrencies:</p>
+                
+                <div class="card-grid">
+                    <div class="card">
+                        <h4>Primary Assets</h4>
+                        <ul>
+                            <li>USDC (ERC20) - Primary trading currency</li>
+                            <li>Bitcoin (BTC)</li>
+                            <li>Ethereum (ETH)</li>
+                            <li>PowerTrade Fuel (PTF)</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4>Additional Supported Assets</h4>
+                        <ul>
+                            <li>Solana (SOL)</li>
+                            <li>Avalanche (AVAX)</li>
+                            <li>Binance Coin (BNB)</li>
+                            <li>Dogecoin (DOGE)</li>
+                            <li>Chainlink (LINK)</li>
+                            <li>Litecoin (LTC)</li>
+                            <li>SUI Network (SUI)</li>
+                            <li>Toncoin (TON)</li>
+                            <li>Ripple (XRP)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>How to Deposit (Web)</h3>
+                <ol>
+                    <li>Go to your Funds screen by clicking the menu dropdown and select "Deposit Add funds"</li>
+                    <li>Click the "Deposit" button next to the asset you want to deposit</li>
+                    <li>Your PowerTrade wallet address will be revealed (QR code available)</li>
+                    <li>Send funds from your external wallet to this address</li>
+                    <li>Wait for blockchain confirmation</li>
+                    <li>Receive email confirmation when funds are credited</li>
+                </ol>
+
+                <div class="card">
+                    <h4>⚠️ Important Warning</h4>
+                    <p><strong>Make sure to only transfer the correct type of asset into the wallet.</strong> Transferring the wrong type of cryptocurrency may render it unrecoverable!</p>
+                </div>
+
+                <h3>Common Deposit Delays</h3>
+                <ul class="feature-list">
+                    <li><strong>Transaction not broadcast:</strong> Check your transaction on the blockchain explorer</li>
+                    <li><strong>Network congestion:</strong> High traffic can delay processing</li>
+                    <li><strong>Low fees:</strong> Transactions with higher fees get priority</li>
+                    <li><strong>Prior unconfirmed transactions:</strong> Wait for previous transactions to confirm</li>
+                </ul>
+            </div>
+
+            <!-- ACCOUNT SECTION -->
+            <div id="account" class="section">
+                <h2>👤 Account Management</h2>
+                
+                <h3>Subaccounts</h3>
+                <p>Subaccounts provide the ability to segregate trading activity from your main account. Since PowerTrade accounts have portfolio margin enabled by default, creating subaccounts allows you to isolate your positions and margin balances.</p>
+
+                <div class="card-grid">
+                    <div class="card">
+                        <h4>Benefits of Subaccounts</h4>
+                        <ul>
+                            <li>Isolate trading strategies</li>
+                            <li>Separate margin balances</li>
+                            <li>Better risk management</li>
+                            <li>Unlimited subaccounts allowed</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4>Internal Transfers</h4>
+                        <ul>
+                            <li>Free transfers between main and subaccounts</li>
+                            <li>Instant transfers (no blockchain fees)</li>
+                            <li>Affects account health calculations</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Withdrawals</h3>
+                <p>Withdraw your funds securely with email confirmation and address whitelisting.</p>
+                
+                <div class="card">
+                    <h4>Withdrawal Process</h4>
+                    <ol>
+                        <li>Go to Funds screen and click "Withdraw" for your chosen asset</li>
+                        <li>Add and verify a withdrawal address (one-time setup)</li>
+                        <li>Enter withdrawal amount</li>
+                        <li>Confirm via email link (expires in 10 minutes)</li>
+                        <li>Monitor status in Withdrawal tab</li>
+                    </ol>
+                </div>
+
+                <h3>Fees</h3>
+                <div class="card-grid">
+                    <div class="card">
+                        <h4>Trading Fees (Maker/Taker)</h4>
+                        <ul>
+                            <li><strong>Spot:</strong> 0.10% / 0.10%</li>
+                            <li><strong>BTC/ETH Options:</strong> 0.075% / 0.075%</li>
+                            <li><strong>Other Options:</strong> 0.15% / 0.15%</li>
+                            <li><strong>Perpetuals:</strong> 0.075% / 0.075%</li>
+                            <li><strong>Futures:</strong> 0.075% / 0.075%</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4>Other Fees</h4>
+                        <ul>
+                            <li><strong>Withdrawal:</strong> Dynamic network-based fees</li>
+                            <li><strong>Liquidation:</strong> 0.75% (spot), 0.2% (options)</li>
+                            <li><strong>Settlement:</strong> 0.02-0.04% (options)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- API SECTION -->
+            <div id="api" class="section">
+                <h2>🔧 API Access</h2>
+                
+                <div class="card">
+                    <h4>⚠️ Current Status</h4>
+                    <p><strong>API USE IS CURRENTLY DISABLED.</strong> Please get in touch if you think you need it.</p>
+                </div>
+
+                <h3>API Features (When Available)</h3>
+                <ul class="feature-list">
+                    <li><strong>WebSockets:</strong> Real-time market data and order updates</li>
+                    <li><strong>REST API:</strong> Account management and order execution</li>
+                    <li><strong>Public Endpoints:</strong> Market data, order books, trade history</li>
+                    <li><strong>Private Endpoints:</strong> Order management, positions, balances</li>
+                    <li><strong>Authentication:</strong> JWT-based security with ES256</li>
+                </ul>
+
+                <div class="card">
+                    <h4>Authentication Process</h4>
+                    <ol>
+                        <li>Create account on PowerTrade web application</li>
+                        <li>Go to Profile menu → API Keys</li>
+                        <li>Generate API Key and Private Key</li>
+                        <li>Use ES256 algorithm with {"client": "api"} payload for JWT</li>
+                        <li>Include JWT token in Authorization header</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- LEGAL SECTION -->
+            <div id="legal" class="section">
+                <h2>⚖️ Legal & Compliance</h2>
+                
+                <h3>Country Availability</h3>
+                <p>PowerTrade is available in most countries worldwide. However, the app is not available in certain restricted jurisdictions due to regulatory requirements.</p>
+
+                <div class="card">
+                    <h4>Regulatory Compliance</h4>
+                    <p>We comply with applicable laws and regulations in our operating jurisdictions. Users must verify their eligibility to use our services in their location.</p>
+                </div>
+
+                <h3>Risk Disclosure</h3>
+                <div class="card">
+                    <h4>⚠️ Trading Risks</h4>
+                    <ul>
+                        <li>Cryptocurrency trading involves substantial risk of loss</li>
+                        <li>Options can expire worthless</li>
+                        <li>Leverage increases both potential gains and losses</li>
+                        <li>Past performance does not guarantee future results</li>
+                        <li>Only trade with funds you can afford to lose</li>
+                    </ul>
+                </div>
+
+                <h3>Security</h3>
+                <ul class="feature-list">
+                    <li>Industry-standard encryption and security protocols</li>
+                    <li>Cold storage for user funds</li>
+                    <li>Multi-factor authentication available</li>
+                    <li>Regular security audits and penetration testing</li>
+                    <li>Segregated user funds</li>
+                </ul>
+            </div>
+
+            <!-- SUPPORT SECTION -->
+            <div id="support" class="section">
+                <h2>🛟 Need Help?</h2>
+                
+                <div class="contact-info">
+                    <div class="contact-grid">
+                        <div class="contact-item">
+                            <h4>📧 Email Support</h4>
+                            <p><a href="mailto:support@power.trade">support@power.trade</a></p>
+                            <p>Professional support for all inquiries</p>
+                        </div>
+                        <div class="contact-item">
+                            <h4>💬 Telegram</h4>
+                            <p><a href="https://t.me/power_trade">t.me/power_trade</a></p>
+                            <p>24/7 community and quick support</p>
+                        </div>
+                        <div class="contact-item">
+                            <h4>🌐 Website</h4>
+                            <p><a href="https://power.trade">power.trade</a></p>
+                            <p>Main company website</p>
+                        </div>
+                        <div class="contact-item">
+                            <h4>📱 Trading Platform</h4>
+                            <p><a href="https://app.power.trade">app.power.trade</a></p>
+                            <p>Web trading application</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Common Issues</h3>
+                <div class="card-grid">
+                    <div class="card">
+                        <h4>Login Problems</h4>
+                        <ul>
+                            <li>Check email spam folder for magic link</li>
+                            <li>Ensure you're using the same device</li>
+                            <li>Whitelist support@power.trade</li>
+                            <li>Try incognito mode if web app issues</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4>Deposit Delays</h4>
+                        <ul>
+                            <li>Check transaction on blockchain explorer</li>
+                            <li>Verify you sent the correct asset type</li>
+                            <li>Check network congestion status</li>
+                            <li>Contact support with transaction hash</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Getting Started Resources</h3>
+                <div class="download-buttons">
+                    <a href="#" onclick="showSection('getting-started')" class="btn">Getting Started Guide</a>
+                    <a href="#" onclick="showSection('trading')" class="btn">Trading Guide</a>
+                    <a href="#" onclick="showSection('deposits')" class="btn">Deposit Guide</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected section
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+            
+            // Update URL hash
+            window.location.hash = sectionId;
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+        
+        // Handle direct URL access with hash
+        window.addEventListener('load', function() {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                showSection(hash);
+            }
+        });
+        
+        // Handle back/forward browser navigation
+        window.addEventListener('hashchange', function() {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                showSection(hash);
+            } else {
+                showSection('home');
+            }
+        });
+    </script>
+</body>
+</html>
