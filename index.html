@@ -193,6 +193,48 @@ html, body {
 
 .sidebar-item.active .sidebar-item-subtitle { color: rgba(191,255,0,0.55); }
 
+.sidebar-item-expandable {
+  display: flex;
+  align-items: center;
+  padding: 8px 20px;
+  cursor: pointer;
+  color: var(--text-nav);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+  border-left: 2.5px solid transparent;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  position: relative;
+}
+.sidebar-item-expandable:hover { background: rgba(255,255,255,0.03); }
+.sidebar-item-expandable.active {
+  color: var(--accent);
+  border-left-color: var(--accent);
+  background: rgba(191,255,0,0.04);
+  font-weight: 500;
+}
+.sidebar-item-expandable.active .sidebar-item-subtitle { color: rgba(191,255,0,0.55); }
+.sidebar-expand-chevron {
+  color: #555;
+  font-size: 11px;
+  margin-left: 8px;
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+.sidebar-expand-chevron.expanded { transform: rotate(180deg); }
+.sidebar-sub-items {
+  display: none;
+  padding-left: 16px;
+}
+.sidebar-sub-items.expanded { display: block; }
+.sidebar-sub-items .sidebar-item {
+  padding: 6px 20px 6px 24px;
+  font-size: 13px;
+}
+.sidebar-sub-items .sidebar-item .sidebar-item-subtitle {
+  font-size: 11px;
+}
+
 .sidebar-chevron {
   color: #555;
   font-size: 12px;
@@ -757,7 +799,7 @@ a.ext-link::after {
 
 <div class="sidebar-item" data-page="subaccounts" onclick="navigateTo('subaccounts')">
   <div class="sidebar-item-text">
-    <span class="sidebar-item-title">Create & Manage Subaccounts</span>
+    <span class="sidebar-item-title">Create & Manage Subaccounts on PowerTrade</span>
     <span class="sidebar-item-subtitle">Strategy Segmentation</span>
   </div>
   <span class="sidebar-chevron">›</span>
@@ -766,7 +808,7 @@ a.ext-link::after {
 <div class="sidebar-item" data-page="security-tips" onclick="navigateTo('security-tips')">
   <div class="sidebar-item-text">
     <span class="sidebar-item-title">PowerTrade Security Tips</span>
-    <span class="sidebar-item-subtitle">Protect Your Account & Funds</span>
+    <span class="sidebar-item-subtitle">Protect Your Crypto Trading Account</span>
   </div>
   <span class="sidebar-chevron">›</span>
 </div>
@@ -813,33 +855,49 @@ a.ext-link::after {
 
 <div class="sidebar-section-label">TRADING</div>
 
-<div class="sidebar-item" data-page="options" onclick="navigateTo('options')">
+<div class="sidebar-item-expandable" data-page="options" onclick="toggleExpand('options-expand'); navigateTo('options')">
   <div class="sidebar-item-text">
     <span class="sidebar-item-title">Options Trading on PowerTrade</span>
     <span class="sidebar-item-subtitle">Calls, Puts & Altcoin Strategies</span>
+  </div>
+  <span class="sidebar-expand-chevron" id="options-expand-chevron">˅</span>
+</div>
+<div class="sidebar-sub-items" id="options-expand">
+  <div class="sidebar-item" data-page="options-intro" onclick="event.stopPropagation(); navigateTo('options-intro')">
+    <div class="sidebar-item-text">
+      <span class="sidebar-item-title">Options Introduction</span>
+      <span class="sidebar-item-subtitle">European, USDC-Settled Crypto Options</span>
+    </div>
+    <span class="sidebar-chevron">›</span>
+  </div>
+  <div class="sidebar-item" data-page="options-specs" onclick="event.stopPropagation(); navigateTo('options-specs')">
+    <div class="sidebar-item-text">
+      <span class="sidebar-item-title">Options Contract Specifications</span>
+      <span class="sidebar-item-subtitle">BTC, ETH & Altcoins</span>
+    </div>
+    <span class="sidebar-chevron">›</span>
+  </div>
+</div>
+
+<div class="sidebar-item" data-page="perpetuals" onclick="navigateTo('perpetuals')">
+  <div class="sidebar-item-text">
+    <span class="sidebar-item-title">Perpetuals Trading on PowerTrade</span>
+    <span class="sidebar-item-subtitle">Trade Perpetuals with No Expiry</span>
   </div>
   <span class="sidebar-chevron">›</span>
 </div>
 
 <div class="sidebar-item" data-page="futures" onclick="navigateTo('futures')">
   <div class="sidebar-item-text">
-    <span class="sidebar-item-title">Futures Trading</span>
+    <span class="sidebar-item-title">Futures Trading on PowerTrade</span>
     <span class="sidebar-item-subtitle">Crypto Futures Guide</span>
-  </div>
-  <span class="sidebar-chevron">›</span>
-</div>
-
-<div class="sidebar-item" data-page="perpetuals" onclick="navigateTo('perpetuals')">
-  <div class="sidebar-item-text">
-    <span class="sidebar-item-title">Perpetual Contracts</span>
-    <span class="sidebar-item-subtitle">Trade Perpetuals on PowerTrade</span>
   </div>
   <span class="sidebar-chevron">›</span>
 </div>
 
 <div class="sidebar-item" data-page="spot" onclick="navigateTo('spot')">
   <div class="sidebar-item-text">
-    <span class="sidebar-item-title">Spot Trading</span>
+    <span class="sidebar-item-title">Spot Trading on PowerTrade</span>
     <span class="sidebar-item-subtitle">Buy & Sell Crypto Directly</span>
   </div>
   <span class="sidebar-chevron">›</span>
@@ -855,7 +913,7 @@ a.ext-link::after {
 
 <div class="sidebar-item" data-page="xstocks" onclick="navigateTo('xstocks')">
   <div class="sidebar-item-text">
-    <span class="sidebar-item-title">xStocks Tokenized Stocks</span>
+    <span class="sidebar-item-title">xStocks - Tokenized Stocks</span>
     <span class="sidebar-item-subtitle">Trade Stocks on Blockchain</span>
   </div>
   <span class="sidebar-chevron">›</span>
@@ -867,6 +925,14 @@ a.ext-link::after {
   <div class="sidebar-item-text">
     <span class="sidebar-item-title">PowerTrade API Overview</span>
     <span class="sidebar-item-subtitle">Automate Crypto Options Trading</span>
+  </div>
+  <span class="sidebar-chevron">›</span>
+</div>
+
+<div class="sidebar-item" data-page="api-auth" onclick="navigateTo('api-auth')">
+  <div class="sidebar-item-text">
+    <span class="sidebar-item-title">API Authentication</span>
+    <span class="sidebar-item-subtitle">Secure Access to PowerTrade Trading API</span>
   </div>
   <span class="sidebar-chevron">›</span>
 </div>
@@ -1061,7 +1127,40 @@ a.ext-link::after {
     <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
   </div>
 
-  <p class="content-text">Content coming soon...</p>
+  <h2 class="section-header" id="login-magic">Magic Link Sign-In</h2>
+  <p class="content-text">PowerTrade uses a <strong>passwordless magic link</strong> system for secure sign-in. Instead of remembering a password, you'll receive a one-time login link via email each time you sign in.</p>
+  <ol class="content-list">
+    <li>Open <a href="https://app.power.trade" class="ext-link" target="_blank">app.power.trade</a> or the PowerTrade mobile app</li>
+    <li>Enter your registered email address</li>
+    <li>Tap <strong>"Sign In"</strong></li>
+    <li>Check your email for the magic link (arrives within seconds)</li>
+    <li>Click the link to be logged in automatically</li>
+  </ol>
+  <p class="content-text"><strong>Important:</strong> Magic links expire after <strong>1 hour</strong> and can only be used once. If the link has expired, simply request a new one.</p>
+
+  <h2 class="section-header" id="login-2fa">Two-Factor Authentication (2FA)</h2>
+  <p class="content-text">For additional account security, PowerTrade supports two-factor authentication. When enabled, you'll need to provide a second verification code after clicking the magic link.</p>
+  <ul class="content-list">
+    <li><strong>Security PIN:</strong> A 4-digit PIN set during account creation that's required on each device</li>
+    <li><strong>Authenticator App:</strong> Use Google Authenticator, Authy, or any TOTP-compatible app for time-based codes</li>
+  </ul>
+
+  <h2 class="section-header" id="login-trouble">Troubleshooting Login Issues</h2>
+  <ul class="content-list">
+    <li><strong>No email received?</strong> Check your spam/junk folder and whitelist <code class="inline-code">support@power.trade</code></li>
+    <li><strong>Link expired?</strong> Request a fresh magic link — they expire after 1 hour</li>
+    <li><strong>Wrong device?</strong> Magic links must be opened on the same device/browser where you requested them</li>
+    <li><strong>Web app issues?</strong> Try an incognito/private browsing window or clear your browser cache</li>
+    <li><strong>Still stuck?</strong> Contact <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a> with your registered email</li>
+  </ul>
+
+  <h2 class="section-header" id="login-security">Login Security Best Practices</h2>
+  <ul class="content-list">
+    <li>Always verify the URL is <code class="inline-code">app.power.trade</code> before entering credentials</li>
+    <li>Never share your magic link with anyone</li>
+    <li>Enable 2FA for maximum account protection</li>
+    <li>Log out when using shared or public computers</li>
+  </ul>
 
   <div class="still-questions">
     <h2>Still have questions?</h2>
@@ -1097,7 +1196,37 @@ a.ext-link::after {
     </div>
     <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
   </div>
-  <p class="content-text">Content coming soon...</p>
+
+  <h2 class="section-header" id="email-not-receiving">Not Receiving Emails?</h2>
+  <p class="content-text">PowerTrade sends emails for login magic links, withdrawal confirmations, deposit notifications, and account alerts. If you're not receiving them, try these steps:</p>
+  <ol class="content-list">
+    <li><strong>Check your spam/junk folder</strong> — email providers sometimes filter automated messages</li>
+    <li><strong>Whitelist PowerTrade</strong> — add <code class="inline-code">support@power.trade</code> and <code class="inline-code">noreply@power.trade</code> to your email contacts or safe sender list</li>
+    <li><strong>Check your email address</strong> — verify you registered with the correct email address on PowerTrade</li>
+    <li><strong>Wait a few minutes</strong> — during high traffic, emails may be slightly delayed</li>
+    <li><strong>Try a different email provider</strong> — some corporate or institutional email servers have strict filtering rules</li>
+  </ol>
+
+  <h2 class="section-header" id="email-verification">Email Verification Issues</h2>
+  <p class="content-text">During account creation, you'll receive a verification email with a magic link. Common issues include:</p>
+  <ul class="content-list">
+    <li><strong>Link expired:</strong> Magic links expire after 1 hour. Request a new one from the login screen</li>
+    <li><strong>Link already used:</strong> Each magic link can only be used once. Request a fresh link if needed</li>
+    <li><strong>Wrong device:</strong> Open the magic link on the same device/browser where you requested it</li>
+  </ul>
+
+  <h2 class="section-header" id="email-notifications">Managing Email Notifications</h2>
+  <p class="content-text">PowerTrade sends the following types of email notifications:</p>
+  <ul class="content-list">
+    <li><strong>Login magic links</strong> — sent each time you sign in</li>
+    <li><strong>Deposit confirmations</strong> — when funds are credited to your account</li>
+    <li><strong>Withdrawal confirmations</strong> — requiring your approval before processing</li>
+    <li><strong>Security alerts</strong> — for new device logins or account changes</li>
+  </ul>
+
+  <h2 class="section-header" id="email-change">Changing Your Email Address</h2>
+  <p class="content-text">To change the email address associated with your PowerTrade account, contact our support team at <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a>. For security purposes, email changes require identity verification.</p>
+
   <div class="still-questions"><h2>Still have questions?</h2><p>💬 <strong>Email Support:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p><p>💬 <strong>Telegram 24/7 Desk:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">https://t.me/power_trade</a></p></div>
   <div class="prev-next">
     <div class="pn-card pn-prev" onclick="navigateTo('login')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> PowerTrade Login Help</div></div>
@@ -1113,10 +1242,38 @@ a.ext-link::after {
 <div class="content-inner">
   <div class="breadcrumb"><a class="breadcrumb-link" onclick="navigateTo('intro')">HOW TO USE POWERTRADE</a></div>
   <div class="content-header">
-    <div><h1 class="page-title">Create & Manage Subaccounts</h1><p class="page-desc">Strategy segmentation through subaccount management on PowerTrade.</p></div>
+    <div><h1 class="page-title">Create & Manage Subaccounts on PowerTrade</h1><p class="page-desc">Strategy segmentation through subaccount management on PowerTrade.</p></div>
     <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
   </div>
-  <p class="content-text">Content coming soon...</p>
+
+  <h2 class="section-header" id="sub-what">What Are Subaccounts?</h2>
+  <p class="content-text">Subaccounts provide the ability to segregate trading activity from your main account. Since PowerTrade accounts have <strong>portfolio margin</strong> enabled by default, creating subaccounts allows you to isolate your positions and margin balances for different strategies.</p>
+
+  <h2 class="section-header" id="sub-benefits">Benefits of Subaccounts</h2>
+  <ul class="content-list">
+    <li><strong>Strategy Isolation:</strong> Run different trading strategies independently with separate margin pools</li>
+    <li><strong>Risk Management:</strong> Isolate high-risk positions from your main portfolio to prevent cross-contamination</li>
+    <li><strong>Performance Tracking:</strong> Track individual strategy performance clearly without mixing P&L</li>
+    <li><strong>Unlimited Subaccounts:</strong> Create as many subaccounts as needed at no additional cost</li>
+  </ul>
+
+  <h2 class="section-header" id="sub-create">Creating a Subaccount</h2>
+  <ol class="content-list">
+    <li>Navigate to <strong>Settings → Subaccounts</strong> in the PowerTrade app</li>
+    <li>Click <strong>"Create Subaccount"</strong></li>
+    <li>Give your subaccount a descriptive name (e.g., "BTC Options", "Altcoin Perpetuals")</li>
+    <li>Your subaccount is ready to use immediately</li>
+  </ol>
+
+  <h2 class="section-header" id="sub-transfers">Internal Transfers</h2>
+  <p class="content-text">Move funds between your main account and subaccounts instantly:</p>
+  <ul class="content-list">
+    <li><strong>Free transfers</strong> — no blockchain fees for internal movements</li>
+    <li><strong>Instant settlement</strong> — funds are available immediately</li>
+    <li><strong>Margin impact</strong> — transfers affect the account health of both accounts, so plan accordingly</li>
+  </ul>
+  <p class="content-text"><strong>Note:</strong> Withdrawals can only be initiated from your main account. Transfer funds back to your main account before withdrawing.</p>
+
   <div class="still-questions"><h2>Still have questions?</h2><p>💬 <strong>Email Support:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p><p>💬 <strong>Telegram 24/7 Desk:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">https://t.me/power_trade</a></p></div>
   <div class="prev-next">
     <div class="pn-card pn-prev" onclick="navigateTo('email-issues')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> Email Issues</div></div>
@@ -1132,10 +1289,44 @@ a.ext-link::after {
 <div class="content-inner">
   <div class="breadcrumb"><a class="breadcrumb-link" onclick="navigateTo('intro')">HOW TO USE POWERTRADE</a></div>
   <div class="content-header">
-    <div><h1 class="page-title">PowerTrade Security Tips</h1><p class="page-desc">Protect your account and funds with these security best practices.</p></div>
+    <div><h1 class="page-title">PowerTrade Security Tips</h1><p class="page-desc">Protect your crypto trading account with these essential security best practices.</p></div>
     <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
   </div>
-  <p class="content-text">Content coming soon...</p>
+
+  <h2 class="section-header" id="sec-account">Account Security</h2>
+  <ul class="content-list">
+    <li><strong>Enable 2FA:</strong> Use an authenticator app (Google Authenticator, Authy) for an extra layer of protection</li>
+    <li><strong>Use a strong security PIN:</strong> Choose a unique 4-digit PIN that you don't use elsewhere</li>
+    <li><strong>Secure your email:</strong> Your email is your primary login method — use a strong password and 2FA on your email account too</li>
+    <li><strong>Verify URLs:</strong> Always check that you're on <code class="inline-code">app.power.trade</code> before signing in</li>
+  </ul>
+
+  <h2 class="section-header" id="sec-phishing">Phishing Prevention</h2>
+  <p class="content-text">Be vigilant against phishing attempts targeting cryptocurrency traders:</p>
+  <ul class="content-list">
+    <li><strong>Official domains only:</strong> PowerTrade will only contact you from <code class="inline-code">@power.trade</code> email addresses</li>
+    <li><strong>Never share magic links:</strong> PowerTrade staff will never ask for your login link or security PIN</li>
+    <li><strong>Beware of impersonators:</strong> Verify any communication claiming to be from PowerTrade through official channels</li>
+    <li><strong>Bookmark the app:</strong> Save <code class="inline-code">https://app.power.trade</code> as a bookmark to avoid typosquatting sites</li>
+  </ul>
+
+  <h2 class="section-header" id="sec-withdrawal">Withdrawal Security</h2>
+  <ul class="content-list">
+    <li><strong>Address whitelisting:</strong> New withdrawal addresses require email verification before first use</li>
+    <li><strong>Double-check addresses:</strong> Always verify the full wallet address before confirming a withdrawal</li>
+    <li><strong>Email confirmation:</strong> Every withdrawal requires email confirmation (link expires in 10 minutes)</li>
+    <li><strong>Start small:</strong> When withdrawing to a new address, send a small test amount first</li>
+  </ul>
+
+  <h2 class="section-header" id="sec-device">Device Security</h2>
+  <ul class="content-list">
+    <li>Keep your operating system and browser up to date</li>
+    <li>Use antivirus software and keep it current</li>
+    <li>Avoid using public Wi-Fi for trading — use a VPN if necessary</li>
+    <li>Log out of PowerTrade when using shared or public devices</li>
+    <li>Keep your mobile app updated to the latest version</li>
+  </ul>
+
   <div class="still-questions"><h2>Still have questions?</h2><p>💬 <strong>Email Support:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p><p>💬 <strong>Telegram 24/7 Desk:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">https://t.me/power_trade</a></p></div>
   <div class="prev-next">
     <div class="pn-card pn-prev" onclick="navigateTo('subaccounts')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> Subaccounts</div></div>
@@ -1224,7 +1415,43 @@ a.ext-link::after {
     <div><h1 class="page-title">Withdrawals from PowerTrade</h1><p class="page-desc">How to cash out crypto safely from your PowerTrade account.</p></div>
     <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
   </div>
-  <p class="content-text">Content coming soon...</p>
+
+  <h2 class="section-header" id="wd-process">Withdrawal Process</h2>
+  <ol class="content-list">
+    <li>Go to the <strong>Funds</strong> screen and click <strong>"Withdraw"</strong> for your chosen asset</li>
+    <li>Add and verify a withdrawal address (one-time setup — requires email confirmation)</li>
+    <li>Enter the withdrawal amount</li>
+    <li>Review the transaction details and confirm</li>
+    <li>Confirm via the email link sent to your registered address (expires in <strong>10 minutes</strong>)</li>
+    <li>Monitor the withdrawal status in the <strong>Withdrawal</strong> tab</li>
+  </ol>
+
+  <h2 class="section-header" id="wd-addresses">Address Whitelisting</h2>
+  <p class="content-text">For security, PowerTrade requires you to whitelist withdrawal addresses before use:</p>
+  <ul class="content-list">
+    <li>New addresses must be verified via email before the first withdrawal</li>
+    <li>Once verified, the address is saved for future withdrawals</li>
+    <li>You can manage your whitelisted addresses in <strong>Settings → Withdrawal Addresses</strong></li>
+  </ul>
+
+  <h2 class="section-header" id="wd-limits">Withdrawal Limits</h2>
+  <ul class="content-list">
+    <li><strong>Unverified accounts:</strong> 1,000 USDC per 24 hours</li>
+    <li><strong>Verified accounts:</strong> Unlimited withdrawals</li>
+  </ul>
+  <p class="content-text">Complete <a onclick="navigateTo('account-verification')" style="color:var(--accent);cursor:pointer">KYC verification</a> to remove withdrawal limits.</p>
+
+  <h2 class="section-header" id="wd-fees">Withdrawal Fees</h2>
+  <p class="content-text">Withdrawal fees are dynamic and based on current network conditions. The fee is displayed before you confirm the withdrawal. Fees cover the blockchain transaction (gas/miner) costs.</p>
+
+  <h2 class="section-header" id="wd-times">Processing Times</h2>
+  <p class="content-text">Most withdrawals are processed within minutes. Processing time depends on:</p>
+  <ul class="content-list">
+    <li><strong>Network congestion</strong> — busy blockchains take longer</li>
+    <li><strong>Security reviews</strong> — large withdrawals may undergo additional review</li>
+    <li><strong>Email confirmation</strong> — you must click the confirmation link within 10 minutes</li>
+  </ul>
+
   <div class="still-questions"><h2>Still have questions?</h2><p>💬 <strong>Email Support:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p><p>💬 <strong>Telegram 24/7 Desk:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">https://t.me/power_trade</a></p></div>
   <div class="prev-next">
     <div class="pn-card pn-prev" onclick="navigateTo('deposits')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> Deposits</div></div>
@@ -1243,7 +1470,41 @@ a.ext-link::after {
     <div><h1 class="page-title">Account Verification Guide</h1><p class="page-desc">KYC limits, verification levels, and security requirements.</p></div>
     <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
   </div>
-  <p class="content-text">Content coming soon...</p>
+
+  <h2 class="section-header" id="kyc-why">Why Verify Your Account?</h2>
+  <p class="content-text">Account verification (KYC — Know Your Customer) unlocks full platform access, including higher withdrawal limits, enhanced security, and faster account support.</p>
+
+  <h2 class="section-header" id="kyc-levels">Verification Levels</h2>
+  <ul class="content-list">
+    <li><strong>Unverified:</strong> 1,000 USDC per 24-hour withdrawal limit. Basic trading access.</li>
+    <li><strong>Verified (KYC Complete):</strong> Unlimited withdrawals. Full platform access including all trading features.</li>
+  </ul>
+
+  <h2 class="section-header" id="kyc-docs">Required Documents</h2>
+  <p class="content-text">To complete KYC verification, you'll need:</p>
+  <ul class="content-list">
+    <li><strong>Proof of Identity (POI):</strong> Valid government-issued ID — passport (preferred), national ID card, or driver's license</li>
+    <li><strong>Proof of Address (POA):</strong> Utility bill, bank statement, or government letter dated within the last 3 months</li>
+    <li><strong>Selfie verification:</strong> A live photo matching your ID document</li>
+  </ul>
+
+  <h2 class="section-header" id="kyc-process">Verification Process</h2>
+  <ol class="content-list">
+    <li>Navigate to <strong>Settings → Verification</strong> in the PowerTrade app</li>
+    <li>Upload a clear photo or scan of your identity document</li>
+    <li>Upload your proof of address document</li>
+    <li>Complete the selfie verification step</li>
+    <li>Submit for review — verification is typically processed within 24–48 hours</li>
+  </ol>
+
+  <h2 class="section-header" id="kyc-tips">Tips for Faster Approval</h2>
+  <ul class="content-list">
+    <li>Ensure all document photos are clear, well-lit, and fully visible</li>
+    <li>Use a passport as your primary ID (highest acceptance rate)</li>
+    <li>Make sure proof of address is dated within the last 3 months</li>
+    <li>Your name on all documents must match your PowerTrade account name</li>
+  </ul>
+
   <div class="still-questions"><h2>Still have questions?</h2><p>💬 <strong>Email Support:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p><p>💬 <strong>Telegram 24/7 Desk:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">https://t.me/power_trade</a></p></div>
   <div class="prev-next">
     <div class="pn-card pn-prev" onclick="navigateTo('withdrawals')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> Withdrawals</div></div>
@@ -1262,7 +1523,39 @@ a.ext-link::after {
     <div><h1 class="page-title">Corporate Accounts on PowerTrade</h1><p class="page-desc">Institutional trading setup and corporate account management.</p></div>
     <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
   </div>
-  <p class="content-text">Content coming soon...</p>
+
+  <h2 class="section-header" id="corp-overview">Institutional Trading on PowerTrade</h2>
+  <p class="content-text">PowerTrade supports corporate and institutional accounts for hedge funds, proprietary trading firms, family offices, and other professional entities. Corporate accounts benefit from dedicated support, custom fee arrangements, and advanced trading features.</p>
+
+  <h2 class="section-header" id="corp-features">Corporate Account Features</h2>
+  <ul class="content-list">
+    <li><strong>Dedicated account manager</strong> for onboarding and ongoing support</li>
+    <li><strong>Custom fee structures</strong> based on trading volume and activity</li>
+    <li><strong>API access</strong> for algorithmic and automated trading strategies</li>
+    <li><strong>RFQ (Request-for-Quote)</strong> system for block trades and multi-leg structures</li>
+    <li><strong>Multiple subaccounts</strong> for strategy segmentation</li>
+    <li><strong>Enhanced reporting</strong> for compliance and audit requirements</li>
+  </ul>
+
+  <h2 class="section-header" id="corp-setup">Setting Up a Corporate Account</h2>
+  <ol class="content-list">
+    <li>Contact PowerTrade at <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a> to express interest in a corporate account</li>
+    <li>Provide corporate documentation: certificate of incorporation, articles of association, and beneficial ownership structure</li>
+    <li>Submit KYC/KYB documents for all authorized signatories and beneficial owners (>25% ownership)</li>
+    <li>Complete the corporate onboarding review process</li>
+    <li>Receive account activation and begin trading</li>
+  </ol>
+
+  <h2 class="section-header" id="corp-docs">Required Documentation</h2>
+  <ul class="content-list">
+    <li>Certificate of incorporation or registration</li>
+    <li>Memorandum and articles of association</li>
+    <li>Proof of registered address</li>
+    <li>Beneficial ownership declaration</li>
+    <li>Government-issued ID for all authorized signatories</li>
+    <li>Board resolution authorizing the account opening</li>
+  </ul>
+
   <div class="still-questions"><h2>Still have questions?</h2><p>💬 <strong>Email Support:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p><p>💬 <strong>Telegram 24/7 Desk:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">https://t.me/power_trade</a></p></div>
   <div class="prev-next">
     <div class="pn-card pn-prev" onclick="navigateTo('account-verification')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> Account Verification</div></div>
@@ -1278,10 +1571,35 @@ a.ext-link::after {
 <div class="content-inner">
   <div class="breadcrumb"><a class="breadcrumb-link" onclick="navigateTo('intro')">HOW TO USE POWERTRADE</a></div>
   <div class="content-header">
-    <div><h1 class="page-title">PowerTrade Trading Fees</h1><p class="page-desc">Fee structure for options, perpetuals, futures & spot trading.</p></div>
+    <div><h1 class="page-title">PowerTrade Trading Fees</h1><p class="page-desc">Complete fee structure for options, perpetuals, futures & spot trading.</p></div>
     <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
   </div>
-  <p class="content-text">Content coming soon...</p>
+
+  <h2 class="section-header" id="fees-trading">Trading Fees (Maker / Taker)</h2>
+  <p class="content-text">PowerTrade uses a maker-taker fee model. Makers add liquidity to the order book; takers remove it.</p>
+  <ul class="content-list">
+    <li><strong>Spot Trading:</strong> 0.10% / 0.10%</li>
+    <li><strong>BTC & ETH Options:</strong> 0.075% / 0.075%</li>
+    <li><strong>Altcoin Options:</strong> 0.15% / 0.15%</li>
+    <li><strong>Perpetuals:</strong> 0.075% / 0.075%</li>
+    <li><strong>Futures:</strong> 0.075% / 0.075%</li>
+  </ul>
+
+  <h2 class="section-header" id="fees-other">Other Fees</h2>
+  <ul class="content-list">
+    <li><strong>Withdrawal Fees:</strong> Dynamic, network-based fees covering blockchain transaction costs. Displayed before confirmation.</li>
+    <li><strong>Deposit Fees:</strong> Free — PowerTrade does not charge for deposits</li>
+    <li><strong>Liquidation Fee (Spot):</strong> 0.75%</li>
+    <li><strong>Liquidation Fee (Options):</strong> 0.2%</li>
+    <li><strong>Options Settlement Fee:</strong> 0.02% – 0.04%</li>
+  </ul>
+
+  <h2 class="section-header" id="fees-volume">Volume-Based Discounts</h2>
+  <p class="content-text">High-volume traders and institutional accounts may qualify for custom fee structures. Contact <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a> to discuss volume-based pricing arrangements.</p>
+
+  <h2 class="section-header" id="fees-ptf">PTF Token Benefits</h2>
+  <p class="content-text">PowerTrade Fuel (PTF) token holders may benefit from fee discounts and other platform incentives. Check the PowerTrade app for current PTF-related promotions.</p>
+
   <div class="still-questions"><h2>Still have questions?</h2><p>💬 <strong>Email Support:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p><p>💬 <strong>Telegram 24/7 Desk:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">https://t.me/power_trade</a></p></div>
   <div class="prev-next">
     <div class="pn-card pn-prev" onclick="navigateTo('corporate-accounts')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> Corporate Accounts</div></div>
@@ -1359,26 +1677,111 @@ a.ext-link::after {
   </div>
   <div class="prev-next">
     <div class="pn-card pn-prev" onclick="navigateTo('fees')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> Trading Fees</div></div>
-    <div class="pn-card pn-next" onclick="navigateTo('futures')"><div class="pn-label">Next</div><div class="pn-title">Futures <span class="pn-chevron">›</span></div></div>
+    <div class="pn-card pn-next" onclick="navigateTo('options-intro')"><div class="pn-label">Next</div><div class="pn-title">Options Introduction <span class="pn-chevron">›</span></div></div>
   </div>
 </div>
 </div>
 
 <!-- ════════════════════════════════════════════ -->
-<!-- PAGE: FUTURES                               -->
+<!-- PAGE: OPTIONS INTRODUCTION                  -->
 <!-- ════════════════════════════════════════════ -->
-<div class="page-section" id="page-futures">
+<div class="page-section" id="page-options-intro">
 <div class="content-inner">
-  <div class="breadcrumb"><a class="breadcrumb-link" onclick="navigateTo('intro')">TRADING</a></div>
+  <div class="breadcrumb"><a class="breadcrumb-link" onclick="navigateTo('intro')">TRADING</a> <span style="color:var(--text-muted);margin:0 6px">›</span> <a class="breadcrumb-link" onclick="navigateTo('options')">OPTIONS</a></div>
   <div class="content-header">
-    <div><h1 class="page-title">Futures Trading</h1><p class="page-desc">Trade crypto futures on PowerTrade with deep liquidity and competitive fees.</p></div>
+    <div><h1 class="page-title">Options Introduction</h1><p class="page-desc">European, USDC-Settled Crypto Options on PowerTrade.</p></div>
     <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
   </div>
-  <p class="content-text">Content coming soon...</p>
+
+  <h2 class="section-header" id="oi-what">What Are Crypto Options?</h2>
+  <p class="content-text">Crypto options are financial derivatives that give traders the right, but not the obligation, to buy or sell an underlying cryptocurrency at a fixed price (the <strong>strike price</strong>) on a specific date. Unlike spot trading or perpetual futures, options allow you to limit your downside while keeping unlimited upside potential.</p>
+
+  <h2 class="section-header" id="oi-european">European-Style Options</h2>
+  <p class="content-text">All options on PowerTrade are <strong>European-style</strong>, meaning they can only be exercised at the expiration date — not before. This structure:</p>
+  <ul class="content-list">
+    <li>Prevents early exercise risk for sellers</li>
+    <li>Simplifies strategy planning for all traders</li>
+    <li>Keeps focus on price movement up to expiry</li>
+    <li>Provides cleaner Greeks and pricing models</li>
+  </ul>
+
+  <h2 class="section-header" id="oi-usdc">USDC Cash Settlement</h2>
+  <p class="content-text">All PowerTrade options are <strong>cash-settled in USDC</strong>. At expiration, the profit or loss is calculated and settled in USDC directly to your account:</p>
+  <ul class="content-list">
+    <li>No need to hold BTC, ETH, or altcoins directly</li>
+    <li>Settlement in stable USDC makes P&L management simple</li>
+    <li>Reduces custody risk compared to physically settled options</li>
+    <li>All collateral is denominated in USDC</li>
+  </ul>
+
+  <h2 class="section-header" id="oi-types">Option Types</h2>
+  <ul class="content-list">
+    <li><strong>Call Options:</strong> Give you the right to buy at the strike price. Profit when the underlying price rises above the strike + premium paid.</li>
+    <li><strong>Put Options:</strong> Give you the right to sell at the strike price. Profit when the underlying price falls below the strike – premium paid.</li>
+  </ul>
+
+  <h2 class="section-header" id="oi-degen">DEGEN Options</h2>
+  <p class="content-text">PowerTrade offers short-term expiration <strong>"DEGEN" options</strong> with 10-minute and 1-hour expirations. These are ideal for traders who want quick, defined-risk positions on short-term price movements — with no liquidation risk.</p>
+
   <div class="still-questions"><h2>Still have questions?</h2><p>💬 <strong>Email Support:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p><p>💬 <strong>Telegram 24/7 Desk:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">https://t.me/power_trade</a></p></div>
   <div class="prev-next">
-    <div class="pn-card pn-prev" onclick="navigateTo('options')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> Options</div></div>
-    <div class="pn-card pn-next" onclick="navigateTo('perpetuals')"><div class="pn-label">Next</div><div class="pn-title">Perpetuals <span class="pn-chevron">›</span></div></div>
+    <div class="pn-card pn-prev" onclick="navigateTo('options')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> Options Trading</div></div>
+    <div class="pn-card pn-next" onclick="navigateTo('options-specs')"><div class="pn-label">Next</div><div class="pn-title">Options Contract Specifications <span class="pn-chevron">›</span></div></div>
+  </div>
+</div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- PAGE: OPTIONS CONTRACT SPECIFICATIONS       -->
+<!-- ════════════════════════════════════════════ -->
+<div class="page-section" id="page-options-specs">
+<div class="content-inner">
+  <div class="breadcrumb"><a class="breadcrumb-link" onclick="navigateTo('intro')">TRADING</a> <span style="color:var(--text-muted);margin:0 6px">›</span> <a class="breadcrumb-link" onclick="navigateTo('options')">OPTIONS</a></div>
+  <div class="content-header">
+    <div><h1 class="page-title">PowerTrade Options Contract Specifications</h1><p class="page-desc">BTC, ETH & Altcoin options contract details.</p></div>
+    <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
+  </div>
+
+  <h2 class="section-header" id="os-general">General Specifications</h2>
+  <ul class="content-list">
+    <li><strong>Style:</strong> European (exercisable only at expiry)</li>
+    <li><strong>Settlement:</strong> Cash-settled in USDC</li>
+    <li><strong>Collateral:</strong> USDC</li>
+    <li><strong>Contract size:</strong> 1 unit of the underlying asset</li>
+    <li><strong>Tick size:</strong> 0.01 USDC</li>
+  </ul>
+
+  <h2 class="section-header" id="os-btc">BTC Options</h2>
+  <ul class="content-list">
+    <li><strong>Underlying:</strong> BTC/USD index price</li>
+    <li><strong>Expirations:</strong> Daily, weekly, monthly, quarterly</li>
+    <li><strong>Strike intervals:</strong> $500 – $5,000 depending on expiry</li>
+    <li><strong>Trading fees:</strong> Maker 0.075% / Taker 0.075%</li>
+  </ul>
+
+  <h2 class="section-header" id="os-eth">ETH Options</h2>
+  <ul class="content-list">
+    <li><strong>Underlying:</strong> ETH/USD index price</li>
+    <li><strong>Expirations:</strong> Daily, weekly, monthly, quarterly</li>
+    <li><strong>Strike intervals:</strong> $25 – $250 depending on expiry</li>
+    <li><strong>Trading fees:</strong> Maker 0.075% / Taker 0.075%</li>
+  </ul>
+
+  <h2 class="section-header" id="os-altcoin">Altcoin Options (80+ Markets)</h2>
+  <p class="content-text">PowerTrade offers the widest altcoin options coverage in crypto, including SOL, AVAX, DOGE, LINK, SUI, TON, XRP, and 70+ more. Altcoin options share these specs:</p>
+  <ul class="content-list">
+    <li><strong>Expirations:</strong> Daily to monthly</li>
+    <li><strong>Settlement:</strong> USDC cash-settled</li>
+    <li><strong>Trading fees:</strong> Maker 0.15% / Taker 0.15%</li>
+  </ul>
+
+  <h2 class="section-header" id="os-expiry">Expiration & Settlement</h2>
+  <p class="content-text">Options expire at <strong>08:00 UTC</strong> on the expiration date. Settlement is automatic — if your option is in-the-money at expiry, the profit is credited to your USDC balance. Out-of-the-money options expire worthless with no further action required.</p>
+
+  <div class="still-questions"><h2>Still have questions?</h2><p>💬 <strong>Email Support:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p><p>💬 <strong>Telegram 24/7 Desk:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">https://t.me/power_trade</a></p></div>
+  <div class="prev-next">
+    <div class="pn-card pn-prev" onclick="navigateTo('options-intro')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> Options Introduction</div></div>
+    <div class="pn-card pn-next" onclick="navigateTo('perpetuals')"><div class="pn-label">Next</div><div class="pn-title">Perpetuals Trading <span class="pn-chevron">›</span></div></div>
   </div>
 </div>
 </div>
@@ -1390,13 +1793,81 @@ a.ext-link::after {
 <div class="content-inner">
   <div class="breadcrumb"><a class="breadcrumb-link" onclick="navigateTo('intro')">TRADING</a></div>
   <div class="content-header">
-    <div><h1 class="page-title">Perpetual Contracts</h1><p class="page-desc">Trade perpetual contracts on PowerTrade with no expiration dates.</p></div>
+    <div><h1 class="page-title">Perpetuals Trading on PowerTrade</h1><p class="page-desc">Trade perpetual contracts with no expiration date and deep liquidity.</p></div>
     <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
   </div>
-  <p class="content-text">Content coming soon...</p>
+
+  <h2 class="section-header" id="perp-what">What Are Perpetual Contracts?</h2>
+  <p class="content-text">Perpetual contracts (perps) are derivative contracts similar to futures but with <strong>no expiration date</strong>. They allow traders to speculate on the price of cryptocurrencies with leverage, without the need to roll over contracts at expiry.</p>
+
+  <h2 class="section-header" id="perp-features">Key Features</h2>
+  <ul class="content-list">
+    <li><strong>No expiration:</strong> Hold positions indefinitely without worrying about contract rollovers</li>
+    <li><strong>Funding rate:</strong> Periodic payments between longs and shorts to keep the contract price anchored to the spot price</li>
+    <li><strong>Leverage:</strong> Trade with leverage to amplify your exposure (and risk)</li>
+    <li><strong>USDC-margined:</strong> All margin and settlement in USDC for simplicity</li>
+  </ul>
+
+  <h2 class="section-header" id="perp-funding">Funding Rate</h2>
+  <p class="content-text">The funding rate is exchanged between long and short position holders every 8 hours. When the rate is positive, longs pay shorts. When negative, shorts pay longs. This mechanism ensures the perpetual price stays close to the underlying spot price.</p>
+
+  <h2 class="section-header" id="perp-how">How to Trade Perpetuals</h2>
+  <ol class="content-list">
+    <li>Navigate to the <strong>Perpetuals</strong> section in the PowerTrade app</li>
+    <li>Select the trading pair (e.g., BTC-PERP, ETH-PERP)</li>
+    <li>Choose your position size and leverage</li>
+    <li>Place a market or limit order</li>
+    <li>Monitor your position and manage risk with stop-loss and take-profit orders</li>
+  </ol>
+
   <div class="still-questions"><h2>Still have questions?</h2><p>💬 <strong>Email Support:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p><p>💬 <strong>Telegram 24/7 Desk:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">https://t.me/power_trade</a></p></div>
   <div class="prev-next">
-    <div class="pn-card pn-prev" onclick="navigateTo('futures')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> Futures</div></div>
+    <div class="pn-card pn-prev" onclick="navigateTo('options-specs')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> Options Specifications</div></div>
+    <div class="pn-card pn-next" onclick="navigateTo('futures')"><div class="pn-label">Next</div><div class="pn-title">Futures Trading <span class="pn-chevron">›</span></div></div>
+  </div>
+</div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- PAGE: FUTURES                               -->
+<!-- ════════════════════════════════════════════ -->
+<div class="page-section" id="page-futures">
+<div class="content-inner">
+  <div class="breadcrumb"><a class="breadcrumb-link" onclick="navigateTo('intro')">TRADING</a></div>
+  <div class="content-header">
+    <div><h1 class="page-title">Futures Trading on PowerTrade</h1><p class="page-desc">Trade crypto futures with fixed expiration dates, deep liquidity, and competitive fees.</p></div>
+    <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
+  </div>
+
+  <h2 class="section-header" id="fut-what">What Are Crypto Futures?</h2>
+  <p class="content-text">Futures contracts are agreements to buy or sell a cryptocurrency at a predetermined price on a specific future date. Unlike perpetual contracts, futures have a <strong>fixed expiration date</strong>, making them ideal for precise timing strategies and hedging.</p>
+
+  <h2 class="section-header" id="fut-features">Key Features</h2>
+  <ul class="content-list">
+    <li><strong>Fixed expiration:</strong> Contracts settle on a specific date, providing certainty for hedging strategies</li>
+    <li><strong>USDC-settled:</strong> All futures on PowerTrade settle in USDC</li>
+    <li><strong>Leverage available:</strong> Trade with leverage to amplify exposure</li>
+    <li><strong>Multiple expirations:</strong> Weekly, monthly, and quarterly expiration cycles</li>
+  </ul>
+
+  <h2 class="section-header" id="fut-vs-perp">Futures vs. Perpetuals</h2>
+  <ul class="content-list">
+    <li><strong>Expiration:</strong> Futures expire on a set date; perpetuals never expire</li>
+    <li><strong>Funding rate:</strong> Perpetuals have recurring funding payments; futures do not</li>
+    <li><strong>Basis:</strong> Futures may trade at a premium or discount to spot (basis); perpetuals track spot via funding</li>
+    <li><strong>Use case:</strong> Futures are better for calendar strategies and hedging specific time horizons</li>
+  </ul>
+
+  <h2 class="section-header" id="fut-specs">Contract Specifications</h2>
+  <ul class="content-list">
+    <li><strong>Settlement:</strong> USDC cash-settled at expiry</li>
+    <li><strong>Trading fees:</strong> Maker 0.075% / Taker 0.075%</li>
+    <li><strong>Margin:</strong> USDC collateral with portfolio margin</li>
+  </ul>
+
+  <div class="still-questions"><h2>Still have questions?</h2><p>💬 <strong>Email Support:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p><p>💬 <strong>Telegram 24/7 Desk:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">https://t.me/power_trade</a></p></div>
+  <div class="prev-next">
+    <div class="pn-card pn-prev" onclick="navigateTo('perpetuals')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> Perpetuals</div></div>
     <div class="pn-card pn-next" onclick="navigateTo('spot')"><div class="pn-label">Next</div><div class="pn-title">Spot Trading <span class="pn-chevron">›</span></div></div>
   </div>
 </div>
@@ -1409,13 +1880,34 @@ a.ext-link::after {
 <div class="content-inner">
   <div class="breadcrumb"><a class="breadcrumb-link" onclick="navigateTo('intro')">TRADING</a></div>
   <div class="content-header">
-    <div><h1 class="page-title">Spot Trading</h1><p class="page-desc">Buy and sell crypto directly on PowerTrade's spot markets.</p></div>
+    <div><h1 class="page-title">Spot Trading on PowerTrade</h1><p class="page-desc">Buy and sell crypto directly with immediate settlement.</p></div>
     <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
   </div>
-  <p class="content-text">Content coming soon...</p>
+
+  <h2 class="section-header" id="spot-what">What Is Spot Trading?</h2>
+  <p class="content-text">Spot trading is the straightforward buying and selling of cryptocurrencies at the current market price with <strong>immediate settlement</strong>. When you buy BTC on the spot market, you own actual BTC that's credited to your PowerTrade wallet.</p>
+
+  <h2 class="section-header" id="spot-pairs">Available Trading Pairs</h2>
+  <p class="content-text">PowerTrade offers spot trading across major cryptocurrency pairs, all quoted against USDC:</p>
+  <ul class="content-list">
+    <li>BTC/USDC</li>
+    <li>ETH/USDC</li>
+    <li>SOL/USDC</li>
+    <li>And more — check the app for the full list of supported pairs</li>
+  </ul>
+
+  <h2 class="section-header" id="spot-orders">Order Types</h2>
+  <ul class="content-list">
+    <li><strong>Market orders:</strong> Execute immediately at the best available price</li>
+    <li><strong>Limit orders:</strong> Set your desired price — the order fills when the market reaches it</li>
+  </ul>
+
+  <h2 class="section-header" id="spot-fees">Spot Trading Fees</h2>
+  <p class="content-text">Spot trading fees on PowerTrade are <strong>0.10%</strong> for both makers and takers. See the <a onclick="navigateTo('fees')" style="color:var(--accent);cursor:pointer">fees page</a> for full details.</p>
+
   <div class="still-questions"><h2>Still have questions?</h2><p>💬 <strong>Email Support:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p><p>💬 <strong>Telegram 24/7 Desk:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">https://t.me/power_trade</a></p></div>
   <div class="prev-next">
-    <div class="pn-card pn-prev" onclick="navigateTo('perpetuals')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> Perpetuals</div></div>
+    <div class="pn-card pn-prev" onclick="navigateTo('futures')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> Futures</div></div>
     <div class="pn-card pn-next" onclick="navigateTo('margin-and-liquidation')"><div class="pn-label">Next</div><div class="pn-title">Margin & Liquidation <span class="pn-chevron">›</span></div></div>
   </div>
 </div>
@@ -1431,10 +1923,43 @@ a.ext-link::after {
     <div><h1 class="page-title">Margin & Liquidation</h1><p class="page-desc">Understanding margin requirements and liquidation on PowerTrade.</p></div>
     <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
   </div>
-  <p class="content-text">Content coming soon...</p>
+
+  <h2 class="section-header" id="mg-portfolio">Portfolio Margin</h2>
+  <p class="content-text">PowerTrade uses a <strong>portfolio margin</strong> system by default, which evaluates the risk of your entire portfolio holistically rather than on a per-position basis. This means hedged positions require less margin than isolated margin systems.</p>
+
+  <h2 class="section-header" id="mg-requirements">Margin Requirements</h2>
+  <ul class="content-list">
+    <li><strong>Initial margin:</strong> The minimum collateral required to open a new position</li>
+    <li><strong>Maintenance margin:</strong> The minimum collateral required to keep a position open</li>
+    <li><strong>Account health:</strong> Displayed as a percentage — when it drops to 0%, liquidation begins</li>
+  </ul>
+
+  <h2 class="section-header" id="mg-liquidation">Liquidation Process</h2>
+  <p class="content-text">When your account health reaches critical levels:</p>
+  <ol class="content-list">
+    <li><strong>Warning:</strong> You'll receive alerts when your account health is declining</li>
+    <li><strong>Partial liquidation:</strong> PowerTrade may reduce your positions incrementally to restore margin</li>
+    <li><strong>Full liquidation:</strong> If account health reaches 0%, remaining positions are closed at market price</li>
+  </ol>
+
+  <h2 class="section-header" id="mg-fees">Liquidation Fees</h2>
+  <ul class="content-list">
+    <li><strong>Spot positions:</strong> 0.75% liquidation fee</li>
+    <li><strong>Options positions:</strong> 0.2% liquidation fee</li>
+  </ul>
+
+  <h2 class="section-header" id="mg-avoid">Avoiding Liquidation</h2>
+  <ul class="content-list">
+    <li>Monitor your account health regularly</li>
+    <li>Maintain adequate collateral above the maintenance margin</li>
+    <li>Use stop-loss orders to limit position losses</li>
+    <li>Use subaccounts to isolate high-risk strategies</li>
+    <li>Deposit additional USDC before your account health drops too low</li>
+  </ul>
+
   <div class="still-questions"><h2>Still have questions?</h2><p>💬 <strong>Email Support:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p><p>💬 <strong>Telegram 24/7 Desk:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">https://t.me/power_trade</a></p></div>
   <div class="prev-next">
-    <div class="pn-card pn-prev" onclick="navigateTo('spot')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> Spot</div></div>
+    <div class="pn-card pn-prev" onclick="navigateTo('spot')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> Spot Trading</div></div>
     <div class="pn-card pn-next" onclick="navigateTo('xstocks')"><div class="pn-label">Next</div><div class="pn-title">xStocks <span class="pn-chevron">›</span></div></div>
   </div>
 </div>
@@ -1447,10 +1972,32 @@ a.ext-link::after {
 <div class="content-inner">
   <div class="breadcrumb"><a class="breadcrumb-link" onclick="navigateTo('intro')">TRADING</a></div>
   <div class="content-header">
-    <div><h1 class="page-title">xStocks Tokenized Stocks</h1><p class="page-desc">Trade tokenized stocks on the blockchain through PowerTrade.</p></div>
+    <div><h1 class="page-title">xStocks - Tokenized Stocks</h1><p class="page-desc">Trade tokenized stocks on the blockchain through PowerTrade.</p></div>
     <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
   </div>
-  <p class="content-text">Content coming soon...</p>
+
+  <h2 class="section-header" id="xs-what">What Are xStocks?</h2>
+  <p class="content-text">xStocks are <strong>tokenized representations of traditional stocks</strong> that can be traded on the blockchain through PowerTrade. They allow crypto traders to gain exposure to traditional equity markets (like AAPL, TSLA, AMZN) without leaving the crypto ecosystem.</p>
+
+  <h2 class="section-header" id="xs-how">How xStocks Work</h2>
+  <ul class="content-list">
+    <li>Each xStock token represents exposure to the price of the underlying stock</li>
+    <li>Tokens are backed and track the real-time price of the underlying equity</li>
+    <li>Trade during extended hours — not limited to traditional stock market hours</li>
+    <li>All settlement and collateral in USDC</li>
+  </ul>
+
+  <h2 class="section-header" id="xs-benefits">Benefits of xStocks</h2>
+  <ul class="content-list">
+    <li><strong>Fractional ownership:</strong> Trade any amount — no need to buy whole shares</li>
+    <li><strong>Crypto-native:</strong> Fund with USDC and trade alongside your crypto portfolio</li>
+    <li><strong>24/7 availability:</strong> Extended trading hours compared to traditional markets</li>
+    <li><strong>No traditional brokerage needed:</strong> Access stocks directly through your PowerTrade account</li>
+  </ul>
+
+  <h2 class="section-header" id="xs-available">Available xStocks</h2>
+  <p class="content-text">PowerTrade offers a growing selection of popular US equities as xStocks. Check the PowerTrade app for the current list of available tokenized stocks.</p>
+
   <div class="still-questions"><h2>Still have questions?</h2><p>💬 <strong>Email Support:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p><p>💬 <strong>Telegram 24/7 Desk:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">https://t.me/power_trade</a></p></div>
   <div class="prev-next">
     <div class="pn-card pn-prev" onclick="navigateTo('margin-and-liquidation')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> Margin & Liquidation</div></div>
@@ -1534,6 +2081,71 @@ Content-Type: application/json</pre>
   </div>
   <div class="prev-next">
     <div class="pn-card pn-prev" onclick="navigateTo('xstocks')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> xStocks</div></div>
+    <div class="pn-card pn-next" onclick="navigateTo('api-auth')"><div class="pn-label">Next</div><div class="pn-title">API Authentication <span class="pn-chevron">›</span></div></div>
+  </div>
+</div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- PAGE: API AUTHENTICATION                    -->
+<!-- ════════════════════════════════════════════ -->
+<div class="page-section" id="page-api-auth">
+<div class="content-inner">
+  <div class="breadcrumb"><a class="breadcrumb-link" onclick="navigateTo('intro')">API</a></div>
+  <div class="content-header">
+    <div><h1 class="page-title">API Authentication</h1><p class="page-desc">Secure access to the PowerTrade Trading API using JWT tokens.</p></div>
+    <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
+  </div>
+
+  <h2 class="section-header" id="auth-overview">Authentication Overview</h2>
+  <p class="content-text">The PowerTrade API uses <strong>JWT (JSON Web Tokens)</strong> signed with the <strong>ES256</strong> algorithm for authentication. Every authenticated API request must include a valid JWT token in the Authorization header.</p>
+
+  <h2 class="section-header" id="auth-keys">API Key Management</h2>
+  <ol class="content-list">
+    <li>Log in to <a href="https://app.power.trade" class="ext-link" target="_blank">PowerTrade</a></li>
+    <li>Navigate to <strong>Profile → API Keys</strong></li>
+    <li>Click <strong>"Create New API Key"</strong></li>
+    <li>Save your <code class="inline-code">api_key</code> and <code class="inline-code">private_key</code> securely</li>
+  </ol>
+  <p class="content-text"><strong>⚠️ Important:</strong> The private key is only displayed once at creation time. Store it securely — it cannot be retrieved later. If lost, delete the key and create a new one.</p>
+
+  <h2 class="section-header" id="auth-jwt">Generating a JWT Token</h2>
+  <p class="content-text">Use the ES256 algorithm to sign your JWT with the following payload structure:</p>
+  <div class="code-block">
+    <pre><span class="kw">import</span> jwt, time, uuid
+
+payload = {
+    <span class="str">"sub"</span>: <span class="str">"your_api_key"</span>,
+    <span class="str">"iat"</span>: <span class="fn">int</span>(<span class="fn">time.time</span>()),
+    <span class="str">"exp"</span>: <span class="fn">int</span>(<span class="fn">time.time</span>()) + <span class="fn">3600</span>,
+    <span class="str">"jti"</span>: <span class="fn">str</span>(<span class="fn">uuid.uuid4</span>()),
+    <span class="str">"client"</span>: <span class="str">"api"</span>
+}
+
+token = jwt.<span class="fn">encode</span>(payload, private_key, algorithm=<span class="str">"ES256"</span>)</pre>
+    <div class="code-accent-bar"></div>
+  </div>
+
+  <h2 class="section-header" id="auth-header">Using the Token</h2>
+  <p class="content-text">Include the JWT token in every API request:</p>
+  <div class="code-block">
+    <pre>Authorization: Bearer <span class="str">&lt;your_jwt_token&gt;</span>
+Content-Type: application/json</pre>
+    <div class="code-accent-bar"></div>
+  </div>
+
+  <h2 class="section-header" id="auth-security">Security Best Practices</h2>
+  <ul class="content-list">
+    <li>Never expose your private key in client-side code or public repositories</li>
+    <li>Rotate API keys periodically</li>
+    <li>Set short token expiration times (1 hour recommended)</li>
+    <li>Use environment variables or secure vaults to store keys</li>
+    <li>Monitor API key usage and disable unused keys</li>
+  </ul>
+
+  <div class="still-questions"><h2>Still have questions?</h2><p>💬 <strong>Email Support:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p><p>💬 <strong>Telegram 24/7 Desk:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">https://t.me/power_trade</a></p></div>
+  <div class="prev-next">
+    <div class="pn-card pn-prev" onclick="navigateTo('api')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> API Overview</div></div>
     <div class="pn-card pn-next" onclick="navigateTo('legal-and-privacy')"><div class="pn-label">Next</div><div class="pn-title">Legal & Privacy <span class="pn-chevron">›</span></div></div>
   </div>
 </div>
@@ -1549,10 +2161,29 @@ Content-Type: application/json</pre>
     <div><h1 class="page-title">Legal & Privacy Policies</h1><p class="page-desc">Terms, conditions, and privacy policies for PowerTrade.</p></div>
     <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
   </div>
-  <p class="content-text">Content coming soon...</p>
+
+  <h2 class="section-header" id="legal-terms">Terms of Service</h2>
+  <p class="content-text">By using PowerTrade, you agree to our Terms of Service which govern your access to and use of the platform, including trading, deposits, withdrawals, and all associated services. The complete Terms of Service are available within the PowerTrade application and on our website.</p>
+
+  <h2 class="section-header" id="legal-privacy">Privacy Policy</h2>
+  <p class="content-text">PowerTrade is committed to protecting your personal data. Our Privacy Policy outlines:</p>
+  <ul class="content-list">
+    <li><strong>Data collection:</strong> What personal information we collect during registration, verification, and trading</li>
+    <li><strong>Data usage:</strong> How we use your information to provide and improve our services</li>
+    <li><strong>Data sharing:</strong> When and with whom we may share your information (e.g., regulatory requirements, KYC providers)</li>
+    <li><strong>Data security:</strong> Measures we take to protect your personal data</li>
+    <li><strong>Your rights:</strong> How to access, update, or request deletion of your personal data</li>
+  </ul>
+
+  <h2 class="section-header" id="legal-cookies">Cookie Policy</h2>
+  <p class="content-text">PowerTrade uses cookies and similar technologies to improve your experience, analyze usage patterns, and provide personalized features. You can manage cookie preferences in your browser settings.</p>
+
+  <h2 class="section-header" id="legal-compliance">Regulatory Compliance</h2>
+  <p class="content-text">PowerTrade complies with applicable laws and regulations in our operating jurisdictions. We implement AML (Anti-Money Laundering) and KYC (Know Your Customer) procedures to prevent illicit activity and protect our users.</p>
+
   <div class="still-questions"><h2>Still have questions?</h2><p>💬 <strong>Email Support:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p><p>💬 <strong>Telegram 24/7 Desk:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">https://t.me/power_trade</a></p></div>
   <div class="prev-next">
-    <div class="pn-card pn-prev" onclick="navigateTo('api')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> API Overview</div></div>
+    <div class="pn-card pn-prev" onclick="navigateTo('api-auth')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> API Authentication</div></div>
     <div class="pn-card pn-next" onclick="navigateTo('country-availability')"><div class="pn-label">Next</div><div class="pn-title">Country Availability <span class="pn-chevron">›</span></div></div>
   </div>
 </div>
@@ -1568,7 +2199,24 @@ Content-Type: application/json</pre>
     <div><h1 class="page-title">Country Availability</h1><p class="page-desc">Supported jurisdictions and country restrictions for PowerTrade.</p></div>
     <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
   </div>
-  <p class="content-text">Content coming soon...</p>
+
+  <h2 class="section-header" id="ca-global">Global Availability</h2>
+  <p class="content-text">PowerTrade is available in <strong>most countries worldwide</strong>. Our platform serves traders across Asia, Europe, South America, Africa, and other regions. However, certain jurisdictions are restricted due to regulatory requirements.</p>
+
+  <h2 class="section-header" id="ca-restricted">Restricted Jurisdictions</h2>
+  <p class="content-text">PowerTrade services are <strong>not available</strong> in the following jurisdictions (this list may be updated from time to time):</p>
+  <ul class="content-list">
+    <li>United States of America (and its territories)</li>
+    <li>Sanctioned countries as designated by OFAC, UN, and EU sanctions lists</li>
+    <li>Other jurisdictions where cryptocurrency derivatives trading is prohibited by local law</li>
+  </ul>
+
+  <h2 class="section-header" id="ca-verify">Verifying Your Eligibility</h2>
+  <p class="content-text">Users are responsible for ensuring that using PowerTrade is legal in their jurisdiction. During the KYC verification process, your country of residence will be verified against our supported jurisdictions list.</p>
+
+  <h2 class="section-header" id="ca-vpn">VPN Usage</h2>
+  <p class="content-text">Using a VPN to access PowerTrade from a restricted jurisdiction is a violation of our Terms of Service. Accounts found to be circumventing geographic restrictions may be suspended.</p>
+
   <div class="still-questions"><h2>Still have questions?</h2><p>💬 <strong>Email Support:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p><p>💬 <strong>Telegram 24/7 Desk:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">https://t.me/power_trade</a></p></div>
   <div class="prev-next">
     <div class="pn-card pn-prev" onclick="navigateTo('legal-and-privacy')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> Legal & Privacy</div></div>
@@ -1587,7 +2235,32 @@ Content-Type: application/json</pre>
     <div><h1 class="page-title">Risk Disclosure</h1><p class="page-desc">Important information about trading risks and warnings.</p></div>
     <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
   </div>
-  <p class="content-text">Content coming soon...</p>
+
+  <h2 class="section-header" id="rd-general">General Risk Warning</h2>
+  <p class="content-text"><strong>Cryptocurrency trading involves substantial risk of loss and is not suitable for all investors.</strong> The value of cryptocurrencies can fluctuate significantly, and you may lose some or all of your invested capital. Only trade with funds you can afford to lose.</p>
+
+  <h2 class="section-header" id="rd-derivatives">Derivatives Trading Risks</h2>
+  <ul class="content-list">
+    <li><strong>Options risk:</strong> Options can expire worthless, resulting in the complete loss of the premium paid</li>
+    <li><strong>Leverage risk:</strong> Leveraged products (perpetuals, futures) amplify both potential gains and losses</li>
+    <li><strong>Liquidation risk:</strong> Leveraged positions may be liquidated if margin requirements are not maintained</li>
+    <li><strong>Volatility risk:</strong> Crypto markets are highly volatile — prices can move dramatically in short periods</li>
+  </ul>
+
+  <h2 class="section-header" id="rd-market">Market Risks</h2>
+  <ul class="content-list">
+    <li><strong>Liquidity risk:</strong> Some markets may have limited liquidity, resulting in wider spreads or difficulty closing positions</li>
+    <li><strong>Technology risk:</strong> System failures, network issues, or smart contract bugs could affect trading</li>
+    <li><strong>Regulatory risk:</strong> Changes in regulations could affect the availability or legality of certain products or services</li>
+    <li><strong>Counterparty risk:</strong> Risk that the exchange or settlement infrastructure could face operational issues</li>
+  </ul>
+
+  <h2 class="section-header" id="rd-past">Past Performance</h2>
+  <p class="content-text">Past performance does not guarantee future results. Historical returns, expected returns, or probability projections are not guaranteed and may not reflect actual future performance.</p>
+
+  <h2 class="section-header" id="rd-advice">Not Financial Advice</h2>
+  <p class="content-text">Nothing on PowerTrade constitutes financial, investment, legal, or tax advice. You should consult with appropriate professionals before making any trading or investment decisions. PowerTrade does not provide personalized investment recommendations.</p>
+
   <div class="still-questions"><h2>Still have questions?</h2><p>💬 <strong>Email Support:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p><p>💬 <strong>Telegram 24/7 Desk:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">https://t.me/power_trade</a></p></div>
   <div class="prev-next">
     <div class="pn-card pn-prev" onclick="navigateTo('country-availability')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> Country Availability</div></div>
@@ -1606,7 +2279,35 @@ Content-Type: application/json</pre>
     <div><h1 class="page-title">Security</h1><p class="page-desc">Platform security measures and how PowerTrade protects your assets.</p></div>
     <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
   </div>
-  <p class="content-text">Content coming soon...</p>
+
+  <h2 class="section-header" id="sec-infra">Infrastructure Security</h2>
+  <ul class="content-list">
+    <li><strong>Industry-standard encryption:</strong> All data in transit and at rest is encrypted using TLS 1.3 and AES-256</li>
+    <li><strong>DDoS protection:</strong> Multi-layer DDoS mitigation protects the platform from attack</li>
+    <li><strong>Regular security audits:</strong> Independent penetration testing and security assessments</li>
+    <li><strong>Redundant infrastructure:</strong> Multiple data centers with failover capability for high availability</li>
+  </ul>
+
+  <h2 class="section-header" id="sec-funds">Fund Security</h2>
+  <ul class="content-list">
+    <li><strong>Cold storage:</strong> The majority of user funds are stored in cold wallets, offline and inaccessible to potential attackers</li>
+    <li><strong>Segregated accounts:</strong> User funds are segregated from operational funds</li>
+    <li><strong>Multi-signature wallets:</strong> Withdrawals from hot wallets require multiple authorized signers</li>
+    <li><strong>Real-time monitoring:</strong> Automated systems monitor for suspicious activity 24/7</li>
+  </ul>
+
+  <h2 class="section-header" id="sec-account">Account Security Features</h2>
+  <ul class="content-list">
+    <li><strong>Passwordless authentication:</strong> Magic link login eliminates password-related vulnerabilities</li>
+    <li><strong>Two-factor authentication (2FA):</strong> Additional security layer via authenticator apps</li>
+    <li><strong>Withdrawal address whitelisting:</strong> New withdrawal addresses require email verification</li>
+    <li><strong>Email confirmations:</strong> Critical actions (withdrawals, API key creation) require email approval</li>
+    <li><strong>Session management:</strong> Automatic timeout for inactive sessions</li>
+  </ul>
+
+  <h2 class="section-header" id="sec-report">Reporting Security Issues</h2>
+  <p class="content-text">If you discover a security vulnerability or suspect unauthorized access to your account, contact us immediately at <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a>. We take all security reports seriously and will investigate promptly.</p>
+
   <div class="still-questions"><h2>Still have questions?</h2><p>💬 <strong>Email Support:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p><p>💬 <strong>Telegram 24/7 Desk:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">https://t.me/power_trade</a></p></div>
   <div class="prev-next">
     <div class="pn-card pn-prev" onclick="navigateTo('risk-disclosure')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> Risk Disclosure</div></div>
@@ -1656,29 +2357,41 @@ Content-Type: application/json</pre>
 const pages = [
   { id: 'intro', title: 'Power Trade Guides and FAQ', cat: '', toc: ['How to use PowerTrade', 'Trading', 'Legal'] },
   { id: 'getting-started', title: 'Getting Started', cat: 'how-to-use', toc: ['What is PowerTrade?', 'Services we offer', 'Where to find the PowerTrade app', 'Next Steps'] },
-  { id: 'login', title: 'PowerTrade Login Help', cat: 'how-to-use', toc: [] },
-  { id: 'email-issues', title: 'Fix Email Issues', cat: 'how-to-use', toc: [] },
-  { id: 'subaccounts', title: 'Subaccounts', cat: 'how-to-use', toc: [] },
-  { id: 'security-tips', title: 'Security Tips', cat: 'how-to-use', toc: [] },
+  { id: 'login', title: 'PowerTrade Login Help', cat: 'how-to-use', toc: ['Magic Link Sign-In', 'Two-Factor Authentication (2FA)', 'Troubleshooting Login Issues', 'Login Security Best Practices'] },
+  { id: 'email-issues', title: 'Fix Email Issues', cat: 'how-to-use', toc: ['Not Receiving Emails?', 'Email Verification Issues', 'Managing Email Notifications', 'Changing Your Email Address'] },
+  { id: 'subaccounts', title: 'Subaccounts', cat: 'how-to-use', toc: ['What Are Subaccounts?', 'Benefits of Subaccounts', 'Creating a Subaccount', 'Internal Transfers'] },
+  { id: 'security-tips', title: 'Security Tips', cat: 'how-to-use', toc: ['Account Security', 'Phishing Prevention', 'Withdrawal Security', 'Device Security'] },
   { id: 'deposits', title: 'Deposits on PowerTrade', cat: 'how-to-use', toc: ['Supported Assets', 'How to Deposit (Web)', 'How to Deposit (Mobile)', 'Confirmation', 'Troubleshooting Delayed Deposits'] },
-  { id: 'withdrawals', title: 'Withdrawals', cat: 'how-to-use', toc: [] },
-  { id: 'account-verification', title: 'Account Verification', cat: 'how-to-use', toc: [] },
-  { id: 'corporate-accounts', title: 'Corporate Accounts', cat: 'how-to-use', toc: [] },
-  { id: 'fees', title: 'Trading Fees', cat: 'how-to-use', toc: [] },
+  { id: 'withdrawals', title: 'Withdrawals', cat: 'how-to-use', toc: ['Withdrawal Process', 'Address Whitelisting', 'Withdrawal Limits', 'Withdrawal Fees', 'Processing Times'] },
+  { id: 'account-verification', title: 'Account Verification', cat: 'how-to-use', toc: ['Why Verify Your Account?', 'Verification Levels', 'Required Documents', 'Verification Process', 'Tips for Faster Approval'] },
+  { id: 'corporate-accounts', title: 'Corporate Accounts', cat: 'how-to-use', toc: ['Institutional Trading', 'Corporate Account Features', 'Setting Up a Corporate Account', 'Required Documentation'] },
+  { id: 'fees', title: 'Trading Fees', cat: 'how-to-use', toc: ['Trading Fees (Maker / Taker)', 'Other Fees', 'Volume-Based Discounts', 'PTF Token Benefits'] },
   { id: 'options', title: 'Options Trading', cat: 'trading', toc: ['What Are Crypto Options?', 'Call Options', 'Put Options', 'European Style Options', 'USDC Cash-Settled Options', 'Why Trade Options on PowerTrade?'] },
-  { id: 'futures', title: 'Futures Trading', cat: 'trading', toc: [] },
-  { id: 'perpetuals', title: 'Perpetual Contracts', cat: 'trading', toc: [] },
-  { id: 'spot', title: 'Spot Trading', cat: 'trading', toc: [] },
-  { id: 'margin-and-liquidation', title: 'Margin & Liquidation', cat: 'trading', toc: [] },
-  { id: 'xstocks', title: 'xStocks Tokenized Stocks', cat: 'trading', toc: [] },
+  { id: 'options-intro', title: 'Options Introduction', cat: 'trading', toc: ['What Are Crypto Options?', 'European-Style Options', 'USDC Cash Settlement', 'Option Types', 'DEGEN Options'] },
+  { id: 'options-specs', title: 'Options Contract Specifications', cat: 'trading', toc: ['General Specifications', 'BTC Options', 'ETH Options', 'Altcoin Options', 'Expiration & Settlement'] },
+  { id: 'perpetuals', title: 'Perpetuals Trading', cat: 'trading', toc: ['What Are Perpetual Contracts?', 'Key Features', 'Funding Rate', 'How to Trade Perpetuals'] },
+  { id: 'futures', title: 'Futures Trading', cat: 'trading', toc: ['What Are Crypto Futures?', 'Key Features', 'Futures vs. Perpetuals', 'Contract Specifications'] },
+  { id: 'spot', title: 'Spot Trading', cat: 'trading', toc: ['What Is Spot Trading?', 'Available Trading Pairs', 'Order Types', 'Spot Trading Fees'] },
+  { id: 'margin-and-liquidation', title: 'Margin & Liquidation', cat: 'trading', toc: ['Portfolio Margin', 'Margin Requirements', 'Liquidation Process', 'Liquidation Fees', 'Avoiding Liquidation'] },
+  { id: 'xstocks', title: 'xStocks - Tokenized Stocks', cat: 'trading', toc: ['What Are xStocks?', 'How xStocks Work', 'Benefits of xStocks', 'Available xStocks'] },
   { id: 'api', title: 'PowerTrade API Overview', cat: 'api', toc: ['Generate an API Key and Private Key', 'Generate an Access Token — JWT', 'API Endpoints', 'Authentication Header'] },
-  { id: 'legal-and-privacy', title: 'Legal & Privacy Policies', cat: 'legal', toc: [] },
-  { id: 'country-availability', title: 'Country Availability', cat: 'legal', toc: [] },
-  { id: 'risk-disclosure', title: 'Risk Disclosure', cat: 'legal', toc: [] },
-  { id: 'security', title: 'Security', cat: 'legal', toc: [] },
+  { id: 'api-auth', title: 'API Authentication', cat: 'api', toc: ['Authentication Overview', 'API Key Management', 'Generating a JWT Token', 'Using the Token', 'Security Best Practices'] },
+  { id: 'legal-and-privacy', title: 'Legal & Privacy Policies', cat: 'legal', toc: ['Terms of Service', 'Privacy Policy', 'Cookie Policy', 'Regulatory Compliance'] },
+  { id: 'country-availability', title: 'Country Availability', cat: 'legal', toc: ['Global Availability', 'Restricted Jurisdictions', 'Verifying Your Eligibility', 'VPN Usage'] },
+  { id: 'risk-disclosure', title: 'Risk Disclosure', cat: 'legal', toc: ['General Risk Warning', 'Derivatives Trading Risks', 'Market Risks', 'Past Performance', 'Not Financial Advice'] },
+  { id: 'security', title: 'Security', cat: 'legal', toc: ['Infrastructure Security', 'Fund Security', 'Account Security Features', 'Reporting Security Issues'] },
 ];
 
 let currentPage = 'intro';
+
+function toggleExpand(groupId) {
+  const group = document.getElementById(groupId);
+  const chevron = document.getElementById(groupId + '-chevron');
+  if (group) {
+    group.classList.toggle('expanded');
+    if (chevron) chevron.classList.toggle('expanded');
+  }
+}
 
 function navigateTo(pageId) {
   closeSearch();
@@ -1693,6 +2406,16 @@ function navigateTo(pageId) {
   document.querySelectorAll('.sidebar-item').forEach(item => {
     item.classList.toggle('active', item.dataset.page === pageId);
   });
+  document.querySelectorAll('.sidebar-item-expandable').forEach(item => {
+    item.classList.toggle('active', item.dataset.page === pageId);
+  });
+  // Auto-expand options sub-items when navigating to options sub-pages
+  if (['options', 'options-intro', 'options-specs'].includes(pageId)) {
+    const group = document.getElementById('options-expand');
+    const chevron = document.getElementById('options-expand-chevron');
+    if (group) group.classList.add('expanded');
+    if (chevron) chevron.classList.add('expanded');
+  }
 
   // Update right sidebar TOC
   updateTOC(pageId);
