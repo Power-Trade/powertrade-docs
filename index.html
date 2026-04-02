@@ -1,0 +1,1840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Power Trade Guides and FAQ</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --bg-page: #171717;
+  --bg-sidebar: #111111;
+  --bg-input: #2a2a2a;
+  --bg-card: transparent;
+  --border-card: #333333;
+  --border-input: #333333;
+  --border-divider: #2e2e2e;
+  --accent: #BFFF00;
+  --text-primary: #ffffff;
+  --text-secondary: #d4d4d4;
+  --text-muted: #999999;
+  --text-nav: #cccccc;
+  --text-label: #888888;
+  --code-bg: #1e1e1e;
+  --inline-code-bg: #2a2a2a;
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+html, body {
+  height: 100%;
+  font-family: var(--font);
+  background: var(--bg-page);
+  color: var(--text-secondary);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow: hidden;
+}
+
+/* ─── LAYOUT ─── */
+.layout {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.header {
+  height: 54px;
+  min-height: 54px;
+  background: var(--bg-sidebar);
+  border-bottom: 1px solid var(--border-divider);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 100;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.header-left:hover { opacity: 0.85; }
+
+.header-icon {
+  width: 24px; height: 24px;
+  color: var(--accent);
+}
+
+.header-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: var(--bg-input);
+  border: 1px solid var(--border-input);
+  border-radius: 8px;
+  padding: 0 12px;
+  height: 34px;
+  width: 220px;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.search-bar:hover { border-color: #444; }
+
+.search-icon { color: var(--text-label); font-size: 14px; }
+.search-placeholder { color: var(--text-label); font-size: 14px; flex: 1; }
+.search-kbd {
+  display: flex; gap: 3px;
+}
+.search-kbd kbd {
+  background: #3a3a3a;
+  color: #aaa;
+  font-size: 11px;
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-family: var(--font);
+  border: none;
+}
+
+.body-wrap {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ─── LEFT SIDEBAR ─── */
+.sidebar {
+  width: 272px;
+  min-width: 272px;
+  background: var(--bg-sidebar);
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border-divider);
+  overflow: hidden;
+}
+
+.sidebar-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 0;
+}
+
+.sidebar-scroll::-webkit-scrollbar { width: 4px; }
+.sidebar-scroll::-webkit-scrollbar-track { background: transparent; }
+.sidebar-scroll::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+
+.sidebar-home {
+  display: block;
+  padding: 8px 20px 16px;
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.sidebar-home:hover { opacity: 0.85; }
+
+.sidebar-section-label {
+  padding: 20px 20px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-label);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.sidebar-section-label:first-child { padding-top: 4px; }
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 20px;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--text-nav);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+  border-left: 2.5px solid transparent;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  position: relative;
+}
+
+.sidebar-item:hover { background: rgba(255,255,255,0.03); }
+
+.sidebar-item.active {
+  color: var(--accent);
+  border-left-color: var(--accent);
+  background: rgba(191,255,0,0.04);
+  font-weight: 500;
+}
+
+.sidebar-item-text { flex: 1; }
+.sidebar-item-title { display: block; }
+.sidebar-item-subtitle {
+  display: block;
+  font-size: 12px;
+  color: var(--text-label);
+  margin-top: 1px;
+  line-height: 1.3;
+}
+
+.sidebar-item.active .sidebar-item-subtitle { color: rgba(191,255,0,0.55); }
+
+.sidebar-chevron {
+  color: #555;
+  font-size: 12px;
+  margin-left: 8px;
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+
+.sidebar-sub-items {
+  display: none;
+  padding-left: 16px;
+}
+
+.sidebar-sub-items.expanded { display: block; }
+
+.sidebar-sub-item {
+  display: block;
+  padding: 5px 20px 5px 24px;
+  font-size: 13px;
+  color: var(--text-muted);
+  cursor: pointer;
+  text-decoration: none;
+  border-left: 2.5px solid transparent;
+  transition: all 0.15s;
+}
+
+.sidebar-sub-item:hover { color: var(--text-nav); background: rgba(255,255,255,0.02); }
+.sidebar-sub-item.active {
+  color: var(--accent);
+  border-left-color: var(--accent);
+  font-weight: 500;
+}
+
+.sidebar-footer {
+  padding: 16px 20px;
+  border-top: 1px solid var(--border-divider);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sidebar-footer a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.sidebar-footer a:hover { color: var(--text-nav); }
+
+.gitbook-icon {
+  width: 20px;
+  height: 20px;
+  opacity: 0.6;
+}
+
+/* ─── MAIN CONTENT ─── */
+.main-wrap {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.content-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 40px 60px 60px;
+  max-width: 100%;
+}
+
+.content-area::-webkit-scrollbar { width: 6px; }
+.content-area::-webkit-scrollbar-track { background: transparent; }
+.content-area::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+
+.content-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* ─── RIGHT SIDEBAR ─── */
+.right-sidebar {
+  width: 220px;
+  min-width: 220px;
+  padding: 40px 20px 20px;
+  overflow-y: auto;
+  border-left: 1px solid var(--border-divider);
+}
+
+.right-sidebar::-webkit-scrollbar { width: 3px; }
+.right-sidebar::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+
+.toc-item {
+  display: block;
+  padding: 4px 0;
+  font-size: 13px;
+  color: var(--text-muted);
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.toc-item:hover { color: var(--text-nav); }
+.toc-item.active { color: var(--accent); font-weight: 500; }
+
+.toc-divider { border-top: 1px solid var(--border-divider); margin: 20px 0; }
+
+.helpful-section { margin-top: 24px; }
+.helpful-label { font-size: 13px; color: var(--text-muted); margin-bottom: 10px; }
+
+.helpful-emojis {
+  display: flex;
+  gap: 8px;
+}
+
+.helpful-btn {
+  width: 36px; height: 36px;
+  background: var(--bg-input);
+  border: 1px solid #444;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.helpful-btn:hover {
+  border-color: var(--accent);
+  background: rgba(191,255,0,0.08);
+}
+
+/* ─── BREADCRUMB ─── */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 16px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  flex-wrap: wrap;
+}
+
+.breadcrumb-link {
+  color: var(--accent);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.breadcrumb-link:hover { opacity: 0.8; }
+.breadcrumb-sep { color: var(--text-label); }
+
+/* ─── COPY BUTTON ─── */
+.content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.copy-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-input);
+  border: 1px solid #444;
+  border-radius: 6px;
+  padding: 6px 12px;
+  color: var(--text-nav);
+  font-size: 13px;
+  font-family: var(--font);
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.copy-btn:hover { border-color: #666; background: #333; }
+
+/* ─── CONTENT TYPOGRAPHY ─── */
+.page-section { display: none; }
+.page-section.active { display: block; }
+
+.page-title {
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.page-desc {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+.section-divider {
+  border: none;
+  border-top: 1px solid var(--border-divider);
+  margin: 40px 0;
+}
+
+.section-header {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+  margin-top: 8px;
+}
+
+h3.content-h3 {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 32px 0 16px;
+}
+
+.content-text {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.content-text a, .page-desc a {
+  color: var(--accent);
+  text-decoration: none;
+  position: relative;
+}
+
+.content-text a:hover, .page-desc a:hover { text-decoration: underline; }
+
+a.ext-link::after {
+  content: ' ↗';
+  font-size: 11px;
+}
+
+.content-text strong { color: var(--text-primary); font-weight: 600; }
+
+.content-text code, code.inline-code {
+  background: var(--inline-code-bg);
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+  font-size: 0.88em;
+  color: #e0e0e0;
+}
+
+/* ─── CARD GRID ─── */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.card-grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.nav-card {
+  border: 1px solid var(--border-card);
+  border-radius: 8px;
+  padding: 20px 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  text-decoration: none;
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.nav-card:hover {
+  border-color: #555;
+  background: rgba(255,255,255,0.02);
+}
+
+.detail-card {
+  text-align: left;
+  justify-content: space-between;
+  padding: 16px 20px;
+}
+
+.detail-card .card-title { flex: 1; }
+.detail-card .card-chevron { color: #555; margin-left: 12px; flex-shrink: 0; }
+.detail-card:hover .card-chevron { color: var(--accent); }
+
+/* ─── PREV/NEXT NAV ─── */
+.prev-next {
+  display: flex;
+  gap: 16px;
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border-divider);
+}
+
+.pn-card {
+  flex: 1;
+  border: 1px solid var(--border-card);
+  border-radius: 8px;
+  padding: 16px 20px;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-decoration: none;
+}
+
+.pn-card:hover { border-color: rgba(191,255,0,0.3); background: rgba(191,255,0,0.02); }
+
+.pn-card.pn-prev { text-align: left; }
+.pn-card.pn-next { text-align: right; }
+
+.pn-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.pn-title {
+  font-size: 14px;
+  color: var(--text-primary);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pn-next .pn-title { justify-content: flex-end; }
+
+.pn-chevron { color: var(--text-muted); font-size: 14px; }
+
+/* ─── CODE BLOCKS ─── */
+.code-block {
+  background: var(--code-bg);
+  border-radius: 8px;
+  margin: 20px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.code-block pre {
+  padding: 20px;
+  overflow-x: auto;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #e0e0e0;
+}
+
+.code-block pre::-webkit-scrollbar { height: 4px; }
+.code-block pre::-webkit-scrollbar-thumb { background: #444; border-radius: 2px; }
+
+.code-accent-bar {
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), #f0c000, var(--accent));
+  opacity: 0.6;
+}
+
+.code-block .kw { color: #f0a050; }
+.code-block .str { color: #a8e060; }
+.code-block .cmt { color: #666; }
+.code-block .fn { color: #60c0f0; }
+
+/* ─── LISTS ─── */
+.content-list {
+  margin: 16px 0;
+  padding-left: 24px;
+}
+
+.content-list li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.content-list li strong { color: var(--text-primary); }
+
+.content-list li a { color: var(--accent); text-decoration: none; }
+.content-list li a:hover { text-decoration: underline; }
+
+.check-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.check-list li { padding-left: 4px; }
+.check-list li::before { content: none; }
+
+/* ─── STILL HAVE QUESTIONS ─── */
+.still-questions {
+  margin-top: 40px;
+  padding-top: 24px;
+}
+
+.still-questions h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+
+.still-questions p {
+  margin-bottom: 8px;
+  font-size: 15px;
+  color: var(--text-secondary);
+}
+
+.still-questions a { color: var(--accent); text-decoration: none; }
+.still-questions a:hover { text-decoration: underline; }
+
+/* ─── SEARCH MODAL ─── */
+.search-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 1000;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 100px;
+}
+
+.search-modal-overlay.open { display: flex; }
+
+.search-modal {
+  background: #222;
+  border: 1px solid #444;
+  border-radius: 12px;
+  width: 560px;
+  max-height: 400px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+.search-modal-input {
+  width: 100%;
+  padding: 16px 20px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #333;
+  color: var(--text-primary);
+  font-size: 16px;
+  font-family: var(--font);
+  outline: none;
+}
+
+.search-modal-input::placeholder { color: var(--text-label); }
+
+.search-results {
+  max-height: 320px;
+  overflow-y: auto;
+  padding: 8px 0;
+}
+
+.search-result-item {
+  padding: 10px 20px;
+  cursor: pointer;
+  color: var(--text-nav);
+  font-size: 14px;
+  transition: background 0.1s;
+}
+
+.search-result-item:hover { background: rgba(191,255,0,0.06); }
+.search-result-item .sr-title { font-weight: 500; color: var(--text-primary); }
+.search-result-item .sr-cat { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+.search-no-results { padding: 20px; text-align: center; color: var(--text-muted); font-size: 14px; }
+
+/* ─── EXTERNAL LINK TOOLTIP ─── */
+.ext-tooltip {
+  position: absolute;
+  background: var(--bg-input);
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 10px 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  z-index: 500;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+  max-width: 320px;
+}
+
+.ext-tooltip.show { opacity: 1; }
+.ext-tooltip-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-label); margin-bottom: 4px; }
+.ext-tooltip-url { font-size: 12px; color: var(--accent); word-break: break-all; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1100px) {
+  .right-sidebar { display: none; }
+}
+
+@media (max-width: 800px) {
+  .sidebar { display: none; }
+  .content-area { padding: 24px 20px 40px; }
+  .card-grid { grid-template-columns: 1fr; }
+  .card-grid-2 { grid-template-columns: 1fr; }
+  .page-title { font-size: 28px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<div class="layout">
+<div class="header">
+  <div class="header-left" onclick="navigateTo('intro')">
+    <svg class="header-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+    <span class="header-title">Power Trade Guides and FAQ</span>
+  </div>
+  <div class="search-bar" onclick="openSearch()">
+    <span class="search-icon">🔍</span>
+    <span class="search-placeholder">Search...</span>
+    <span class="search-kbd"><kbd>Ctrl</kbd><kbd>K</kbd></span>
+  </div>
+</div>
+
+<!-- ═══ BODY ═══ -->
+<div class="body-wrap">
+
+<!-- ═══ LEFT SIDEBAR ═══ -->
+<nav class="sidebar">
+<div class="sidebar-scroll">
+
+<a class="sidebar-home" onclick="navigateTo('intro')">Power Trade Guides and FAQ</a>
+
+<div class="sidebar-section-label">HOW TO USE POWERTRADE</div>
+
+<div class="sidebar-item" data-page="getting-started" onclick="navigateTo('getting-started')">
+  <div class="sidebar-item-text">
+    <span class="sidebar-item-title">Getting Started with PowerTrade</span>
+    <span class="sidebar-item-subtitle">Beginner's Guide to Crypto & xStocks Options & Perpetuals</span>
+  </div>
+  <span class="sidebar-chevron">›</span>
+</div>
+
+<div class="sidebar-item" data-page="login" onclick="navigateTo('login')">
+  <div class="sidebar-item-text">
+    <span class="sidebar-item-title">PowerTrade Login Help</span>
+    <span class="sidebar-item-subtitle">Secure Sign-In & 2FA Guide</span>
+  </div>
+  <span class="sidebar-chevron">›</span>
+</div>
+
+<div class="sidebar-item" data-page="email-issues" onclick="navigateTo('email-issues')">
+  <div class="sidebar-item-text">
+    <span class="sidebar-item-title">Fix Email Issues on PowerTrade</span>
+    <span class="sidebar-item-subtitle">Verification & Notifications</span>
+  </div>
+  <span class="sidebar-chevron">›</span>
+</div>
+
+<div class="sidebar-item" data-page="subaccounts" onclick="navigateTo('subaccounts')">
+  <div class="sidebar-item-text">
+    <span class="sidebar-item-title">Create & Manage Subaccounts</span>
+    <span class="sidebar-item-subtitle">Strategy Segmentation</span>
+  </div>
+  <span class="sidebar-chevron">›</span>
+</div>
+
+<div class="sidebar-item" data-page="security-tips" onclick="navigateTo('security-tips')">
+  <div class="sidebar-item-text">
+    <span class="sidebar-item-title">PowerTrade Security Tips</span>
+    <span class="sidebar-item-subtitle">Protect Your Account & Funds</span>
+  </div>
+  <span class="sidebar-chevron">›</span>
+</div>
+
+<div class="sidebar-item" data-page="deposits" onclick="navigateTo('deposits')">
+  <div class="sidebar-item-text">
+    <span class="sidebar-item-title">Deposits on PowerTrade</span>
+    <span class="sidebar-item-subtitle">Fund Your Account with Crypto Securely</span>
+  </div>
+  <span class="sidebar-chevron">›</span>
+</div>
+
+<div class="sidebar-item" data-page="withdrawals" onclick="navigateTo('withdrawals')">
+  <div class="sidebar-item-text">
+    <span class="sidebar-item-title">Withdrawals from PowerTrade</span>
+    <span class="sidebar-item-subtitle">How to Cash Out Crypto Safely</span>
+  </div>
+  <span class="sidebar-chevron">›</span>
+</div>
+
+<div class="sidebar-item" data-page="account-verification" onclick="navigateTo('account-verification')">
+  <div class="sidebar-item-text">
+    <span class="sidebar-item-title">Account Verification Guide</span>
+    <span class="sidebar-item-subtitle">KYC Limits & Security</span>
+  </div>
+  <span class="sidebar-chevron">›</span>
+</div>
+
+<div class="sidebar-item" data-page="corporate-accounts" onclick="navigateTo('corporate-accounts')">
+  <div class="sidebar-item-text">
+    <span class="sidebar-item-title">Corporate Accounts on PowerTrade</span>
+    <span class="sidebar-item-subtitle">Institutional Trading Setup</span>
+  </div>
+  <span class="sidebar-chevron">›</span>
+</div>
+
+<div class="sidebar-item" data-page="fees" onclick="navigateTo('fees')">
+  <div class="sidebar-item-text">
+    <span class="sidebar-item-title">PowerTrade Trading Fees</span>
+    <span class="sidebar-item-subtitle">Options, Perpetuals, Futures & Spot</span>
+  </div>
+  <span class="sidebar-chevron">›</span>
+</div>
+
+<div class="sidebar-section-label">TRADING</div>
+
+<div class="sidebar-item" data-page="options" onclick="navigateTo('options')">
+  <div class="sidebar-item-text">
+    <span class="sidebar-item-title">Options Trading on PowerTrade</span>
+    <span class="sidebar-item-subtitle">Calls, Puts & Altcoin Strategies</span>
+  </div>
+  <span class="sidebar-chevron">›</span>
+</div>
+
+<div class="sidebar-item" data-page="futures" onclick="navigateTo('futures')">
+  <div class="sidebar-item-text">
+    <span class="sidebar-item-title">Futures Trading</span>
+    <span class="sidebar-item-subtitle">Crypto Futures Guide</span>
+  </div>
+  <span class="sidebar-chevron">›</span>
+</div>
+
+<div class="sidebar-item" data-page="perpetuals" onclick="navigateTo('perpetuals')">
+  <div class="sidebar-item-text">
+    <span class="sidebar-item-title">Perpetual Contracts</span>
+    <span class="sidebar-item-subtitle">Trade Perpetuals on PowerTrade</span>
+  </div>
+  <span class="sidebar-chevron">›</span>
+</div>
+
+<div class="sidebar-item" data-page="spot" onclick="navigateTo('spot')">
+  <div class="sidebar-item-text">
+    <span class="sidebar-item-title">Spot Trading</span>
+    <span class="sidebar-item-subtitle">Buy & Sell Crypto Directly</span>
+  </div>
+  <span class="sidebar-chevron">›</span>
+</div>
+
+<div class="sidebar-item" data-page="margin-and-liquidation" onclick="navigateTo('margin-and-liquidation')">
+  <div class="sidebar-item-text">
+    <span class="sidebar-item-title">Margin & Liquidation</span>
+    <span class="sidebar-item-subtitle">Risk Management on PowerTrade</span>
+  </div>
+  <span class="sidebar-chevron">›</span>
+</div>
+
+<div class="sidebar-item" data-page="xstocks" onclick="navigateTo('xstocks')">
+  <div class="sidebar-item-text">
+    <span class="sidebar-item-title">xStocks Tokenized Stocks</span>
+    <span class="sidebar-item-subtitle">Trade Stocks on Blockchain</span>
+  </div>
+  <span class="sidebar-chevron">›</span>
+</div>
+
+<div class="sidebar-section-label">API</div>
+
+<div class="sidebar-item" data-page="api" onclick="navigateTo('api')">
+  <div class="sidebar-item-text">
+    <span class="sidebar-item-title">PowerTrade API Overview</span>
+    <span class="sidebar-item-subtitle">Automate Crypto Options Trading</span>
+  </div>
+  <span class="sidebar-chevron">›</span>
+</div>
+
+<div class="sidebar-section-label">LEGAL</div>
+
+<div class="sidebar-item" data-page="legal-and-privacy" onclick="navigateTo('legal-and-privacy')">
+  <div class="sidebar-item-text">
+    <span class="sidebar-item-title">Legal & Privacy Policies</span>
+    <span class="sidebar-item-subtitle">Terms, Privacy & Conditions</span>
+  </div>
+  <span class="sidebar-chevron">›</span>
+</div>
+
+<div class="sidebar-item" data-page="country-availability" onclick="navigateTo('country-availability')">
+  <div class="sidebar-item-text">
+    <span class="sidebar-item-title">Country Availability</span>
+    <span class="sidebar-item-subtitle">Supported Jurisdictions</span>
+  </div>
+  <span class="sidebar-chevron">›</span>
+</div>
+
+<div class="sidebar-item" data-page="risk-disclosure" onclick="navigateTo('risk-disclosure')">
+  <div class="sidebar-item-text">
+    <span class="sidebar-item-title">Risk Disclosure</span>
+    <span class="sidebar-item-subtitle">Trading Risks & Warnings</span>
+  </div>
+  <span class="sidebar-chevron">›</span>
+</div>
+
+<div class="sidebar-item" data-page="security" onclick="navigateTo('security')">
+  <div class="sidebar-item-text">
+    <span class="sidebar-item-title">Security</span>
+    <span class="sidebar-item-subtitle">Platform Security Measures</span>
+  </div>
+  <span class="sidebar-chevron">›</span>
+</div>
+
+</div><!-- sidebar-scroll -->
+
+<div class="sidebar-footer">
+  <a href="https://www.gitbook.com" target="_blank">
+    <svg class="gitbook-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M10.802 17.77a.703.703 0 1 1-.002 1.406.703.703 0 0 1 .002-1.406m11.024-4.347a.703.703 0 1 1 .001-1.406.703.703 0 0 1-.001 1.406m0-2.876a2.176 2.176 0 0 0-2.174 2.174c0 .233.039.465.115.691l-7.181 3.823a2.165 2.165 0 0 0-1.784-.937c-.829 0-1.584.475-1.95 1.216l-6.451-3.402c-.682-.358-1.192-1.48-1.138-2.502.028-.533.212-.947.493-1.107.178-.1.392-.092.62.027l.042.023c1.71.9 7.304 3.847 7.54 3.956.363.168.565.237 1.185-.057l11.564-6.014c.17-.064.368-.227.368-.474 0-.342-.354-.477-.355-.477-.658-.315-1.669-.788-2.655-1.25-2.108-.987-4.497-2.105-5.546-2.655-.906-.474-1.635-.074-1.765.006l-.252.125C7.78 6.048 1.46 9.178 1.1 9.397.457 9.789.058 10.57.006 11.539c-.08 1.537.703 3.14 1.824 3.727l6.822 3.518a2.175 2.175 0 0 0 2.15 1.862 2.177 2.177 0 0 0 2.173-2.14l7.514-4.073c.38.298.853.461 1.337.461A2.176 2.176 0 0 0 24 12.72a2.176 2.176 0 0 0-2.174-2.174"/></svg>
+    Powered by GitBook
+  </a>
+</div>
+
+</nav>
+
+<!-- ═══ MAIN + RIGHT SIDEBAR ═══ -->
+<div class="main-wrap">
+<main class="content-area" id="contentArea">
+
+<!-- ════════════════════════════════════════════ -->
+<!-- PAGE: INTRO (HOME)                          -->
+<!-- ════════════════════════════════════════════ -->
+<div class="page-section active" id="page-intro">
+<div class="content-inner">
+  <div class="content-header">
+    <div>
+      <h1 class="page-title">Power Trade Guides and FAQ</h1>
+      <p class="page-desc">Learning resources to get you started using PowerTrade, the leading crypto & altcoin options exchange. Step-by-step guides on trading, deposits, fees, API, and more.</p>
+      <p class="content-text">If you have any questions, <a href="mailto:support@power.trade" class="ext-link">don't hesitate to reach out</a>, email support or <a href="https://t.me/power_trade" class="ext-link" target="_blank">Telegram</a>.</p>
+    </div>
+    <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
+  </div>
+
+  <hr class="section-divider">
+  <h2 class="section-header" id="toc-how-to-use">How to use PowerTrade</h2>
+  <div class="card-grid">
+    <div class="nav-card" onclick="navigateTo('getting-started')">Getting Started</div>
+    <div class="nav-card" onclick="navigateTo('login')">Login</div>
+    <div class="nav-card" onclick="navigateTo('email-issues')">Email Issues</div>
+    <div class="nav-card" onclick="navigateTo('subaccounts')">Subaccounts</div>
+    <div class="nav-card" onclick="navigateTo('security-tips')">Security Tips</div>
+    <div class="nav-card" onclick="navigateTo('deposits')">Deposits</div>
+    <div class="nav-card" onclick="navigateTo('withdrawals')">Withdrawals</div>
+    <div class="nav-card" onclick="navigateTo('account-verification')">Account Verification</div>
+    <div class="nav-card" onclick="navigateTo('corporate-accounts')">Corporate Accounts</div>
+    <div class="nav-card" onclick="navigateTo('fees')">Fees</div>
+  </div>
+
+  <hr class="section-divider">
+  <h2 class="section-header" id="toc-trading">Trading</h2>
+  <div class="card-grid">
+    <div class="nav-card" onclick="navigateTo('options')">Options</div>
+    <div class="nav-card" onclick="navigateTo('futures')">Futures</div>
+    <div class="nav-card" onclick="navigateTo('perpetuals')">Perpetuals</div>
+    <div class="nav-card" onclick="navigateTo('spot')">Spot</div>
+    <div class="nav-card" onclick="navigateTo('margin-and-liquidation')">Margin & Liquidation</div>
+    <div class="nav-card" onclick="navigateTo('api')">API</div>
+    <div class="nav-card" onclick="navigateTo('xstocks')">xStocks</div>
+  </div>
+
+  <hr class="section-divider">
+  <h2 class="section-header" id="toc-legal">Legal</h2>
+  <div class="card-grid">
+    <div class="nav-card" onclick="navigateTo('legal-and-privacy')">Legal & Privacy Policies</div>
+    <div class="nav-card" onclick="navigateTo('country-availability')">Country Availability</div>
+    <div class="nav-card" onclick="navigateTo('risk-disclosure')">Risk Disclosure</div>
+    <div class="nav-card" onclick="navigateTo('security')">Security</div>
+  </div>
+
+  <div class="still-questions">
+    <h2>Need Help?</h2>
+    <p>💬 <strong>Email:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p>
+    <p>💬 <strong>Telegram:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">t.me/power_trade</a></p>
+    <p>🌐 <strong>Website:</strong> <a href="https://power.trade" class="ext-link" target="_blank">power.trade</a></p>
+  </div>
+</div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- PAGE: GETTING STARTED                       -->
+<!-- ════════════════════════════════════════════ -->
+<div class="page-section" id="page-getting-started">
+<div class="content-inner">
+  <div class="breadcrumb">
+    <a class="breadcrumb-link" onclick="navigateTo('intro')">HOW TO USE POWERTRADE</a>
+  </div>
+  <div class="content-header">
+    <div>
+      <h1 class="page-title">Getting Started</h1>
+      <p class="page-desc">Welcome to PowerTrade! This guide will help you get started with our cryptocurrency trading platform.</p>
+    </div>
+    <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
+  </div>
+
+  <h2 class="section-header" id="gs-what">What is PowerTrade?</h2>
+  <p class="content-text">At <strong>PowerTrade</strong>, we're a team of crypto-native professionals and tech builders passionate about shaping the future of crypto trading. Our mission is to empower institutional firms and professional traders with a powerful, intuitive platform to access the fast-moving world of crypto derivatives.</p>
+
+  <h2 class="section-header" id="gs-services">Services we offer</h2>
+  <ol class="content-list">
+    <li><strong>Crypto Options Trading:</strong> Trade USD-settled, European-style options on BTC, ETH, and 80+ altcoins — more than any other platform.</li>
+    <li><strong>Perpetuals, Futures, and Spot Markets:</strong> Access deep liquidity across perpetual contracts, futures, and spot pairs for dynamic portfolio management.</li>
+    <li><strong>Request-for-Quote (RFQ) System:</strong> Execute block trades or build multi-leg structures with our Request-for-Quote interface — fast, secure, and anonymous.</li>
+    <li><strong>Multi-Leg Strategies:</strong> Execute complex trading strategies by combining multiple options contracts with different strike prices and expiration dates.</li>
+    <li><strong>One-click strategies builder:</strong> Select your bullish, rangebound or bearish strategy with these pre-built strategies.</li>
+    <li><strong>Short-term expiration, "DEGEN" options:</strong> Enjoy 10-minute and 1-hour expiration options, with no liquidation risk, for selected tokens.</li>
+    <li><strong>Desktop and Mobile Applications:</strong> Enjoy a seamless trading experience across devices with our desktop application and mobile apps for iOS and Android.</li>
+    <li><strong>API Access:</strong> Integrate your trading tools and algorithms with our platform using our API.</li>
+    <li><strong>Competitive Fee Structure:</strong> Take advantage of our competitive fees, designed to help you maximize your trading profits.</li>
+  </ol>
+
+  <h2 class="section-header" id="gs-where">Where to find the PowerTrade app</h2>
+  <h3 class="content-h3">iOS</h3>
+  <p class="content-text">The iOS app is live and can be found <a href="https://apps.apple.com/us/app/powertrade/id1548085709" class="ext-link" target="_blank">on the iOS App Store</a>.</p>
+  <h3 class="content-h3">Android</h3>
+  <p class="content-text">Our Android app is live and can be found <a href="https://play.google.com/store/apps/details?id=com.pt.powertrade" class="ext-link" target="_blank">on the Google Play Store</a>.</p>
+  <h3 class="content-h3">Web</h3>
+  <p class="content-text">Our web application can be accessed at <a href="https://app.power.trade/" class="ext-link" target="_blank">https://app.power.trade/</a></p>
+
+  <h2 class="section-header" id="gs-next">Next Steps</h2>
+  <ul class="content-list">
+    <li><a onclick="navigateTo('account-verification')" style="color:var(--accent);cursor:pointer">Account Verification</a> — Complete KYC process</li>
+    <li><a onclick="navigateTo('deposits')" style="color:var(--accent);cursor:pointer">Make a Deposit</a> — Fund your account</li>
+    <li><a onclick="navigateTo('options')" style="color:var(--accent);cursor:pointer">Start Trading</a> — Begin with options trading</li>
+  </ul>
+
+  <div class="still-questions">
+    <h2>Still have questions?</h2>
+    <p>💬 <strong>Email Support:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p>
+    <p>💬 <strong>Telegram 24/7 Desk:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">https://t.me/power_trade</a></p>
+  </div>
+
+  <div class="prev-next">
+    <div class="pn-card pn-prev" onclick="navigateTo('intro')">
+      <div class="pn-label">Previous</div>
+      <div class="pn-title"><span class="pn-chevron">‹</span> Power Trade Guides and FAQ</div>
+    </div>
+    <div class="pn-card pn-next" onclick="navigateTo('login')">
+      <div class="pn-label">Next</div>
+      <div class="pn-title">PowerTrade Login Help <span class="pn-chevron">›</span></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- PAGE: LOGIN                                 -->
+<!-- ════════════════════════════════════════════ -->
+<div class="page-section" id="page-login">
+<div class="content-inner">
+  <div class="breadcrumb">
+    <a class="breadcrumb-link" onclick="navigateTo('intro')">HOW TO USE POWERTRADE</a>
+  </div>
+  <div class="content-header">
+    <div>
+      <h1 class="page-title">PowerTrade Login Help</h1>
+      <p class="page-desc">Secure Sign-In & 2FA Guide for accessing your PowerTrade account.</p>
+    </div>
+    <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
+  </div>
+
+  <p class="content-text">Content coming soon...</p>
+
+  <div class="still-questions">
+    <h2>Still have questions?</h2>
+    <p>💬 <strong>Email Support:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p>
+    <p>💬 <strong>Telegram 24/7 Desk:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">https://t.me/power_trade</a></p>
+  </div>
+
+  <div class="prev-next">
+    <div class="pn-card pn-prev" onclick="navigateTo('getting-started')">
+      <div class="pn-label">Previous</div>
+      <div class="pn-title"><span class="pn-chevron">‹</span> Getting Started</div>
+    </div>
+    <div class="pn-card pn-next" onclick="navigateTo('email-issues')">
+      <div class="pn-label">Next</div>
+      <div class="pn-title">Fix Email Issues <span class="pn-chevron">›</span></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- PAGE: EMAIL ISSUES                          -->
+<!-- ════════════════════════════════════════════ -->
+<div class="page-section" id="page-email-issues">
+<div class="content-inner">
+  <div class="breadcrumb">
+    <a class="breadcrumb-link" onclick="navigateTo('intro')">HOW TO USE POWERTRADE</a>
+  </div>
+  <div class="content-header">
+    <div>
+      <h1 class="page-title">Fix Email Issues on PowerTrade</h1>
+      <p class="page-desc">Troubleshoot email verification and notification problems.</p>
+    </div>
+    <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
+  </div>
+  <p class="content-text">Content coming soon...</p>
+  <div class="still-questions"><h2>Still have questions?</h2><p>💬 <strong>Email Support:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p><p>💬 <strong>Telegram 24/7 Desk:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">https://t.me/power_trade</a></p></div>
+  <div class="prev-next">
+    <div class="pn-card pn-prev" onclick="navigateTo('login')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> PowerTrade Login Help</div></div>
+    <div class="pn-card pn-next" onclick="navigateTo('subaccounts')"><div class="pn-label">Next</div><div class="pn-title">Subaccounts <span class="pn-chevron">›</span></div></div>
+  </div>
+</div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- PAGE: SUBACCOUNTS                           -->
+<!-- ════════════════════════════════════════════ -->
+<div class="page-section" id="page-subaccounts">
+<div class="content-inner">
+  <div class="breadcrumb"><a class="breadcrumb-link" onclick="navigateTo('intro')">HOW TO USE POWERTRADE</a></div>
+  <div class="content-header">
+    <div><h1 class="page-title">Create & Manage Subaccounts</h1><p class="page-desc">Strategy segmentation through subaccount management on PowerTrade.</p></div>
+    <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
+  </div>
+  <p class="content-text">Content coming soon...</p>
+  <div class="still-questions"><h2>Still have questions?</h2><p>💬 <strong>Email Support:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p><p>💬 <strong>Telegram 24/7 Desk:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">https://t.me/power_trade</a></p></div>
+  <div class="prev-next">
+    <div class="pn-card pn-prev" onclick="navigateTo('email-issues')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> Email Issues</div></div>
+    <div class="pn-card pn-next" onclick="navigateTo('security-tips')"><div class="pn-label">Next</div><div class="pn-title">Security Tips <span class="pn-chevron">›</span></div></div>
+  </div>
+</div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- PAGE: SECURITY TIPS                         -->
+<!-- ════════════════════════════════════════════ -->
+<div class="page-section" id="page-security-tips">
+<div class="content-inner">
+  <div class="breadcrumb"><a class="breadcrumb-link" onclick="navigateTo('intro')">HOW TO USE POWERTRADE</a></div>
+  <div class="content-header">
+    <div><h1 class="page-title">PowerTrade Security Tips</h1><p class="page-desc">Protect your account and funds with these security best practices.</p></div>
+    <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
+  </div>
+  <p class="content-text">Content coming soon...</p>
+  <div class="still-questions"><h2>Still have questions?</h2><p>💬 <strong>Email Support:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p><p>💬 <strong>Telegram 24/7 Desk:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">https://t.me/power_trade</a></p></div>
+  <div class="prev-next">
+    <div class="pn-card pn-prev" onclick="navigateTo('subaccounts')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> Subaccounts</div></div>
+    <div class="pn-card pn-next" onclick="navigateTo('deposits')"><div class="pn-label">Next</div><div class="pn-title">Deposits <span class="pn-chevron">›</span></div></div>
+  </div>
+</div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- PAGE: DEPOSITS                              -->
+<!-- ════════════════════════════════════════════ -->
+<div class="page-section" id="page-deposits">
+<div class="content-inner">
+  <div class="breadcrumb"><a class="breadcrumb-link" onclick="navigateTo('intro')">HOW TO USE POWERTRADE</a></div>
+  <div class="content-header">
+    <div>
+      <h1 class="page-title">Deposits on PowerTrade</h1>
+      <p class="page-desc">Learn how to deposit USDC, BTC, ETH and altcoins safely into PowerTrade. Supported assets, confirmations and tips.</p>
+    </div>
+    <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
+  </div>
+
+  <h2 class="section-header" id="dep-supported">Supported Assets</h2>
+  <p class="content-text">Users can fund their trading accounts with:</p>
+  <ul class="content-list">
+    <li>ERC20 USDC tokens</li>
+    <li>Bitcoin (BTC)</li>
+    <li>Ethereum (ETH)</li>
+    <li>PowerTrade Fuel (PTF)</li>
+    <li>Solana (SOL)</li>
+    <li>Avalanche (AVAX)</li>
+    <li>Binance Coin (BNB)</li>
+    <li>Dogecoin (DOGE)</li>
+    <li>Chainlink (LINK)</li>
+    <li>Litecoin (LTC)</li>
+    <li>SUI Network (SUI)</li>
+    <li>Toncoin (TON)</li>
+    <li>Ripple (XRP)</li>
+  </ul>
+
+  <h2 class="section-header" id="dep-web">How to Deposit (Web)</h2>
+  <ol class="content-list">
+    <li>Go to your Funds screen by clicking on the menu dropdown in the top navigation and select "Deposit Add funds"</li>
+    <li>Click on the "Deposit" button next to the asset you want to deposit</li>
+    <li>Your PowerTrade wallet address will be revealed. You can also click the QR code icon to see your wallet's address in QR code form</li>
+    <li>Send funds from your external wallet to this address</li>
+  </ol>
+  <p class="content-text"><strong>Important:</strong> Make sure to only transfer the correct type of asset into the wallet. Transferring the wrong type of cryptocurrency may render it unrecoverable!</p>
+
+  <h2 class="section-header" id="dep-mobile">How to Deposit (Mobile)</h2>
+  <ol class="content-list">
+    <li>Tap on the Wallet icon on your app</li>
+    <li>Select the cryptocurrency you intend to use</li>
+    <li>Tap on the "Deposit" button to reveal your PowerTrade wallet address</li>
+    <li>You can also tap on the QR code icon to reveal your wallet's address in QR code form</li>
+    <li>Send funds from your external wallet</li>
+  </ol>
+
+  <h2 class="section-header" id="dep-confirm">Confirmation</h2>
+  <p class="content-text">Once the transaction is confirmed on the blockchain, your wallet balance will be updated. You will also receive an email confirmation of the transaction.</p>
+
+  <h2 class="section-header" id="dep-trouble">Troubleshooting Delayed Deposits</h2>
+  <p class="content-text">Common causes of delays:</p>
+  <ul class="content-list">
+    <li><strong>Transaction wasn't broadcast</strong> — Check if your transaction appears on the blockchain explorer</li>
+    <li><strong>Network Congestion</strong> — High traffic can delay processing</li>
+    <li><strong>Low fees</strong> — Transactions with higher fees get priority</li>
+    <li><strong>Prior unconfirmed transactions</strong> — Wait for previous transactions to confirm</li>
+  </ul>
+
+  <div class="still-questions"><h2>Still have questions?</h2><p>💬 <strong>Email Support:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p><p>💬 <strong>Telegram 24/7 Desk:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">https://t.me/power_trade</a></p></div>
+  <div class="prev-next">
+    <div class="pn-card pn-prev" onclick="navigateTo('security-tips')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> Security Tips</div></div>
+    <div class="pn-card pn-next" onclick="navigateTo('withdrawals')"><div class="pn-label">Next</div><div class="pn-title">Withdrawals <span class="pn-chevron">›</span></div></div>
+  </div>
+</div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- PAGE: WITHDRAWALS                           -->
+<!-- ════════════════════════════════════════════ -->
+<div class="page-section" id="page-withdrawals">
+<div class="content-inner">
+  <div class="breadcrumb"><a class="breadcrumb-link" onclick="navigateTo('intro')">HOW TO USE POWERTRADE</a></div>
+  <div class="content-header">
+    <div><h1 class="page-title">Withdrawals from PowerTrade</h1><p class="page-desc">How to cash out crypto safely from your PowerTrade account.</p></div>
+    <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
+  </div>
+  <p class="content-text">Content coming soon...</p>
+  <div class="still-questions"><h2>Still have questions?</h2><p>💬 <strong>Email Support:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p><p>💬 <strong>Telegram 24/7 Desk:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">https://t.me/power_trade</a></p></div>
+  <div class="prev-next">
+    <div class="pn-card pn-prev" onclick="navigateTo('deposits')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> Deposits</div></div>
+    <div class="pn-card pn-next" onclick="navigateTo('account-verification')"><div class="pn-label">Next</div><div class="pn-title">Account Verification <span class="pn-chevron">›</span></div></div>
+  </div>
+</div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- PAGE: ACCOUNT VERIFICATION                  -->
+<!-- ════════════════════════════════════════════ -->
+<div class="page-section" id="page-account-verification">
+<div class="content-inner">
+  <div class="breadcrumb"><a class="breadcrumb-link" onclick="navigateTo('intro')">HOW TO USE POWERTRADE</a></div>
+  <div class="content-header">
+    <div><h1 class="page-title">Account Verification Guide</h1><p class="page-desc">KYC limits, verification levels, and security requirements.</p></div>
+    <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
+  </div>
+  <p class="content-text">Content coming soon...</p>
+  <div class="still-questions"><h2>Still have questions?</h2><p>💬 <strong>Email Support:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p><p>💬 <strong>Telegram 24/7 Desk:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">https://t.me/power_trade</a></p></div>
+  <div class="prev-next">
+    <div class="pn-card pn-prev" onclick="navigateTo('withdrawals')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> Withdrawals</div></div>
+    <div class="pn-card pn-next" onclick="navigateTo('corporate-accounts')"><div class="pn-label">Next</div><div class="pn-title">Corporate Accounts <span class="pn-chevron">›</span></div></div>
+  </div>
+</div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- PAGE: CORPORATE ACCOUNTS                    -->
+<!-- ════════════════════════════════════════════ -->
+<div class="page-section" id="page-corporate-accounts">
+<div class="content-inner">
+  <div class="breadcrumb"><a class="breadcrumb-link" onclick="navigateTo('intro')">HOW TO USE POWERTRADE</a></div>
+  <div class="content-header">
+    <div><h1 class="page-title">Corporate Accounts on PowerTrade</h1><p class="page-desc">Institutional trading setup and corporate account management.</p></div>
+    <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
+  </div>
+  <p class="content-text">Content coming soon...</p>
+  <div class="still-questions"><h2>Still have questions?</h2><p>💬 <strong>Email Support:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p><p>💬 <strong>Telegram 24/7 Desk:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">https://t.me/power_trade</a></p></div>
+  <div class="prev-next">
+    <div class="pn-card pn-prev" onclick="navigateTo('account-verification')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> Account Verification</div></div>
+    <div class="pn-card pn-next" onclick="navigateTo('fees')"><div class="pn-label">Next</div><div class="pn-title">Trading Fees <span class="pn-chevron">›</span></div></div>
+  </div>
+</div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- PAGE: FEES                                  -->
+<!-- ════════════════════════════════════════════ -->
+<div class="page-section" id="page-fees">
+<div class="content-inner">
+  <div class="breadcrumb"><a class="breadcrumb-link" onclick="navigateTo('intro')">HOW TO USE POWERTRADE</a></div>
+  <div class="content-header">
+    <div><h1 class="page-title">PowerTrade Trading Fees</h1><p class="page-desc">Fee structure for options, perpetuals, futures & spot trading.</p></div>
+    <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
+  </div>
+  <p class="content-text">Content coming soon...</p>
+  <div class="still-questions"><h2>Still have questions?</h2><p>💬 <strong>Email Support:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p><p>💬 <strong>Telegram 24/7 Desk:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">https://t.me/power_trade</a></p></div>
+  <div class="prev-next">
+    <div class="pn-card pn-prev" onclick="navigateTo('corporate-accounts')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> Corporate Accounts</div></div>
+    <div class="pn-card pn-next" onclick="navigateTo('options')"><div class="pn-label">Next</div><div class="pn-title">Options Trading <span class="pn-chevron">›</span></div></div>
+  </div>
+</div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- PAGE: OPTIONS                               -->
+<!-- ════════════════════════════════════════════ -->
+<div class="page-section" id="page-options">
+<div class="content-inner">
+  <div class="breadcrumb">
+    <a class="breadcrumb-link" onclick="navigateTo('intro')">TRADING</a>
+  </div>
+  <div class="content-header">
+    <div>
+      <h1 class="page-title">Options Trading on PowerTrade</h1>
+      <p class="page-desc">Learn to trade crypto options. Calls, puts, spreads & hedges for BTC, ETH and 80+ altcoin markets.</p>
+    </div>
+    <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
+  </div>
+
+  <h2 class="section-header" id="opt-what">What Are Crypto Options?</h2>
+  <p class="content-text">Crypto options are financial derivatives that give traders the right, but not the obligation, to buy or sell an underlying cryptocurrency at a fixed price (the strike price) on or before a specific date.</p>
+  <p class="content-text">Unlike spot trading or perpetual futures, options allow you to limit your downside while keeping unlimited upside potential. On PowerTrade, all options are European-style and settled in USDC.</p>
+
+  <h2 class="section-header" id="opt-calls">Call Options</h2>
+  <p class="content-text">A call option gives the buyer the right (not the obligation) to buy the cryptocurrency at the strike price.</p>
+  <ul class="content-list">
+    <li>Traders buy calls when they expect the crypto price to rise</li>
+    <li>Profit potential is unlimited if the price moves above the strike price</li>
+  </ul>
+  <p class="content-text"><strong>Example:</strong> A trader buys a BTC call option with a $50,000 strike price. If BTC rises to $55,000 before expiry, the trader can buy at $50,000 and capture the $5,000 difference (minus the premium).</p>
+
+  <h2 class="section-header" id="opt-puts">Put Options</h2>
+  <p class="content-text">A put option gives the buyer the right (not the obligation) to sell the cryptocurrency at the strike price.</p>
+  <ul class="content-list">
+    <li>Traders buy puts when they expect the crypto price to fall</li>
+    <li>Useful for hedging against downside risk</li>
+  </ul>
+  <p class="content-text"><strong>Example:</strong> A trader buys an ETH put option with a $3,000 strike price. If ETH drops to $2,500, the trader can sell at $3,000, profiting $500 (minus the premium).</p>
+
+  <h2 class="section-header" id="opt-european">European Style Options</h2>
+  <p class="content-text">PowerTrade offers European-style options, which can only be exercised at the expiration date. This structure:</p>
+  <ul class="content-list">
+    <li>Prevents early exercise risk</li>
+    <li>Simplifies strategy planning</li>
+    <li>Keeps the focus on price moves up to expiry</li>
+  </ul>
+
+  <h2 class="section-header" id="opt-usdc">USDC Cash-Settled Options</h2>
+  <p class="content-text">All PowerTrade options are cash-settled in USDC:</p>
+  <ul class="content-list">
+    <li>No need to hold BTC, ETH, or altcoins directly</li>
+    <li>Settlement in stable USDC makes it easy to manage profits and losses</li>
+    <li>Reduces custody risk compared to physically settled options</li>
+  </ul>
+
+  <h2 class="section-header" id="opt-why">Why Trade Options on PowerTrade?</h2>
+  <ul class="content-list check-list">
+    <li>✅ <strong>80+ altcoin options markets</strong> (the most in crypto)</li>
+    <li>✅ <strong>Tight pricing & deep liquidity</strong></li>
+    <li>✅ <strong>Risk-defined strategies</strong> with capped downside</li>
+    <li>✅ <strong>Flexible expirations</strong> — daily to 3 months forward</li>
+    <li>✅ <strong>Simple settlement in USDC</strong></li>
+  </ul>
+
+  <div class="still-questions">
+    <h2>Still have questions?</h2>
+    <p>💬 <strong>Email Support:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p>
+    <p>💬 <strong>Telegram 24/7 Desk:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">https://t.me/power_trade</a></p>
+    <p>🚀 <strong>Start Trading:</strong> <a href="https://app.power.trade" class="ext-link" target="_blank">PowerTrade App</a></p>
+  </div>
+  <div class="prev-next">
+    <div class="pn-card pn-prev" onclick="navigateTo('fees')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> Trading Fees</div></div>
+    <div class="pn-card pn-next" onclick="navigateTo('futures')"><div class="pn-label">Next</div><div class="pn-title">Futures <span class="pn-chevron">›</span></div></div>
+  </div>
+</div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- PAGE: FUTURES                               -->
+<!-- ════════════════════════════════════════════ -->
+<div class="page-section" id="page-futures">
+<div class="content-inner">
+  <div class="breadcrumb"><a class="breadcrumb-link" onclick="navigateTo('intro')">TRADING</a></div>
+  <div class="content-header">
+    <div><h1 class="page-title">Futures Trading</h1><p class="page-desc">Trade crypto futures on PowerTrade with deep liquidity and competitive fees.</p></div>
+    <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
+  </div>
+  <p class="content-text">Content coming soon...</p>
+  <div class="still-questions"><h2>Still have questions?</h2><p>💬 <strong>Email Support:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p><p>💬 <strong>Telegram 24/7 Desk:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">https://t.me/power_trade</a></p></div>
+  <div class="prev-next">
+    <div class="pn-card pn-prev" onclick="navigateTo('options')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> Options</div></div>
+    <div class="pn-card pn-next" onclick="navigateTo('perpetuals')"><div class="pn-label">Next</div><div class="pn-title">Perpetuals <span class="pn-chevron">›</span></div></div>
+  </div>
+</div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- PAGE: PERPETUALS                            -->
+<!-- ════════════════════════════════════════════ -->
+<div class="page-section" id="page-perpetuals">
+<div class="content-inner">
+  <div class="breadcrumb"><a class="breadcrumb-link" onclick="navigateTo('intro')">TRADING</a></div>
+  <div class="content-header">
+    <div><h1 class="page-title">Perpetual Contracts</h1><p class="page-desc">Trade perpetual contracts on PowerTrade with no expiration dates.</p></div>
+    <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
+  </div>
+  <p class="content-text">Content coming soon...</p>
+  <div class="still-questions"><h2>Still have questions?</h2><p>💬 <strong>Email Support:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p><p>💬 <strong>Telegram 24/7 Desk:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">https://t.me/power_trade</a></p></div>
+  <div class="prev-next">
+    <div class="pn-card pn-prev" onclick="navigateTo('futures')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> Futures</div></div>
+    <div class="pn-card pn-next" onclick="navigateTo('spot')"><div class="pn-label">Next</div><div class="pn-title">Spot Trading <span class="pn-chevron">›</span></div></div>
+  </div>
+</div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- PAGE: SPOT                                  -->
+<!-- ════════════════════════════════════════════ -->
+<div class="page-section" id="page-spot">
+<div class="content-inner">
+  <div class="breadcrumb"><a class="breadcrumb-link" onclick="navigateTo('intro')">TRADING</a></div>
+  <div class="content-header">
+    <div><h1 class="page-title">Spot Trading</h1><p class="page-desc">Buy and sell crypto directly on PowerTrade's spot markets.</p></div>
+    <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
+  </div>
+  <p class="content-text">Content coming soon...</p>
+  <div class="still-questions"><h2>Still have questions?</h2><p>💬 <strong>Email Support:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p><p>💬 <strong>Telegram 24/7 Desk:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">https://t.me/power_trade</a></p></div>
+  <div class="prev-next">
+    <div class="pn-card pn-prev" onclick="navigateTo('perpetuals')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> Perpetuals</div></div>
+    <div class="pn-card pn-next" onclick="navigateTo('margin-and-liquidation')"><div class="pn-label">Next</div><div class="pn-title">Margin & Liquidation <span class="pn-chevron">›</span></div></div>
+  </div>
+</div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- PAGE: MARGIN & LIQUIDATION                  -->
+<!-- ════════════════════════════════════════════ -->
+<div class="page-section" id="page-margin-and-liquidation">
+<div class="content-inner">
+  <div class="breadcrumb"><a class="breadcrumb-link" onclick="navigateTo('intro')">TRADING</a></div>
+  <div class="content-header">
+    <div><h1 class="page-title">Margin & Liquidation</h1><p class="page-desc">Understanding margin requirements and liquidation on PowerTrade.</p></div>
+    <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
+  </div>
+  <p class="content-text">Content coming soon...</p>
+  <div class="still-questions"><h2>Still have questions?</h2><p>💬 <strong>Email Support:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p><p>💬 <strong>Telegram 24/7 Desk:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">https://t.me/power_trade</a></p></div>
+  <div class="prev-next">
+    <div class="pn-card pn-prev" onclick="navigateTo('spot')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> Spot</div></div>
+    <div class="pn-card pn-next" onclick="navigateTo('xstocks')"><div class="pn-label">Next</div><div class="pn-title">xStocks <span class="pn-chevron">›</span></div></div>
+  </div>
+</div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- PAGE: XSTOCKS                               -->
+<!-- ════════════════════════════════════════════ -->
+<div class="page-section" id="page-xstocks">
+<div class="content-inner">
+  <div class="breadcrumb"><a class="breadcrumb-link" onclick="navigateTo('intro')">TRADING</a></div>
+  <div class="content-header">
+    <div><h1 class="page-title">xStocks Tokenized Stocks</h1><p class="page-desc">Trade tokenized stocks on the blockchain through PowerTrade.</p></div>
+    <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
+  </div>
+  <p class="content-text">Content coming soon...</p>
+  <div class="still-questions"><h2>Still have questions?</h2><p>💬 <strong>Email Support:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p><p>💬 <strong>Telegram 24/7 Desk:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">https://t.me/power_trade</a></p></div>
+  <div class="prev-next">
+    <div class="pn-card pn-prev" onclick="navigateTo('margin-and-liquidation')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> Margin & Liquidation</div></div>
+    <div class="pn-card pn-next" onclick="navigateTo('api')"><div class="pn-label">Next</div><div class="pn-title">API Overview <span class="pn-chevron">›</span></div></div>
+  </div>
+</div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- PAGE: API                                   -->
+<!-- ════════════════════════════════════════════ -->
+<div class="page-section" id="page-api">
+<div class="content-inner">
+  <div class="breadcrumb"><a class="breadcrumb-link" onclick="navigateTo('intro')">API</a></div>
+  <div class="content-header">
+    <div>
+      <h1 class="page-title">PowerTrade API Overview</h1>
+      <p class="page-desc">Automate your crypto options trading with the PowerTrade API. Access markets, place orders, and manage positions programmatically.</p>
+    </div>
+    <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
+  </div>
+
+  <h2 class="section-header" id="api-generate">Generate an API Key and Private Key</h2>
+  <p class="content-text">To start using the PowerTrade API, you'll need to generate an API key pair from the PowerTrade application:</p>
+  <ol class="content-list">
+    <li>Log in to <a href="https://app.power.trade/api-keys" class="ext-link" target="_blank">PowerTrade</a></li>
+    <li>Navigate to <strong>Settings → API Keys</strong></li>
+    <li>Click <strong>"Create New API Key"</strong></li>
+    <li>Save your <code class="inline-code">api_key</code> and <code class="inline-code">private_key</code> securely — the private key is only shown once</li>
+  </ol>
+  <p class="content-text"><strong>Important:</strong> Store your <code class="inline-code">private_key</code> securely. It cannot be retrieved after creation.</p>
+
+  <h2 class="section-header" id="api-jwt">Generate an Access Token — JWT</h2>
+  <p class="content-text">The PowerTrade API uses JWT (JSON Web Tokens) signed with <code class="inline-code">ES256</code> for authentication. Here's how to generate one:</p>
+
+  <div class="code-block">
+    <pre><span class="kw">import</span> jwt
+<span class="kw">import</span> time
+<span class="kw">import</span> uuid
+
+api_key = <span class="str">"your_api_key"</span>
+private_key = <span class="str">"your_private_key"</span>
+
+payload = {
+    <span class="str">"sub"</span>: api_key,
+    <span class="str">"iat"</span>: <span class="fn">int</span>(<span class="fn">time.time</span>()),
+    <span class="str">"exp"</span>: <span class="fn">int</span>(<span class="fn">time.time</span>()) + <span class="fn">3600</span>,
+    <span class="str">"jti"</span>: <span class="fn">str</span>(<span class="fn">uuid.uuid4</span>())
+}
+
+jwt_token = jwt.<span class="fn">encode</span>(
+    payload,
+    private_key,
+    algorithm=<span class="str">"ES256"</span>
+)
+
+<span class="fn">print</span>(<span class="str">f"Token: </span>{jwt_token}<span class="str">"</span>)</pre>
+    <div class="code-accent-bar"></div>
+  </div>
+
+  <h2 class="section-header" id="api-endpoints">API Endpoints</h2>
+  <p class="content-text">The PowerTrade API provides the following base endpoints:</p>
+  <ul class="content-list">
+    <li><strong>REST API:</strong> <code class="inline-code">https://api.power.trade/v1/</code></li>
+    <li><strong>WebSocket:</strong> <code class="inline-code">wss://api.power.trade/v1/ws</code></li>
+  </ul>
+
+  <h2 class="section-header" id="api-auth-header">Authentication Header</h2>
+  <p class="content-text">Include the JWT token in your request headers:</p>
+
+  <div class="code-block">
+    <pre>Authorization: Bearer <span class="str">&lt;your_jwt_token&gt;</span>
+Content-Type: application/json</pre>
+    <div class="code-accent-bar"></div>
+  </div>
+
+  <div class="still-questions">
+    <h2>Still have questions?</h2>
+    <p>💬 <strong>Email Support:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p>
+    <p>💬 <strong>Telegram 24/7 Desk:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">https://t.me/power_trade</a></p>
+  </div>
+  <div class="prev-next">
+    <div class="pn-card pn-prev" onclick="navigateTo('xstocks')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> xStocks</div></div>
+    <div class="pn-card pn-next" onclick="navigateTo('legal-and-privacy')"><div class="pn-label">Next</div><div class="pn-title">Legal & Privacy <span class="pn-chevron">›</span></div></div>
+  </div>
+</div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- PAGE: LEGAL & PRIVACY                       -->
+<!-- ════════════════════════════════════════════ -->
+<div class="page-section" id="page-legal-and-privacy">
+<div class="content-inner">
+  <div class="breadcrumb"><a class="breadcrumb-link" onclick="navigateTo('intro')">LEGAL</a></div>
+  <div class="content-header">
+    <div><h1 class="page-title">Legal & Privacy Policies</h1><p class="page-desc">Terms, conditions, and privacy policies for PowerTrade.</p></div>
+    <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
+  </div>
+  <p class="content-text">Content coming soon...</p>
+  <div class="still-questions"><h2>Still have questions?</h2><p>💬 <strong>Email Support:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p><p>💬 <strong>Telegram 24/7 Desk:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">https://t.me/power_trade</a></p></div>
+  <div class="prev-next">
+    <div class="pn-card pn-prev" onclick="navigateTo('api')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> API Overview</div></div>
+    <div class="pn-card pn-next" onclick="navigateTo('country-availability')"><div class="pn-label">Next</div><div class="pn-title">Country Availability <span class="pn-chevron">›</span></div></div>
+  </div>
+</div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- PAGE: COUNTRY AVAILABILITY                  -->
+<!-- ════════════════════════════════════════════ -->
+<div class="page-section" id="page-country-availability">
+<div class="content-inner">
+  <div class="breadcrumb"><a class="breadcrumb-link" onclick="navigateTo('intro')">LEGAL</a></div>
+  <div class="content-header">
+    <div><h1 class="page-title">Country Availability</h1><p class="page-desc">Supported jurisdictions and country restrictions for PowerTrade.</p></div>
+    <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
+  </div>
+  <p class="content-text">Content coming soon...</p>
+  <div class="still-questions"><h2>Still have questions?</h2><p>💬 <strong>Email Support:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p><p>💬 <strong>Telegram 24/7 Desk:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">https://t.me/power_trade</a></p></div>
+  <div class="prev-next">
+    <div class="pn-card pn-prev" onclick="navigateTo('legal-and-privacy')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> Legal & Privacy</div></div>
+    <div class="pn-card pn-next" onclick="navigateTo('risk-disclosure')"><div class="pn-label">Next</div><div class="pn-title">Risk Disclosure <span class="pn-chevron">›</span></div></div>
+  </div>
+</div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- PAGE: RISK DISCLOSURE                       -->
+<!-- ════════════════════════════════════════════ -->
+<div class="page-section" id="page-risk-disclosure">
+<div class="content-inner">
+  <div class="breadcrumb"><a class="breadcrumb-link" onclick="navigateTo('intro')">LEGAL</a></div>
+  <div class="content-header">
+    <div><h1 class="page-title">Risk Disclosure</h1><p class="page-desc">Important information about trading risks and warnings.</p></div>
+    <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
+  </div>
+  <p class="content-text">Content coming soon...</p>
+  <div class="still-questions"><h2>Still have questions?</h2><p>💬 <strong>Email Support:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p><p>💬 <strong>Telegram 24/7 Desk:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">https://t.me/power_trade</a></p></div>
+  <div class="prev-next">
+    <div class="pn-card pn-prev" onclick="navigateTo('country-availability')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> Country Availability</div></div>
+    <div class="pn-card pn-next" onclick="navigateTo('security')"><div class="pn-label">Next</div><div class="pn-title">Security <span class="pn-chevron">›</span></div></div>
+  </div>
+</div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- PAGE: SECURITY                              -->
+<!-- ════════════════════════════════════════════ -->
+<div class="page-section" id="page-security">
+<div class="content-inner">
+  <div class="breadcrumb"><a class="breadcrumb-link" onclick="navigateTo('intro')">LEGAL</a></div>
+  <div class="content-header">
+    <div><h1 class="page-title">Security</h1><p class="page-desc">Platform security measures and how PowerTrade protects your assets.</p></div>
+    <button class="copy-btn" onclick="copyPage()">📋 Copy <span style="font-size:10px;margin-left:2px">▾</span></button>
+  </div>
+  <p class="content-text">Content coming soon...</p>
+  <div class="still-questions"><h2>Still have questions?</h2><p>💬 <strong>Email Support:</strong> <a href="mailto:support@power.trade" class="ext-link">support@power.trade</a></p><p>💬 <strong>Telegram 24/7 Desk:</strong> <a href="https://t.me/power_trade" class="ext-link" target="_blank">https://t.me/power_trade</a></p></div>
+  <div class="prev-next">
+    <div class="pn-card pn-prev" onclick="navigateTo('risk-disclosure')"><div class="pn-label">Previous</div><div class="pn-title"><span class="pn-chevron">‹</span> Risk Disclosure</div></div>
+    <div class="pn-card pn-next" onclick="navigateTo('intro')"><div class="pn-label">Next</div><div class="pn-title">Home <span class="pn-chevron">›</span></div></div>
+  </div>
+</div>
+</div>
+
+</main>
+
+<!-- ═══ RIGHT SIDEBAR ═══ -->
+<aside class="right-sidebar" id="rightSidebar">
+  <div id="tocContent"></div>
+  <div class="toc-divider"></div>
+  <div class="helpful-section">
+    <div class="helpful-label">Was this helpful?</div>
+    <div class="helpful-emojis">
+      <button class="helpful-btn" title="Yes" onclick="this.style.borderColor='var(--accent)'">😀</button>
+      <button class="helpful-btn" title="Somewhat" onclick="this.style.borderColor='var(--accent)'">😐</button>
+      <button class="helpful-btn" title="No" onclick="this.style.borderColor='var(--accent)'">😞</button>
+    </div>
+  </div>
+</aside>
+
+</div><!-- main-wrap -->
+</div><!-- body-wrap -->
+</div><!-- layout -->
+
+<!-- ═══ SEARCH MODAL ═══ -->
+<div class="search-modal-overlay" id="searchOverlay" onclick="if(event.target===this)closeSearch()">
+  <div class="search-modal">
+    <input class="search-modal-input" id="searchInput" placeholder="Search documentation..." autofocus oninput="filterSearch(this.value)">
+    <div class="search-results" id="searchResults"></div>
+  </div>
+</div>
+
+<!-- ═══ EXTERNAL LINK TOOLTIP ═══ -->
+<div class="ext-tooltip" id="extTooltip">
+  <div class="ext-tooltip-label">EXTERNAL LINK TO ↗</div>
+  <div class="ext-tooltip-url" id="extTooltipUrl"></div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════
+// PAGE REGISTRY
+// ═══════════════════════════════════════════
+const pages = [
+  { id: 'intro', title: 'Power Trade Guides and FAQ', cat: '', toc: ['How to use PowerTrade', 'Trading', 'Legal'] },
+  { id: 'getting-started', title: 'Getting Started', cat: 'how-to-use', toc: ['What is PowerTrade?', 'Services we offer', 'Where to find the PowerTrade app', 'Next Steps'] },
+  { id: 'login', title: 'PowerTrade Login Help', cat: 'how-to-use', toc: [] },
+  { id: 'email-issues', title: 'Fix Email Issues', cat: 'how-to-use', toc: [] },
+  { id: 'subaccounts', title: 'Subaccounts', cat: 'how-to-use', toc: [] },
+  { id: 'security-tips', title: 'Security Tips', cat: 'how-to-use', toc: [] },
+  { id: 'deposits', title: 'Deposits on PowerTrade', cat: 'how-to-use', toc: ['Supported Assets', 'How to Deposit (Web)', 'How to Deposit (Mobile)', 'Confirmation', 'Troubleshooting Delayed Deposits'] },
+  { id: 'withdrawals', title: 'Withdrawals', cat: 'how-to-use', toc: [] },
+  { id: 'account-verification', title: 'Account Verification', cat: 'how-to-use', toc: [] },
+  { id: 'corporate-accounts', title: 'Corporate Accounts', cat: 'how-to-use', toc: [] },
+  { id: 'fees', title: 'Trading Fees', cat: 'how-to-use', toc: [] },
+  { id: 'options', title: 'Options Trading', cat: 'trading', toc: ['What Are Crypto Options?', 'Call Options', 'Put Options', 'European Style Options', 'USDC Cash-Settled Options', 'Why Trade Options on PowerTrade?'] },
+  { id: 'futures', title: 'Futures Trading', cat: 'trading', toc: [] },
+  { id: 'perpetuals', title: 'Perpetual Contracts', cat: 'trading', toc: [] },
+  { id: 'spot', title: 'Spot Trading', cat: 'trading', toc: [] },
+  { id: 'margin-and-liquidation', title: 'Margin & Liquidation', cat: 'trading', toc: [] },
+  { id: 'xstocks', title: 'xStocks Tokenized Stocks', cat: 'trading', toc: [] },
+  { id: 'api', title: 'PowerTrade API Overview', cat: 'api', toc: ['Generate an API Key and Private Key', 'Generate an Access Token — JWT', 'API Endpoints', 'Authentication Header'] },
+  { id: 'legal-and-privacy', title: 'Legal & Privacy Policies', cat: 'legal', toc: [] },
+  { id: 'country-availability', title: 'Country Availability', cat: 'legal', toc: [] },
+  { id: 'risk-disclosure', title: 'Risk Disclosure', cat: 'legal', toc: [] },
+  { id: 'security', title: 'Security', cat: 'legal', toc: [] },
+];
+
+let currentPage = 'intro';
+
+function navigateTo(pageId) {
+  closeSearch();
+  // Hide all pages
+  document.querySelectorAll('.page-section').forEach(p => p.classList.remove('active'));
+  // Show target page
+  const target = document.getElementById('page-' + pageId);
+  if (target) target.classList.add('active');
+  currentPage = pageId;
+
+  // Update sidebar active state
+  document.querySelectorAll('.sidebar-item').forEach(item => {
+    item.classList.toggle('active', item.dataset.page === pageId);
+  });
+
+  // Update right sidebar TOC
+  updateTOC(pageId);
+
+  // Scroll content to top
+  document.getElementById('contentArea').scrollTop = 0;
+
+  // Update URL hash
+  if (pageId !== 'intro') {
+    history.replaceState(null, '', '#' + pageId);
+  } else {
+    history.replaceState(null, '', window.location.pathname);
+  }
+}
+
+function updateTOC(pageId) {
+  const page = pages.find(p => p.id === pageId);
+  const tocEl = document.getElementById('tocContent');
+  if (!page || page.toc.length === 0) {
+    tocEl.innerHTML = '<div class="toc-item" style="color:var(--text-primary);font-weight:500;margin-bottom:8px">' + (page ? page.title : '') + '</div>';
+    return;
+  }
+
+  let html = '';
+  page.toc.forEach((item, i) => {
+    html += '<a class="toc-item' + (i === 0 ? ' active' : '') + '" onclick="scrollToSection(this)">' + item + '</a>';
+  });
+  html += '<a class="toc-item" style="margin-top:8px">Still have questions?</a>';
+  tocEl.innerHTML = html;
+}
+
+function scrollToSection(el) {
+  // Update active toc item
+  el.parentElement.querySelectorAll('.toc-item').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+}
+
+// ═══════════════════════════════════════════
+// SEARCH
+// ═══════════════════════════════════════════
+function openSearch() {
+  document.getElementById('searchOverlay').classList.add('open');
+  setTimeout(() => document.getElementById('searchInput').focus(), 50);
+  filterSearch('');
+}
+
+function closeSearch() {
+  document.getElementById('searchOverlay').classList.remove('open');
+  document.getElementById('searchInput').value = '';
+}
+
+function filterSearch(query) {
+  const resultsEl = document.getElementById('searchResults');
+  const q = query.toLowerCase().trim();
+
+  if (!q) {
+    let html = '';
+    pages.forEach(p => {
+      const catLabel = p.cat ? p.cat.replace(/-/g, ' ').replace('how to use', 'How to use PowerTrade').replace('trading', 'Trading').replace('api', 'API').replace('legal', 'Legal') : 'Home';
+      html += '<div class="search-result-item" onclick="navigateTo(\'' + p.id + '\')"><div class="sr-title">' + p.title + '</div><div class="sr-cat">' + catLabel + '</div></div>';
+    });
+    resultsEl.innerHTML = html;
+    return;
+  }
+
+  const matches = pages.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    p.toc.some(t => t.toLowerCase().includes(q)) ||
+    p.cat.toLowerCase().includes(q)
+  );
+
+  if (matches.length === 0) {
+    resultsEl.innerHTML = '<div class="search-no-results">No results found for "' + query + '"</div>';
+    return;
+  }
+
+  let html = '';
+  matches.forEach(p => {
+    const catLabel = p.cat ? p.cat.replace(/-/g, ' ') : 'Home';
+    html += '<div class="search-result-item" onclick="navigateTo(\'' + p.id + '\')"><div class="sr-title">' + p.title + '</div><div class="sr-cat">' + catLabel + '</div></div>';
+  });
+  resultsEl.innerHTML = html;
+}
+
+// Ctrl+K shortcut
+document.addEventListener('keydown', (e) => {
+  if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+    e.preventDefault();
+    openSearch();
+  }
+  if (e.key === 'Escape') closeSearch();
+});
+
+// ═══════════════════════════════════════════
+// EXTERNAL LINK TOOLTIPS
+// ═══════════════════════════════════════════
+const tooltip = document.getElementById('extTooltip');
+const tooltipUrl = document.getElementById('extTooltipUrl');
+
+document.addEventListener('mouseover', (e) => {
+  const link = e.target.closest('a.ext-link[href]');
+  if (link && link.href && (link.href.startsWith('http') || link.href.startsWith('mailto'))) {
+    tooltipUrl.textContent = link.href;
+    const rect = link.getBoundingClientRect();
+    tooltip.style.left = Math.min(rect.left, window.innerWidth - 340) + 'px';
+    tooltip.style.top = (rect.bottom + 8) + 'px';
+    tooltip.classList.add('show');
+  }
+});
+
+document.addEventListener('mouseout', (e) => {
+  if (e.target.closest('a.ext-link')) {
+    tooltip.classList.remove('show');
+  }
+});
+
+// ═══════════════════════════════════════════
+// COPY PAGE
+// ═══════════════════════════════════════════
+function copyPage() {
+  const activePage = document.querySelector('.page-section.active .content-inner');
+  if (activePage) {
+    const text = activePage.innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      // Brief visual feedback
+    }).catch(() => {});
+  }
+}
+
+// ═══════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════
+(function init() {
+  // Handle hash navigation
+  const hash = window.location.hash.slice(1);
+  if (hash && pages.find(p => p.id === hash)) {
+    navigateTo(hash);
+  } else {
+    navigateTo('intro');
+  }
+})();
+</script>
+
+</body>
+</html>
