@@ -293,6 +293,8 @@ html, body {
 .page-content table[data-view="cards"] tr:hover { border-color: var(--accent); background: rgba(191,255,0,0.04); }
 .page-content table[data-view="cards"] td { border: none; padding: 0; text-align: center; width: 100%; }
 .page-content table[data-view="cards"] td[data-hidden] { display: none; }
+.page-content table[data-view="cards"] td:last-child:not(:first-child) { display: none; }
+.page-content table[data-view="cards"] tr { cursor: pointer; }
 </style>
 </head>
 <body>
@@ -16593,6 +16595,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
+  // Make card table rows clickable
+  document.querySelectorAll('table[data-view="cards"] tbody tr').forEach(function(tr) {
+    var link = tr.querySelector('a[onclick*="navigateTo"]');
+    if (link) {
+      tr.addEventListener('click', function() { link.click(); });
+    }
+  });
+
   // Style sub-page navigation lists as cards
   document.querySelectorAll('.page-content').forEach(function(page) {
     var uls = page.querySelectorAll('ul');
