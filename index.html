@@ -307,6 +307,11 @@ html, body {
 .page-content table[data-view="cards"] td[data-hidden] { display: none; }
 table[data-view="cards"] td:last-child:not(:first-child), table[data-view="cards"] td[data-hidden] { display: none !important; } table[data-view="cards"] thead { display: none !important; } table[data-view="cards"] tr { cursor: pointer; background: var(--bg-input); border: 1px solid var(--border-card); border-radius: 8px; padding: 20px; text-align: center; display: flex; align-items: center; justify-content: center; min-height: 70px; } table[data-view="cards"] tr:hover { border-color: var(--accent); background: #222; } table[data-view="cards"] tbody { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; } table[data-view="cards"] td:first-child { display: block; }
 .page-content table[data-view="cards"] tr { cursor: pointer; }
+
+.nav-item.nav-leaf { font-size: 13px; color: var(--text-muted); }
+.nav-item.nav-leaf:hover { color: var(--text-primary); }
+.nav-item.nav-leaf.active { color: var(--accent) !important; }
+.nav-children { border-left: 1px solid var(--border-divider); margin-left: 20px; }
 </style>
 </head>
 <body>
@@ -338,150 +343,150 @@ table[data-view="cards"] td:last-child:not(:first-child), table[data-view="cards
 <div class="nav-group" data-depth="0">
   <div class="nav-item nav-parent" data-page="/how-to-use-powertrade/getting-started" style="padding-left:12px"><span class="nav-toggle open">▾</span>Getting Started</div>
   <div class="nav-children" style="display:block">
-<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/getting-started/what-is-powertrade" style="padding-left:28px">What is PowerTrade</div>
-<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/getting-started/signing-up-for-a-new-account" style="padding-left:28px">Signing Up for a New Account</div>
-<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/getting-started/verify-the-account" style="padding-left:28px">Verify the Account</div>
+<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/getting-started/what-is-powertrade" style="padding-left:40px">What is PowerTrade</div>
+<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/getting-started/signing-up-for-a-new-account" style="padding-left:40px">Signing Up for a New Account</div>
+<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/getting-started/verify-the-account" style="padding-left:40px">Verify the Account</div>
   </div>
 </div>
 <div class="nav-group" data-depth="0">
   <div class="nav-item nav-parent" data-page="/how-to-use-powertrade/login" style="padding-left:12px"><span class="nav-toggle open">▾</span>Login</div>
   <div class="nav-children" style="display:block">
-<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/login/signing-in-to-your-account" style="padding-left:28px">Signing In to Your Account</div>
-<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/login/common-login-issues" style="padding-left:28px">Common Login Issues</div>
+<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/login/signing-in-to-your-account" style="padding-left:40px">Signing In to Your Account</div>
+<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/login/common-login-issues" style="padding-left:40px">Common Login Issues</div>
   </div>
 </div>
 <div class="nav-group" data-depth="0">
   <div class="nav-item nav-parent" data-page="/how-to-use-powertrade/email-issues" style="padding-left:12px"><span class="nav-toggle open">▾</span>Email Issues</div>
   <div class="nav-children" style="display:block">
-<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/email-issues/not-receiving-emails" style="padding-left:28px">Not Receiving Emails</div>
+<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/email-issues/not-receiving-emails" style="padding-left:40px">Not Receiving Emails</div>
   </div>
 </div>
 <div class="nav-group" data-depth="0">
   <div class="nav-item nav-parent" data-page="/how-to-use-powertrade/subaccounts" style="padding-left:12px"><span class="nav-toggle open">▾</span>Subaccounts</div>
   <div class="nav-children" style="display:block">
-<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/subaccounts/subaccounts-overview" style="padding-left:28px">Subaccounts Overview</div>
-<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/subaccounts/web-creating-managing-subaccounts" style="padding-left:28px">Web: Creating & Managing</div>
-<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/subaccounts/web-funding-subaccounts" style="padding-left:28px">Web: Funding Subaccounts</div>
-<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/subaccounts/mobile-creating-managing-subaccounts" style="padding-left:28px">Mobile: Creating & Managing</div>
-<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/subaccounts/mobile-funding-subaccounts" style="padding-left:28px">Mobile: Funding Subaccounts</div>
+<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/subaccounts/subaccounts-overview" style="padding-left:40px">Subaccounts Overview</div>
+<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/subaccounts/web-creating-managing-subaccounts" style="padding-left:40px">Web: Creating & Managing</div>
+<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/subaccounts/web-funding-subaccounts" style="padding-left:40px">Web: Funding Subaccounts</div>
+<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/subaccounts/mobile-creating-managing-subaccounts" style="padding-left:40px">Mobile: Creating & Managing</div>
+<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/subaccounts/mobile-funding-subaccounts" style="padding-left:40px">Mobile: Funding Subaccounts</div>
   </div>
 </div>
 <div class="nav-group" data-depth="0">
   <div class="nav-item nav-parent" data-page="/how-to-use-powertrade/deposits" style="padding-left:12px"><span class="nav-toggle open">▾</span>Deposits</div>
   <div class="nav-children" style="display:block">
-<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/deposits/depositing-on-web" style="padding-left:28px">Depositing on Web</div>
-<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/deposits/depositing-on-mobile" style="padding-left:28px">Depositing on Mobile</div>
-<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/deposits/my-deposit-is-delayed" style="padding-left:28px">My Deposit is Delayed</div>
+<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/deposits/depositing-on-web" style="padding-left:40px">Depositing on Web</div>
+<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/deposits/depositing-on-mobile" style="padding-left:40px">Depositing on Mobile</div>
+<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/deposits/my-deposit-is-delayed" style="padding-left:40px">My Deposit is Delayed</div>
   </div>
 </div>
 <div class="nav-group" data-depth="0">
   <div class="nav-item nav-parent" data-page="/how-to-use-powertrade/withdrawals" style="padding-left:12px"><span class="nav-toggle open">▾</span>Withdrawals</div>
   <div class="nav-children" style="display:block">
-<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/withdrawals/withdrawing-on-web" style="padding-left:28px">Withdrawing on Web</div>
+<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/withdrawals/withdrawing-on-web" style="padding-left:40px">Withdrawing on Web</div>
   </div>
 </div>
 <div class="nav-group" data-depth="0">
   <div class="nav-item nav-parent" data-page="/how-to-use-powertrade/account-verification" style="padding-left:12px"><span class="nav-toggle open">▾</span>Account Verification</div>
   <div class="nav-children" style="display:block">
-<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/account-verification/proof-of-identity-requirements" style="padding-left:28px">Proof of Identity Requirements</div>
-<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/account-verification/proof-of-address-requirements" style="padding-left:28px">Proof of Address Requirements</div>
-<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/account-verification/account-verification-status-limits" style="padding-left:28px">Account Verification Status & Limits</div>
-<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/account-verification/updating-your-address" style="padding-left:28px">Updating Your Address</div>
+<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/account-verification/proof-of-identity-requirements" style="padding-left:40px">Proof of Identity Requirements</div>
+<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/account-verification/proof-of-address-requirements" style="padding-left:40px">Proof of Address Requirements</div>
+<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/account-verification/account-verification-status-limits" style="padding-left:40px">Account Verification Status & Limits</div>
+<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/account-verification/updating-your-address" style="padding-left:40px">Updating Your Address</div>
   </div>
 </div>
 <div class="nav-group" data-depth="0">
   <div class="nav-item nav-parent" data-page="/how-to-use-powertrade/corporate-accounts" style="padding-left:12px"><span class="nav-toggle open">▾</span>Corporate Accounts</div>
   <div class="nav-children" style="display:block">
-<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/corporate-accounts/institutional-account-verification" style="padding-left:28px">Institutional Account Verification</div>
+<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/corporate-accounts/institutional-account-verification" style="padding-left:40px">Institutional Account Verification</div>
   </div>
 </div>
 <div class="nav-group" data-depth="0">
   <div class="nav-item nav-parent" data-page="/how-to-use-powertrade/fees" style="padding-left:12px"><span class="nav-toggle open">▾</span>Fees</div>
   <div class="nav-children" style="display:block">
-<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/fees/trading-fees" style="padding-left:28px">Trading Fees</div>
-<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/fees/withdrawal-fees-and-minimum" style="padding-left:28px">Withdrawal Fees and Minimum</div>
-<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/fees/cryptocurrency-recovery-fee" style="padding-left:28px">Cryptocurrency Recovery Fee</div>
+<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/fees/trading-fees" style="padding-left:40px">Trading Fees</div>
+<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/fees/withdrawal-fees-and-minimum" style="padding-left:40px">Withdrawal Fees and Minimum</div>
+<div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/fees/cryptocurrency-recovery-fee" style="padding-left:40px">Cryptocurrency Recovery Fee</div>
   </div>
 </div>
 <div class="nav-section-title">TRADING</div>
 <div class="nav-group" data-depth="0">
   <div class="nav-item nav-parent" data-page="/trading/options" style="padding-left:12px"><span class="nav-toggle open">▾</span>Options</div>
   <div class="nav-children" style="display:block">
-<div class="nav-item nav-leaf" data-page="/trading/options/options-introduction" style="padding-left:28px">Options Introduction</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-introduction" style="padding-left:40px">Options Introduction</div>
 <div class="nav-group" data-depth="1">
-  <div class="nav-item nav-parent" data-page="/trading/options/options-contract-specifications" style="padding-left:28px"><span class="nav-toggle open">▾</span>Options Contract Specifications</div>
+  <div class="nav-item nav-parent" data-page="/trading/options/options-contract-specifications" style="padding-left:40px"><span class="nav-toggle open">▾</span>Options Contract Specifications</div>
   <div class="nav-children" style="display:block">
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/ada-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">ADA Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/ada-options-trading-contract-specs-strategies-and-market-insights-on-powertrade-1" style="padding-left:44px">ADA Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/aero-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">AERO Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/aevo-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">AEVO Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/aevo-options-trading-contract-specs-strategies-and-market-insights-on-powertrade-1" style="padding-left:44px">AEVO Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/algo-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">ALGO Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/api3-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">API3 Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/apt-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">APT Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/arb-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">ARB Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/ar-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">AR Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/ath-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">ATH Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/avax-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">AVAX Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/avax-options-trading-contract-specs-strategies-and-market-insights-on-powertrade-1" style="padding-left:44px">AVAX Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/axl-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">AXL Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/axs-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">AXS Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/bch-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">BCH Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/bnb-options-trading-contract-specs-degen-options-and-strategies-on-powertrade" style="padding-left:44px">BNB Options Trading – Specs, DEGEN Options & Strategies</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/bonk-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">BONK Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/btc-options-trading-contract-specs-degen-options-and-strategies-on-powertrade" style="padding-left:44px">BTC Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/doge-options-trading-contract-specs-degen-options-and-strategies-on-powertrade" style="padding-left:44px">DOGE Options Trading – Specs, DEGEN Options & Strategies</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/etc-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">ETC Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/fil-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">FIL Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/gala-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">GALA Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/goat-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">GOAT Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/hbar-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">HBAR Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/hype-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">HYPE Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/hype-options-trading-contract-specs-strategies-and-market-insights-on-powertrade-1" style="padding-left:44px">HYPE Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/imx-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">IMX Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/jup-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">JUP Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/ldo-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">LDO Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/link-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">LINK Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/masa-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">MASA Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/mina-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">MINA Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/mnt-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">MNT Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/morpho-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">MORPHO Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/ondo-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">ONDO Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/op-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">OP Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/ordi-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">ORDI Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/page-16" style="padding-left:44px">FLOKI Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/page-16-1" style="padding-left:44px">STX Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/page-17" style="padding-left:44px">ICP Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/page-19-1" style="padding-left:44px">KAS Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/page-2-1" style="padding-left:44px">ETH Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/page-23-1" style="padding-left:44px">PAXG Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/page-24-1" style="padding-left:44px">TRUMP Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/page-25-1" style="padding-left:44px">MOG Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/page-26-1" style="padding-left:44px">EIGEN Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/page-33" style="padding-left:44px">NEAR Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/page-34" style="padding-left:44px">LTC Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/page-35" style="padding-left:44px">INJ Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/page-42" style="padding-left:44px">PUMP Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/page-9" style="padding-left:44px">ENA Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/pendle-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">PENDLE Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/pepe-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">PEPE Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/pol-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">POL Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/popcat-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">POPCAT Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/pyth-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">PYTH Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/rndr-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">RNDR Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/sei-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">SEI Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/shib-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">SHIB Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/sol-options-trading-contract-specs-degen-options-and-strategies-on-powertrade" style="padding-left:44px">SOL Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/sui-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">SUI Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/taiko-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">TAIKO Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/tao-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">TAO Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/tia-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">TIA Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/ton-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">TON Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/trx-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">TRX Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/virtual-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">VIRTUAL Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/wld-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">WLD Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/xrp-options-trading-contract-specs-degen-options-and-strategies-on-powertrade" style="padding-left:44px">XRP Options</div>
-<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/zro-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">ZRO Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/ada-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">ADA Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/ada-options-trading-contract-specs-strategies-and-market-insights-on-powertrade-1" style="padding-left:56px">ADA Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/aero-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">AERO Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/aevo-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">AEVO Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/aevo-options-trading-contract-specs-strategies-and-market-insights-on-powertrade-1" style="padding-left:56px">AEVO Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/algo-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">ALGO Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/api3-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">API3 Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/apt-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">APT Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/arb-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">ARB Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/ar-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">AR Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/ath-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">ATH Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/avax-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">AVAX Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/avax-options-trading-contract-specs-strategies-and-market-insights-on-powertrade-1" style="padding-left:56px">AVAX Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/axl-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">AXL Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/axs-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">AXS Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/bch-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">BCH Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/bnb-options-trading-contract-specs-degen-options-and-strategies-on-powertrade" style="padding-left:56px">BNB Options Trading – Specs, DEGEN Options & Strategies</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/bonk-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">BONK Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/btc-options-trading-contract-specs-degen-options-and-strategies-on-powertrade" style="padding-left:56px">BTC Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/doge-options-trading-contract-specs-degen-options-and-strategies-on-powertrade" style="padding-left:56px">DOGE Options Trading – Specs, DEGEN Options & Strategies</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/etc-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">ETC Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/fil-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">FIL Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/gala-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">GALA Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/goat-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">GOAT Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/hbar-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">HBAR Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/hype-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">HYPE Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/hype-options-trading-contract-specs-strategies-and-market-insights-on-powertrade-1" style="padding-left:56px">HYPE Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/imx-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">IMX Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/jup-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">JUP Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/ldo-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">LDO Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/link-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">LINK Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/masa-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">MASA Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/mina-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">MINA Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/mnt-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">MNT Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/morpho-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">MORPHO Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/ondo-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">ONDO Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/op-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">OP Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/ordi-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">ORDI Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/page-16" style="padding-left:56px">FLOKI Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/page-16-1" style="padding-left:56px">STX Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/page-17" style="padding-left:56px">ICP Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/page-19-1" style="padding-left:56px">KAS Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/page-2-1" style="padding-left:56px">ETH Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/page-23-1" style="padding-left:56px">PAXG Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/page-24-1" style="padding-left:56px">TRUMP Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/page-25-1" style="padding-left:56px">MOG Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/page-26-1" style="padding-left:56px">EIGEN Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/page-33" style="padding-left:56px">NEAR Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/page-34" style="padding-left:56px">LTC Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/page-35" style="padding-left:56px">INJ Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/page-42" style="padding-left:56px">PUMP Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/page-9" style="padding-left:56px">ENA Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/pendle-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">PENDLE Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/pepe-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">PEPE Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/pol-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">POL Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/popcat-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">POPCAT Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/pyth-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">PYTH Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/rndr-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">RNDR Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/sei-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">SEI Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/shib-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">SHIB Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/sol-options-trading-contract-specs-degen-options-and-strategies-on-powertrade" style="padding-left:56px">SOL Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/sui-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">SUI Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/taiko-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">TAIKO Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/tao-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">TAO Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/tia-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">TIA Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/ton-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">TON Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/trx-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">TRX Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/virtual-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">VIRTUAL Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/wld-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">WLD Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/xrp-options-trading-contract-specs-degen-options-and-strategies-on-powertrade" style="padding-left:56px">XRP Options</div>
+<div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/zro-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:56px">ZRO Options</div>
   </div>
 </div>
   </div>
@@ -489,40 +494,40 @@ table[data-view="cards"] td:last-child:not(:first-child), table[data-view="cards
 <div class="nav-group" data-depth="0">
   <div class="nav-item nav-parent" data-page="/trading/perpetuals" style="padding-left:12px"><span class="nav-toggle open">▾</span>Perpetuals</div>
   <div class="nav-children" style="display:block">
-<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-introduction" style="padding-left:28px">Perpetuals Introduction</div>
-<div class="nav-item nav-leaf" data-page="/trading/perpetuals/full-perpetual-documentation" style="padding-left:28px">Full Perpetual Documentation</div>
-<div class="nav-item nav-leaf" data-page="/trading/perpetuals/powertrade-perpetual-funding-rate-methodology-migration-overview" style="padding-left:28px">Perpetual Funding Rate Methodology</div>
+<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-introduction" style="padding-left:40px">Perpetuals Introduction</div>
+<div class="nav-item nav-leaf" data-page="/trading/perpetuals/full-perpetual-documentation" style="padding-left:40px">Full Perpetual Documentation</div>
+<div class="nav-item nav-leaf" data-page="/trading/perpetuals/powertrade-perpetual-funding-rate-methodology-migration-overview" style="padding-left:40px">Perpetual Funding Rate Methodology</div>
 <div class="nav-group" data-depth="1">
-  <div class="nav-item nav-parent" data-page="/trading/perpetuals/perpetuals-contract-specifications" style="padding-left:28px"><span class="nav-toggle open">▾</span>Perpetuals Contract Specifications</div>
+  <div class="nav-item nav-parent" data-page="/trading/perpetuals/perpetuals-contract-specifications" style="padding-left:40px"><span class="nav-toggle open">▾</span>Perpetuals Contract Specifications</div>
   <div class="nav-children" style="display:block">
-<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/aave-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:44px">AAVE Perpetuals</div>
-<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/ada-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:44px">ADA Perpetuals</div>
-<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/aero-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:44px">AERO Perpetuals</div>
-<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/aevo-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:44px">AEVO Perpetuals</div>
-<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/algo-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:44px">ALGO Perpetuals</div>
-<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/ape-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:44px">APE Perpetuals</div>
-<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/api3-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:44px">API3 Perpetuals</div>
-<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/apt-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:44px">APT Perpetuals</div>
-<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/arb-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:44px">ARB Perpetuals</div>
-<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/ar-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:44px">AR Perpetuals</div>
-<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/ath-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:44px">ATH Perpetuals</div>
-<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/atom-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:44px">ATOM Perpetuals</div>
-<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/avax-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:44px">AVAX Perpetuals</div>
-<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/axl-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:44px">AXL Perpetuals</div>
-<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/axs-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:44px">AXS Perpetuals</div>
-<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/bch-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:44px">BCH Perpetuals</div>
-<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/bnb-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:44px">BNB Perpetuals</div>
-<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/bonk-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:44px">BONK Perpetuals</div>
-<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/btc-perpetual-futures-trading-contract-specs-funding-and-market-overview-on-powertrade" style="padding-left:44px">BTC Perpetuals</div>
-<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/doge-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:44px">DOGE Perpetuals</div>
-<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/dot-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:44px">DOT Perpetuals</div>
-<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/egld-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:44px">EGLD Perpetuals</div>
-<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/eigen-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:44px">EIGEN Perpetuals</div>
-<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/eos-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:44px">EOS Perpetuals</div>
-<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/etc-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:44px">ETC Perpetuals</div>
-<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/eth-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:44px">ETH Perpetuals</div>
-<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/fartcoin-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:44px">FARTCOIN Perpetuals</div>
-<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/trade-egld-perpetual-futures-on-powertrade-with-zero-fees-hourly-settlements-and-transparent-fundi" style="padding-left:44px">TRADE Perpetuals</div>
+<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/aave-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:56px">AAVE Perpetuals</div>
+<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/ada-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:56px">ADA Perpetuals</div>
+<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/aero-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:56px">AERO Perpetuals</div>
+<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/aevo-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:56px">AEVO Perpetuals</div>
+<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/algo-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:56px">ALGO Perpetuals</div>
+<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/ape-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:56px">APE Perpetuals</div>
+<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/api3-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:56px">API3 Perpetuals</div>
+<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/apt-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:56px">APT Perpetuals</div>
+<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/arb-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:56px">ARB Perpetuals</div>
+<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/ar-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:56px">AR Perpetuals</div>
+<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/ath-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:56px">ATH Perpetuals</div>
+<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/atom-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:56px">ATOM Perpetuals</div>
+<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/avax-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:56px">AVAX Perpetuals</div>
+<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/axl-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:56px">AXL Perpetuals</div>
+<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/axs-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:56px">AXS Perpetuals</div>
+<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/bch-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:56px">BCH Perpetuals</div>
+<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/bnb-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:56px">BNB Perpetuals</div>
+<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/bonk-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:56px">BONK Perpetuals</div>
+<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/btc-perpetual-futures-trading-contract-specs-funding-and-market-overview-on-powertrade" style="padding-left:56px">BTC Perpetuals</div>
+<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/doge-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:56px">DOGE Perpetuals</div>
+<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/dot-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:56px">DOT Perpetuals</div>
+<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/egld-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:56px">EGLD Perpetuals</div>
+<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/eigen-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:56px">EIGEN Perpetuals</div>
+<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/eos-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:56px">EOS Perpetuals</div>
+<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/etc-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:56px">ETC Perpetuals</div>
+<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/eth-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:56px">ETH Perpetuals</div>
+<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/fartcoin-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:56px">FARTCOIN Perpetuals</div>
+<div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/trade-egld-perpetual-futures-on-powertrade-with-zero-fees-hourly-settlements-and-transparent-fundi" style="padding-left:56px">TRADE Perpetuals</div>
   </div>
 </div>
   </div>
@@ -530,27 +535,27 @@ table[data-view="cards"] td:last-child:not(:first-child), table[data-view="cards
 <div class="nav-group" data-depth="0">
   <div class="nav-item nav-parent" data-page="/trading/futures" style="padding-left:12px"><span class="nav-toggle open">▾</span>Futures</div>
   <div class="nav-children" style="display:block">
-<div class="nav-item nav-leaf" data-page="/trading/futures/futures-introduction" style="padding-left:28px">Futures Introduction</div>
+<div class="nav-item nav-leaf" data-page="/trading/futures/futures-introduction" style="padding-left:40px">Futures Introduction</div>
   </div>
 </div>
 <div class="nav-group" data-depth="0">
   <div class="nav-item nav-parent" data-page="/trading/margin-and-liquidation" style="padding-left:12px"><span class="nav-toggle open">▾</span>Margin & Liquidation</div>
   <div class="nav-children" style="display:block">
-<div class="nav-item nav-leaf" data-page="/trading/margin-and-liquidation/margin-methodology" style="padding-left:28px">Margin Methodology</div>
-<div class="nav-item nav-leaf" data-page="/trading/margin-and-liquidation/portfolio-margin" style="padding-left:28px">Portfolio Margin</div>
-<div class="nav-item nav-leaf" data-page="/trading/margin-and-liquidation/account-health-and-liquidation" style="padding-left:28px">Account Health and Liquidation</div>
+<div class="nav-item nav-leaf" data-page="/trading/margin-and-liquidation/margin-methodology" style="padding-left:40px">Margin Methodology</div>
+<div class="nav-item nav-leaf" data-page="/trading/margin-and-liquidation/portfolio-margin" style="padding-left:40px">Portfolio Margin</div>
+<div class="nav-item nav-leaf" data-page="/trading/margin-and-liquidation/account-health-and-liquidation" style="padding-left:40px">Account Health and Liquidation</div>
   </div>
 </div>
 <div class="nav-group" data-depth="0">
   <div class="nav-item nav-parent" data-page="/trading/spot" style="padding-left:12px"><span class="nav-toggle open">▾</span>Spot</div>
   <div class="nav-children" style="display:block">
-<div class="nav-item nav-leaf" data-page="/trading/spot/spot-trading" style="padding-left:28px">Spot Trading</div>
+<div class="nav-item nav-leaf" data-page="/trading/spot/spot-trading" style="padding-left:40px">Spot Trading</div>
   </div>
 </div>
 <div class="nav-group" data-depth="0">
   <div class="nav-item nav-parent" data-page="/trading/xstocks-tokenized-stock-options-or-trade-tesla-nvidia-and-more" style="padding-left:12px"><span class="nav-toggle open">▾</span>xStocks</div>
   <div class="nav-children" style="display:block">
-<div class="nav-item nav-leaf" data-page="/trading/xstocks-tokenized-stock-options-or-trade-tesla-nvidia-and-more/xstocks-introduction-or-tokenized-stocks-daily-options-and-rfq" style="padding-left:28px">xStocks Introduction</div>
+<div class="nav-item nav-leaf" data-page="/trading/xstocks-tokenized-stock-options-or-trade-tesla-nvidia-and-more/xstocks-introduction-or-tokenized-stocks-daily-options-and-rfq" style="padding-left:40px">xStocks Introduction</div>
   </div>
 </div>
 <div class="nav-section-title">API</div>
@@ -560,19 +565,19 @@ table[data-view="cards"] td:last-child:not(:first-child), table[data-view="cards
 <div class="nav-group" data-depth="0">
   <div class="nav-item nav-parent" data-page="/polaris/what-is-powerdex" style="padding-left:12px"><span class="nav-toggle open">▾</span>What is PowerDEX</div>
   <div class="nav-children" style="display:block">
-<div class="nav-item nav-leaf" data-page="/polaris/what-is-powerdex/powerdex-faq" style="padding-left:28px">PowerDEX FAQ</div>
-<div class="nav-item nav-leaf" data-page="/polaris/what-is-powerdex/powerdex-multi-signature-wallet" style="padding-left:28px">PowerDEX Multi-Signature Wallet</div>
+<div class="nav-item nav-leaf" data-page="/polaris/what-is-powerdex/powerdex-faq" style="padding-left:40px">PowerDEX FAQ</div>
+<div class="nav-item nav-leaf" data-page="/polaris/what-is-powerdex/powerdex-multi-signature-wallet" style="padding-left:40px">PowerDEX Multi-Signature Wallet</div>
   </div>
 </div>
 <div class="nav-group" data-depth="0">
   <div class="nav-item nav-parent" data-page="/polaris/using-powerdex" style="padding-left:12px"><span class="nav-toggle open">▾</span>Using PowerDEX</div>
   <div class="nav-children" style="display:block">
-<div class="nav-item nav-leaf" data-page="/polaris/using-powerdex/sign-in-to-powerdex" style="padding-left:28px">Sign In to PowerDEX</div>
-<div class="nav-item nav-leaf" data-page="/polaris/using-powerdex/setting-up-your-account" style="padding-left:28px">Setting Up Your Account</div>
-<div class="nav-item nav-leaf" data-page="/polaris/using-powerdex/making-a-deposit" style="padding-left:28px">Making a Deposit</div>
-<div class="nav-item nav-leaf" data-page="/polaris/using-powerdex/making-a-withdrawal" style="padding-left:28px">Making a Withdrawal</div>
-<div class="nav-item nav-leaf" data-page="/polaris/using-powerdex/settling-your-account-balance" style="padding-left:28px">Settling Your Account Balance</div>
-<div class="nav-item nav-leaf" data-page="/polaris/using-powerdex/safe-mode" style="padding-left:28px">Safe Mode</div>
+<div class="nav-item nav-leaf" data-page="/polaris/using-powerdex/sign-in-to-powerdex" style="padding-left:40px">Sign In to PowerDEX</div>
+<div class="nav-item nav-leaf" data-page="/polaris/using-powerdex/setting-up-your-account" style="padding-left:40px">Setting Up Your Account</div>
+<div class="nav-item nav-leaf" data-page="/polaris/using-powerdex/making-a-deposit" style="padding-left:40px">Making a Deposit</div>
+<div class="nav-item nav-leaf" data-page="/polaris/using-powerdex/making-a-withdrawal" style="padding-left:40px">Making a Withdrawal</div>
+<div class="nav-item nav-leaf" data-page="/polaris/using-powerdex/settling-your-account-balance" style="padding-left:40px">Settling Your Account Balance</div>
+<div class="nav-item nav-leaf" data-page="/polaris/using-powerdex/safe-mode" style="padding-left:40px">Safe Mode</div>
   </div>
 </div>
 <div class="nav-section-title">PTF TOKEN</div>
@@ -580,46 +585,46 @@ table[data-view="cards"] td:last-child:not(:first-child), table[data-view="cards
 <div class="nav-group" data-depth="0">
   <div class="nav-item nav-parent" data-page="/ptf-token/token-specifications" style="padding-left:12px"><span class="nav-toggle open">▾</span>Token Specifications</div>
   <div class="nav-children" style="display:block">
-<div class="nav-item nav-leaf" data-page="/ptf-token/token-specifications/ptf-token-litepaper-or-powertrade-tokenomics-explained" style="padding-left:28px">PTF Token Litepaper</div>
-<div class="nav-item nav-leaf" data-page="/ptf-token/token-specifications/ptf-staking-overview" style="padding-left:28px">PTF Staking Overview</div>
-<div class="nav-item nav-leaf" data-page="/ptf-token/token-specifications/ptf-staking-and-rewards-faq-or-powertrade-fuel-ptf-guide" style="padding-left:28px">PTF Staking and Rewards FAQ</div>
-<div class="nav-item nav-leaf" data-page="/ptf-token/token-specifications/ptf-staking-rewards-dashboard-or-apy-monthly-payouts-usdc" style="padding-left:28px">PTF Staking Rewards Dashboard</div>
-<div class="nav-item nav-leaf" data-page="/ptf-token/token-specifications/token-burn-mechanics" style="padding-left:28px">Token Burn Mechanics</div>
+<div class="nav-item nav-leaf" data-page="/ptf-token/token-specifications/ptf-token-litepaper-or-powertrade-tokenomics-explained" style="padding-left:40px">PTF Token Litepaper</div>
+<div class="nav-item nav-leaf" data-page="/ptf-token/token-specifications/ptf-staking-overview" style="padding-left:40px">PTF Staking Overview</div>
+<div class="nav-item nav-leaf" data-page="/ptf-token/token-specifications/ptf-staking-and-rewards-faq-or-powertrade-fuel-ptf-guide" style="padding-left:40px">PTF Staking and Rewards FAQ</div>
+<div class="nav-item nav-leaf" data-page="/ptf-token/token-specifications/ptf-staking-rewards-dashboard-or-apy-monthly-payouts-usdc" style="padding-left:40px">PTF Staking Rewards Dashboard</div>
+<div class="nav-item nav-leaf" data-page="/ptf-token/token-specifications/token-burn-mechanics" style="padding-left:40px">Token Burn Mechanics</div>
   </div>
 </div>
 <div class="nav-section-title">CAREERS</div>
 <div class="nav-group" data-depth="0">
   <div class="nav-item nav-parent" data-page="/careers/careers-at-powertrade-or-crypto-and-altcoin-options-exchange-jobs" style="padding-left:12px"><span class="nav-toggle open">▾</span>Careers at PowerTrade</div>
   <div class="nav-children" style="display:block">
-<div class="nav-item nav-leaf" data-page="/careers/careers-at-powertrade-or-crypto-and-altcoin-options-exchange-jobs/build-the-future-of-crypto-options-or-careers-at-powertrade" style="padding-left:28px">Build the Future of Crypto Options</div>
+<div class="nav-item nav-leaf" data-page="/careers/careers-at-powertrade-or-crypto-and-altcoin-options-exchange-jobs/build-the-future-of-crypto-options-or-careers-at-powertrade" style="padding-left:40px">Build the Future of Crypto Options</div>
   </div>
 </div>
 <div class="nav-section-title">LEGAL</div>
 <div class="nav-group" data-depth="0">
   <div class="nav-item nav-parent" data-page="/legal/legal-and-privacy-policies" style="padding-left:12px"><span class="nav-toggle open">▾</span>Legal & Privacy Policies</div>
   <div class="nav-children" style="display:block">
-<div class="nav-item nav-leaf" data-page="/legal/legal-and-privacy-policies/terms-of-service" style="padding-left:28px">Terms of Service</div>
-<div class="nav-item nav-leaf" data-page="/legal/legal-and-privacy-policies/privacy-policy" style="padding-left:28px">Privacy Policy</div>
-<div class="nav-item nav-leaf" data-page="/legal/legal-and-privacy-policies/cookie-policy" style="padding-left:28px">Cookie Policy</div>
-<div class="nav-item nav-leaf" data-page="/legal/legal-and-privacy-policies/api-license-agreement" style="padding-left:28px">API License Agreement</div>
+<div class="nav-item nav-leaf" data-page="/legal/legal-and-privacy-policies/terms-of-service" style="padding-left:40px">Terms of Service</div>
+<div class="nav-item nav-leaf" data-page="/legal/legal-and-privacy-policies/privacy-policy" style="padding-left:40px">Privacy Policy</div>
+<div class="nav-item nav-leaf" data-page="/legal/legal-and-privacy-policies/cookie-policy" style="padding-left:40px">Cookie Policy</div>
+<div class="nav-item nav-leaf" data-page="/legal/legal-and-privacy-policies/api-license-agreement" style="padding-left:40px">API License Agreement</div>
   </div>
 </div>
 <div class="nav-group" data-depth="0">
   <div class="nav-item nav-parent" data-page="/legal/country-availability" style="padding-left:12px"><span class="nav-toggle open">▾</span>Country Availability</div>
   <div class="nav-children" style="display:block">
-<div class="nav-item nav-leaf" data-page="/legal/country-availability/list-of-prohibited-countries" style="padding-left:28px">List of Prohibited Countries</div>
+<div class="nav-item nav-leaf" data-page="/legal/country-availability/list-of-prohibited-countries" style="padding-left:40px">List of Prohibited Countries</div>
   </div>
 </div>
 <div class="nav-group" data-depth="0">
   <div class="nav-item nav-parent" data-page="/legal/risk-disclosure" style="padding-left:12px"><span class="nav-toggle open">▾</span>Risk Disclosure</div>
   <div class="nav-children" style="display:block">
-<div class="nav-item nav-leaf" data-page="/legal/risk-disclosure/risk-disclosure-statement" style="padding-left:28px">Risk Disclosure Statement</div>
+<div class="nav-item nav-leaf" data-page="/legal/risk-disclosure/risk-disclosure-statement" style="padding-left:40px">Risk Disclosure Statement</div>
   </div>
 </div>
 <div class="nav-group" data-depth="0">
   <div class="nav-item nav-parent" data-page="/legal/security" style="padding-left:12px"><span class="nav-toggle open">▾</span>Security</div>
   <div class="nav-children" style="display:block">
-<div class="nav-item nav-leaf" data-page="/legal/security/security-policy" style="padding-left:28px">Security Policy</div>
+<div class="nav-item nav-leaf" data-page="/legal/security/security-policy" style="padding-left:40px">Security Policy</div>
   </div>
 </div>
 
