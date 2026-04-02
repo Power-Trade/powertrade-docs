@@ -232,6 +232,52 @@ html, body {
   cursor: pointer; padding: 4px;
 }
 
+/* Sub-page navigation cards (parent/category pages) */
+.subpage-cards {
+  list-style: none !important;
+  padding: 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+.subpage-cards li {
+  background: var(--bg-input);
+  border: 1px solid var(--border-card);
+  border-radius: 8px;
+  padding: 14px 18px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  margin-bottom: 0 !important;
+}
+.subpage-cards li:hover {
+  border-color: var(--accent);
+  background: rgba(191,255,0,0.04);
+}
+.subpage-cards li a {
+  color: var(--text-primary) !important;
+  font-weight: 500;
+  text-decoration: none !important;
+  display: block;
+  font-size: 15px;
+}
+.subpage-cards li a:hover {
+  text-decoration: none !important;
+}
+.subpage-cards li .subpage-desc {
+  color: var(--text-secondary);
+  font-size: 13px;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+.subpage-cards li svg {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
 /* PowerTrade card grid for home page */
 .page-content table[data-view="cards"] {
   display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -16547,6 +16593,53 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
+  // Style sub-page navigation lists as cards
+  document.querySelectorAll('.page-content').forEach(function(page) {
+    var uls = page.querySelectorAll('ul');
+    uls.forEach(function(ul) {
+      var lis = ul.querySelectorAll('li');
+      if (lis.length === 0) return;
+      // Check if ALL list items contain a navigateTo link as the primary content
+      var allNav = true;
+      for (var i = 0; i < lis.length; i++) {
+        var a = lis[i].querySelector('a[onclick*="navigateTo"]');
+        if (!a) { allNav = false; break; }
+      }
+      if (!allNav) return;
+      // Check this is a direct child list (not nested in other content)
+      var prev = ul.previousElementSibling;
+      if (prev && prev.tagName === 'H1') {
+        // This is a sub-page link list right after the page title
+        ul.classList.add('subpage-cards');
+        // Split link text and description
+        lis.forEach(function(li) {
+          var a = li.querySelector('a[onclick*="navigateTo"]');
+          if (!a) return;
+          var text = li.innerHTML;
+          // Pattern: <a ...>Title</a>: Description
+          var match = text.match(/<\/a>\s*:\s*(.*)/);
+          if (match) {
+            var desc = match[1].trim();
+            li.innerHTML = '';
+            li.appendChild(a);
+            if (desc) {
+              var descEl = document.createElement('div');
+              descEl.className = 'subpage-desc';
+              descEl.textContent = desc;
+              li.appendChild(descEl);
+            }
+          }
+          // Make entire card clickable
+          var onclick = a.getAttribute('onclick');
+          if (onclick) {
+            li.setAttribute('onclick', onclick);
+            li.style.cursor = 'pointer';
+          }
+        });
+      }
+    });
+  });
+
   // Handle initial hash
   if (window.location.hash) {
     const page = window.location.hash.slice(1);
