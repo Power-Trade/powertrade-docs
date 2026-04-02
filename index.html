@@ -305,7 +305,7 @@ html, body {
 .page-content table[data-view="cards"] tr:hover { border-color: var(--accent); background: rgba(191,255,0,0.04); }
 .page-content table[data-view="cards"] td { border: none; padding: 0; text-align: center; width: 100%; }
 .page-content table[data-view="cards"] td[data-hidden] { display: none; }
-table[data-view="cards"] td:last-child:not(:first-child), table[data-view="cards"] td[data-hidden] { display: none !important; } table[data-view="cards"] thead { display: none !important; } table[data-view="cards"] tr { cursor: pointer; display: inline-block; width: 30%; margin: 0.5%; vertical-align: top; background: var(--bg-input); border: 1px solid var(--border-card); border-radius: 8px; padding: 20px; text-align: center; } table[data-view="cards"] tr:hover { border-color: var(--accent); } table[data-view="cards"] tbody { display: flex; flex-wrap: wrap; gap: 12px; } table[data-view="cards"] td:first-child { display: block; }
+table[data-view="cards"] td:last-child:not(:first-child), table[data-view="cards"] td[data-hidden] { display: none !important; } table[data-view="cards"] thead { display: none !important; } table[data-view="cards"] tr { cursor: pointer; background: var(--bg-input); border: 1px solid var(--border-card); border-radius: 8px; padding: 20px; text-align: center; display: flex; align-items: center; justify-content: center; min-height: 70px; } table[data-view="cards"] tr:hover { border-color: var(--accent); background: #222; } table[data-view="cards"] tbody { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; } table[data-view="cards"] td:first-child { display: block; }
 .page-content table[data-view="cards"] tr { cursor: pointer; }
 </style>
 </head>
