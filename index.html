@@ -293,7 +293,7 @@ html, body {
 .page-content table[data-view="cards"] tr:hover { border-color: var(--accent); background: rgba(191,255,0,0.04); }
 .page-content table[data-view="cards"] td { border: none; padding: 0; text-align: center; width: 100%; }
 .page-content table[data-view="cards"] td[data-hidden] { display: none; }
-.page-content table[data-view="cards"] td:last-child:not(:first-child) { display: none; }
+table[data-view="cards"] td:last-child:not(:first-child), table[data-view="cards"] td[data-hidden] { display: none !important; } table[data-view="cards"] thead { display: none !important; } table[data-view="cards"] tr { cursor: pointer; display: inline-block; width: 30%; margin: 0.5%; vertical-align: top; background: var(--bg-input); border: 1px solid var(--border-card); border-radius: 8px; padding: 20px; text-align: center; } table[data-view="cards"] tr:hover { border-color: var(--accent); } table[data-view="cards"] tbody { display: flex; flex-wrap: wrap; gap: 12px; } table[data-view="cards"] td:first-child { display: block; }
 .page-content table[data-view="cards"] tr { cursor: pointer; }
 </style>
 </head>
@@ -323,7 +323,7 @@ html, body {
 <div class="nav-item" data-page="/index" style="padding-left:12px">Home</div>
 <div class="nav-section-title">HOW TO USE POWERTRADE</div>
 <div class="nav-group" data-depth="0">
-  <div class="nav-item nav-parent" data-page="/how-to-use-powertrade/getting-started" style="padding-left:12px"><span class="nav-toggle open">▸</span>Getting Started</div>
+  <div class="nav-item nav-parent" data-page="/how-to-use-powertrade/getting-started" style="padding-left:12px"><span class="nav-toggle open">▾</span>Getting Started</div>
   <div class="nav-children" style="display:block">
 <div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/getting-started/what-is-powertrade" style="padding-left:28px">What is PowerTrade</div>
 <div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/getting-started/signing-up-for-a-new-account" style="padding-left:28px">Signing Up for a New Account</div>
@@ -331,20 +331,20 @@ html, body {
   </div>
 </div>
 <div class="nav-group" data-depth="0">
-  <div class="nav-item nav-parent" data-page="/how-to-use-powertrade/login" style="padding-left:12px"><span class="nav-toggle open">▸</span>Login</div>
+  <div class="nav-item nav-parent" data-page="/how-to-use-powertrade/login" style="padding-left:12px"><span class="nav-toggle open">▾</span>Login</div>
   <div class="nav-children" style="display:block">
 <div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/login/signing-in-to-your-account" style="padding-left:28px">Signing In to Your Account</div>
 <div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/login/common-login-issues" style="padding-left:28px">Common Login Issues</div>
   </div>
 </div>
 <div class="nav-group" data-depth="0">
-  <div class="nav-item nav-parent" data-page="/how-to-use-powertrade/email-issues" style="padding-left:12px"><span class="nav-toggle open">▸</span>Email Issues</div>
+  <div class="nav-item nav-parent" data-page="/how-to-use-powertrade/email-issues" style="padding-left:12px"><span class="nav-toggle open">▾</span>Email Issues</div>
   <div class="nav-children" style="display:block">
 <div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/email-issues/not-receiving-emails" style="padding-left:28px">Not Receiving Emails</div>
   </div>
 </div>
 <div class="nav-group" data-depth="0">
-  <div class="nav-item nav-parent" data-page="/how-to-use-powertrade/subaccounts" style="padding-left:12px"><span class="nav-toggle open">▸</span>Subaccounts</div>
+  <div class="nav-item nav-parent" data-page="/how-to-use-powertrade/subaccounts" style="padding-left:12px"><span class="nav-toggle open">▾</span>Subaccounts</div>
   <div class="nav-children" style="display:block">
 <div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/subaccounts/subaccounts-overview" style="padding-left:28px">Subaccounts Overview</div>
 <div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/subaccounts/web-creating-managing-subaccounts" style="padding-left:28px">Web: Creating & Managing</div>
@@ -354,7 +354,7 @@ html, body {
   </div>
 </div>
 <div class="nav-group" data-depth="0">
-  <div class="nav-item nav-parent" data-page="/how-to-use-powertrade/deposits" style="padding-left:12px"><span class="nav-toggle open">▸</span>Deposits</div>
+  <div class="nav-item nav-parent" data-page="/how-to-use-powertrade/deposits" style="padding-left:12px"><span class="nav-toggle open">▾</span>Deposits</div>
   <div class="nav-children" style="display:block">
 <div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/deposits/depositing-on-web" style="padding-left:28px">Depositing on Web</div>
 <div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/deposits/depositing-on-mobile" style="padding-left:28px">Depositing on Mobile</div>
@@ -362,13 +362,13 @@ html, body {
   </div>
 </div>
 <div class="nav-group" data-depth="0">
-  <div class="nav-item nav-parent" data-page="/how-to-use-powertrade/withdrawals" style="padding-left:12px"><span class="nav-toggle open">▸</span>Withdrawals</div>
+  <div class="nav-item nav-parent" data-page="/how-to-use-powertrade/withdrawals" style="padding-left:12px"><span class="nav-toggle open">▾</span>Withdrawals</div>
   <div class="nav-children" style="display:block">
 <div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/withdrawals/withdrawing-on-web" style="padding-left:28px">Withdrawing on Web</div>
   </div>
 </div>
 <div class="nav-group" data-depth="0">
-  <div class="nav-item nav-parent" data-page="/how-to-use-powertrade/account-verification" style="padding-left:12px"><span class="nav-toggle open">▸</span>Account Verification</div>
+  <div class="nav-item nav-parent" data-page="/how-to-use-powertrade/account-verification" style="padding-left:12px"><span class="nav-toggle open">▾</span>Account Verification</div>
   <div class="nav-children" style="display:block">
 <div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/account-verification/proof-of-identity-requirements" style="padding-left:28px">Proof of Identity Requirements</div>
 <div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/account-verification/proof-of-address-requirements" style="padding-left:28px">Proof of Address Requirements</div>
@@ -377,13 +377,13 @@ html, body {
   </div>
 </div>
 <div class="nav-group" data-depth="0">
-  <div class="nav-item nav-parent" data-page="/how-to-use-powertrade/corporate-accounts" style="padding-left:12px"><span class="nav-toggle open">▸</span>Corporate Accounts</div>
+  <div class="nav-item nav-parent" data-page="/how-to-use-powertrade/corporate-accounts" style="padding-left:12px"><span class="nav-toggle open">▾</span>Corporate Accounts</div>
   <div class="nav-children" style="display:block">
 <div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/corporate-accounts/institutional-account-verification" style="padding-left:28px">Institutional Account Verification</div>
   </div>
 </div>
 <div class="nav-group" data-depth="0">
-  <div class="nav-item nav-parent" data-page="/how-to-use-powertrade/fees" style="padding-left:12px"><span class="nav-toggle open">▸</span>Fees</div>
+  <div class="nav-item nav-parent" data-page="/how-to-use-powertrade/fees" style="padding-left:12px"><span class="nav-toggle open">▾</span>Fees</div>
   <div class="nav-children" style="display:block">
 <div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/fees/trading-fees" style="padding-left:28px">Trading Fees</div>
 <div class="nav-item nav-leaf" data-page="/how-to-use-powertrade/fees/withdrawal-fees-and-minimum" style="padding-left:28px">Withdrawal Fees and Minimum</div>
@@ -392,11 +392,11 @@ html, body {
 </div>
 <div class="nav-section-title">TRADING</div>
 <div class="nav-group" data-depth="0">
-  <div class="nav-item nav-parent" data-page="/trading/options" style="padding-left:12px"><span class="nav-toggle open">▸</span>Options</div>
+  <div class="nav-item nav-parent" data-page="/trading/options" style="padding-left:12px"><span class="nav-toggle open">▾</span>Options</div>
   <div class="nav-children" style="display:block">
 <div class="nav-item nav-leaf" data-page="/trading/options/options-introduction" style="padding-left:28px">Options Introduction</div>
 <div class="nav-group" data-depth="1">
-  <div class="nav-item nav-parent" data-page="/trading/options/options-contract-specifications" style="padding-left:28px"><span class="nav-toggle open">▸</span>Options Contract Specifications</div>
+  <div class="nav-item nav-parent" data-page="/trading/options/options-contract-specifications" style="padding-left:28px"><span class="nav-toggle open">▾</span>Options Contract Specifications</div>
   <div class="nav-children" style="display:block">
 <div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/ada-options-trading-contract-specs-strategies-and-market-insights-on-powertrade" style="padding-left:44px">ADA Options</div>
 <div class="nav-item nav-leaf" data-page="/trading/options/options-contract-specifications/ada-options-trading-contract-specs-strategies-and-market-insights-on-powertrade-1" style="padding-left:44px">ADA Options</div>
@@ -474,13 +474,13 @@ html, body {
   </div>
 </div>
 <div class="nav-group" data-depth="0">
-  <div class="nav-item nav-parent" data-page="/trading/perpetuals" style="padding-left:12px"><span class="nav-toggle open">▸</span>Perpetuals</div>
+  <div class="nav-item nav-parent" data-page="/trading/perpetuals" style="padding-left:12px"><span class="nav-toggle open">▾</span>Perpetuals</div>
   <div class="nav-children" style="display:block">
 <div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-introduction" style="padding-left:28px">Perpetuals Introduction</div>
 <div class="nav-item nav-leaf" data-page="/trading/perpetuals/full-perpetual-documentation" style="padding-left:28px">Full Perpetual Documentation</div>
 <div class="nav-item nav-leaf" data-page="/trading/perpetuals/powertrade-perpetual-funding-rate-methodology-migration-overview" style="padding-left:28px">Perpetual Funding Rate Methodology</div>
 <div class="nav-group" data-depth="1">
-  <div class="nav-item nav-parent" data-page="/trading/perpetuals/perpetuals-contract-specifications" style="padding-left:28px"><span class="nav-toggle open">▸</span>Perpetuals Contract Specifications</div>
+  <div class="nav-item nav-parent" data-page="/trading/perpetuals/perpetuals-contract-specifications" style="padding-left:28px"><span class="nav-toggle open">▾</span>Perpetuals Contract Specifications</div>
   <div class="nav-children" style="display:block">
 <div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/aave-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:44px">AAVE Perpetuals</div>
 <div class="nav-item nav-leaf" data-page="/trading/perpetuals/perpetuals-contract-specifications/ada-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="padding-left:44px">ADA Perpetuals</div>
@@ -515,13 +515,13 @@ html, body {
   </div>
 </div>
 <div class="nav-group" data-depth="0">
-  <div class="nav-item nav-parent" data-page="/trading/futures" style="padding-left:12px"><span class="nav-toggle open">▸</span>Futures</div>
+  <div class="nav-item nav-parent" data-page="/trading/futures" style="padding-left:12px"><span class="nav-toggle open">▾</span>Futures</div>
   <div class="nav-children" style="display:block">
 <div class="nav-item nav-leaf" data-page="/trading/futures/futures-introduction" style="padding-left:28px">Futures Introduction</div>
   </div>
 </div>
 <div class="nav-group" data-depth="0">
-  <div class="nav-item nav-parent" data-page="/trading/margin-and-liquidation" style="padding-left:12px"><span class="nav-toggle open">▸</span>Margin & Liquidation</div>
+  <div class="nav-item nav-parent" data-page="/trading/margin-and-liquidation" style="padding-left:12px"><span class="nav-toggle open">▾</span>Margin & Liquidation</div>
   <div class="nav-children" style="display:block">
 <div class="nav-item nav-leaf" data-page="/trading/margin-and-liquidation/margin-methodology" style="padding-left:28px">Margin Methodology</div>
 <div class="nav-item nav-leaf" data-page="/trading/margin-and-liquidation/portfolio-margin" style="padding-left:28px">Portfolio Margin</div>
@@ -529,13 +529,13 @@ html, body {
   </div>
 </div>
 <div class="nav-group" data-depth="0">
-  <div class="nav-item nav-parent" data-page="/trading/spot" style="padding-left:12px"><span class="nav-toggle open">▸</span>Spot</div>
+  <div class="nav-item nav-parent" data-page="/trading/spot" style="padding-left:12px"><span class="nav-toggle open">▾</span>Spot</div>
   <div class="nav-children" style="display:block">
 <div class="nav-item nav-leaf" data-page="/trading/spot/spot-trading" style="padding-left:28px">Spot Trading</div>
   </div>
 </div>
 <div class="nav-group" data-depth="0">
-  <div class="nav-item nav-parent" data-page="/trading/xstocks-tokenized-stock-options-or-trade-tesla-nvidia-and-more" style="padding-left:12px"><span class="nav-toggle open">▸</span>xStocks</div>
+  <div class="nav-item nav-parent" data-page="/trading/xstocks-tokenized-stock-options-or-trade-tesla-nvidia-and-more" style="padding-left:12px"><span class="nav-toggle open">▾</span>xStocks</div>
   <div class="nav-children" style="display:block">
 <div class="nav-item nav-leaf" data-page="/trading/xstocks-tokenized-stock-options-or-trade-tesla-nvidia-and-more/xstocks-introduction-or-tokenized-stocks-daily-options-and-rfq" style="padding-left:28px">xStocks Introduction</div>
   </div>
@@ -545,14 +545,14 @@ html, body {
 <div class="nav-item nav-leaf" data-page="/api/authentication" style="padding-left:12px">Authentication</div>
 <div class="nav-section-title">POLARIS (PowerDEX)</div>
 <div class="nav-group" data-depth="0">
-  <div class="nav-item nav-parent" data-page="/polaris/what-is-powerdex" style="padding-left:12px"><span class="nav-toggle open">▸</span>What is PowerDEX</div>
+  <div class="nav-item nav-parent" data-page="/polaris/what-is-powerdex" style="padding-left:12px"><span class="nav-toggle open">▾</span>What is PowerDEX</div>
   <div class="nav-children" style="display:block">
 <div class="nav-item nav-leaf" data-page="/polaris/what-is-powerdex/powerdex-faq" style="padding-left:28px">PowerDEX FAQ</div>
 <div class="nav-item nav-leaf" data-page="/polaris/what-is-powerdex/powerdex-multi-signature-wallet" style="padding-left:28px">PowerDEX Multi-Signature Wallet</div>
   </div>
 </div>
 <div class="nav-group" data-depth="0">
-  <div class="nav-item nav-parent" data-page="/polaris/using-powerdex" style="padding-left:12px"><span class="nav-toggle open">▸</span>Using PowerDEX</div>
+  <div class="nav-item nav-parent" data-page="/polaris/using-powerdex" style="padding-left:12px"><span class="nav-toggle open">▾</span>Using PowerDEX</div>
   <div class="nav-children" style="display:block">
 <div class="nav-item nav-leaf" data-page="/polaris/using-powerdex/sign-in-to-powerdex" style="padding-left:28px">Sign In to PowerDEX</div>
 <div class="nav-item nav-leaf" data-page="/polaris/using-powerdex/setting-up-your-account" style="padding-left:28px">Setting Up Your Account</div>
@@ -565,7 +565,7 @@ html, body {
 <div class="nav-section-title">PTF TOKEN</div>
 <div class="nav-item nav-leaf" data-page="/ptf-token/powertrade-fuel-token-ptf" style="padding-left:12px">PowerTrade Fuel Token (PTF)</div>
 <div class="nav-group" data-depth="0">
-  <div class="nav-item nav-parent" data-page="/ptf-token/token-specifications" style="padding-left:12px"><span class="nav-toggle open">▸</span>Token Specifications</div>
+  <div class="nav-item nav-parent" data-page="/ptf-token/token-specifications" style="padding-left:12px"><span class="nav-toggle open">▾</span>Token Specifications</div>
   <div class="nav-children" style="display:block">
 <div class="nav-item nav-leaf" data-page="/ptf-token/token-specifications/ptf-token-litepaper-or-powertrade-tokenomics-explained" style="padding-left:28px">PTF Token Litepaper</div>
 <div class="nav-item nav-leaf" data-page="/ptf-token/token-specifications/ptf-staking-overview" style="padding-left:28px">PTF Staking Overview</div>
@@ -576,14 +576,14 @@ html, body {
 </div>
 <div class="nav-section-title">CAREERS</div>
 <div class="nav-group" data-depth="0">
-  <div class="nav-item nav-parent" data-page="/careers/careers-at-powertrade-or-crypto-and-altcoin-options-exchange-jobs" style="padding-left:12px"><span class="nav-toggle open">▸</span>Careers at PowerTrade</div>
+  <div class="nav-item nav-parent" data-page="/careers/careers-at-powertrade-or-crypto-and-altcoin-options-exchange-jobs" style="padding-left:12px"><span class="nav-toggle open">▾</span>Careers at PowerTrade</div>
   <div class="nav-children" style="display:block">
 <div class="nav-item nav-leaf" data-page="/careers/careers-at-powertrade-or-crypto-and-altcoin-options-exchange-jobs/build-the-future-of-crypto-options-or-careers-at-powertrade" style="padding-left:28px">Build the Future of Crypto Options</div>
   </div>
 </div>
 <div class="nav-section-title">LEGAL</div>
 <div class="nav-group" data-depth="0">
-  <div class="nav-item nav-parent" data-page="/legal/legal-and-privacy-policies" style="padding-left:12px"><span class="nav-toggle open">▸</span>Legal & Privacy Policies</div>
+  <div class="nav-item nav-parent" data-page="/legal/legal-and-privacy-policies" style="padding-left:12px"><span class="nav-toggle open">▾</span>Legal & Privacy Policies</div>
   <div class="nav-children" style="display:block">
 <div class="nav-item nav-leaf" data-page="/legal/legal-and-privacy-policies/terms-of-service" style="padding-left:28px">Terms of Service</div>
 <div class="nav-item nav-leaf" data-page="/legal/legal-and-privacy-policies/privacy-policy" style="padding-left:28px">Privacy Policy</div>
@@ -592,19 +592,19 @@ html, body {
   </div>
 </div>
 <div class="nav-group" data-depth="0">
-  <div class="nav-item nav-parent" data-page="/legal/country-availability" style="padding-left:12px"><span class="nav-toggle open">▸</span>Country Availability</div>
+  <div class="nav-item nav-parent" data-page="/legal/country-availability" style="padding-left:12px"><span class="nav-toggle open">▾</span>Country Availability</div>
   <div class="nav-children" style="display:block">
 <div class="nav-item nav-leaf" data-page="/legal/country-availability/list-of-prohibited-countries" style="padding-left:28px">List of Prohibited Countries</div>
   </div>
 </div>
 <div class="nav-group" data-depth="0">
-  <div class="nav-item nav-parent" data-page="/legal/risk-disclosure" style="padding-left:12px"><span class="nav-toggle open">▸</span>Risk Disclosure</div>
+  <div class="nav-item nav-parent" data-page="/legal/risk-disclosure" style="padding-left:12px"><span class="nav-toggle open">▾</span>Risk Disclosure</div>
   <div class="nav-children" style="display:block">
 <div class="nav-item nav-leaf" data-page="/legal/risk-disclosure/risk-disclosure-statement" style="padding-left:28px">Risk Disclosure Statement</div>
   </div>
 </div>
 <div class="nav-group" data-depth="0">
-  <div class="nav-item nav-parent" data-page="/legal/security" style="padding-left:12px"><span class="nav-toggle open">▸</span>Security</div>
+  <div class="nav-item nav-parent" data-page="/legal/security" style="padding-left:12px"><span class="nav-toggle open">▾</span>Security</div>
   <div class="nav-children" style="display:block">
 <div class="nav-item nav-leaf" data-page="/legal/security/security-policy" style="padding-left:28px">Security Policy</div>
   </div>
@@ -617,15 +617,15 @@ html, body {
 <h1>Power Trade Guides and FAQ</h1>
 <p>Learning resources to get you started using PowerTrade. If you have any questions, <a href="mailto:support@power.trade">don&#39;t hesitate to reach out</a>, email support or <a href="https://t.me/power_trade">Telegram</a>.</p>
 <h2>How to use PowerTrade</h2>
-<table data-column-title-hidden data-view="cards" data-full-width="false"><thead><tr><th align="center"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td align="center"><strong>Getting Started</strong></td><td><a href="#" onclick="navigateTo('/how-to-use-powertrade/getting-started'); return false;">getting-started</a></td></tr><tr><td align="center"><strong>Login</strong></td><td><a href="#" onclick="navigateTo('/how-to-use-powertrade/login'); return false;">login</a></td></tr><tr><td align="center"><strong>Email Issues</strong></td><td><a href="#" onclick="navigateTo('/how-to-use-powertrade/email-issues'); return false;">email-issues</a></td></tr><tr><td align="center"><strong>Subaccounts</strong></td><td><a href="#" onclick="navigateTo('/how-to-use-powertrade/subaccounts'); return false;">subaccounts</a></td></tr><tr><td align="center"><strong>Security Tips</strong></td><td><a href="#" onclick="navigateTo('/legal/security'); return false;">Security Tips</a></td></tr><tr><td align="center"><strong>Deposits</strong></td><td><a href="#" onclick="navigateTo('/how-to-use-powertrade/deposits'); return false;">deposits</a></td></tr><tr><td align="center"><strong>Withdrawals</strong></td><td><a href="#" onclick="navigateTo('/how-to-use-powertrade/withdrawals'); return false;">withdrawals</a></td></tr><tr><td align="center"><strong>Account Verification</strong></td><td><a href="#" onclick="navigateTo('/how-to-use-powertrade/account-verification'); return false;">account-verification</a></td></tr><tr><td align="center"><strong>Corporate Accounts</strong></td><td><a href="#" onclick="navigateTo('/how-to-use-powertrade/corporate-accounts'); return false;">corporate-accounts</a></td></tr><tr><td align="center"><strong>Fees</strong></td><td><a href="#" onclick="navigateTo('/how-to-use-powertrade/fees'); return false;">fees</a></td></tr></tbody></table>
+<table data-column-title-hidden data-view="cards" data-full-width="false"><thead><tr><th align="center"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr onclick="navigateTo('/how-to-use-powertrade/getting-started'); return false;" style="cursor:pointer"><td align="center"><strong>Getting Started</strong></td><td><a href="#" onclick="navigateTo('/how-to-use-powertrade/getting-started'); return false;">getting-started</a></td></tr><tr onclick="navigateTo('/how-to-use-powertrade/login'); return false;" style="cursor:pointer"><td align="center"><strong>Login</strong></td><td><a href="#" onclick="navigateTo('/how-to-use-powertrade/login'); return false;">login</a></td></tr><tr onclick="navigateTo('/how-to-use-powertrade/email-issues'); return false;" style="cursor:pointer"><td align="center"><strong>Email Issues</strong></td><td><a href="#" onclick="navigateTo('/how-to-use-powertrade/email-issues'); return false;">email-issues</a></td></tr><tr onclick="navigateTo('/how-to-use-powertrade/subaccounts'); return false;" style="cursor:pointer"><td align="center"><strong>Subaccounts</strong></td><td><a href="#" onclick="navigateTo('/how-to-use-powertrade/subaccounts'); return false;">subaccounts</a></td></tr><tr onclick="navigateTo('/legal/security'); return false;" style="cursor:pointer"><td align="center"><strong>Security Tips</strong></td><td><a href="#" onclick="navigateTo('/legal/security'); return false;">Security Tips</a></td></tr><tr onclick="navigateTo('/how-to-use-powertrade/deposits'); return false;" style="cursor:pointer"><td align="center"><strong>Deposits</strong></td><td><a href="#" onclick="navigateTo('/how-to-use-powertrade/deposits'); return false;">deposits</a></td></tr><tr onclick="navigateTo('/how-to-use-powertrade/withdrawals'); return false;" style="cursor:pointer"><td align="center"><strong>Withdrawals</strong></td><td><a href="#" onclick="navigateTo('/how-to-use-powertrade/withdrawals'); return false;">withdrawals</a></td></tr><tr onclick="navigateTo('/how-to-use-powertrade/account-verification'); return false;" style="cursor:pointer"><td align="center"><strong>Account Verification</strong></td><td><a href="#" onclick="navigateTo('/how-to-use-powertrade/account-verification'); return false;">account-verification</a></td></tr><tr onclick="navigateTo('/how-to-use-powertrade/corporate-accounts'); return false;" style="cursor:pointer"><td align="center"><strong>Corporate Accounts</strong></td><td><a href="#" onclick="navigateTo('/how-to-use-powertrade/corporate-accounts'); return false;">corporate-accounts</a></td></tr><tr onclick="navigateTo('/how-to-use-powertrade/fees'); return false;" style="cursor:pointer"><td align="center"><strong>Fees</strong></td><td><a href="#" onclick="navigateTo('/how-to-use-powertrade/fees'); return false;">fees</a></td></tr></tbody></table>
 
 <hr>
 <h2>Trading</h2>
-<table data-column-title-hidden data-view="cards" data-full-width="false"><thead><tr><th align="center"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td align="center"><strong>Options</strong></td><td><a href="#" onclick="navigateTo('/trading/options'); return false;">options</a></td></tr><tr><td align="center"><strong>Futures</strong></td><td><a href="#" onclick="navigateTo('/trading/futures'); return false;">futures</a></td></tr><tr><td align="center"><strong>Margin &#x26; Liquidation</strong></td><td><a href="#" onclick="navigateTo('/trading/margin-and-liquidation'); return false;">margin-and-liquidation</a></td></tr><tr><td align="center"><strong>Perpetuals</strong></td><td><a href="#" onclick="navigateTo('/trading/perpetuals'); return false;">perpetuals</a></td></tr><tr><td align="center"><strong>Spot</strong></td><td><a href="#" onclick="navigateTo('/trading/spot'); return false;">spot</a></td></tr><tr><td align="center"><strong>API</strong></td><td><a href="#" onclick="navigateTo('/api/api-overview'); return false;">API</a></td></tr><tr><td align="center"><strong>Tokenized Stocks (xStocks)</strong></td><td><a href="#" onclick="navigateTo('/trading/xstocks-tokenized-stock-options-or-trade-tesla-nvidia-and-more'); return false;">Tokenized Stocks (xStocks)</a></td></tr></tbody></table>
+<table data-column-title-hidden data-view="cards" data-full-width="false"><thead><tr><th align="center"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr onclick="navigateTo('/trading/options'); return false;" style="cursor:pointer"><td align="center"><strong>Options</strong></td><td><a href="#" onclick="navigateTo('/trading/options'); return false;">options</a></td></tr><tr onclick="navigateTo('/trading/futures'); return false;" style="cursor:pointer"><td align="center"><strong>Futures</strong></td><td><a href="#" onclick="navigateTo('/trading/futures'); return false;">futures</a></td></tr><tr onclick="navigateTo('/trading/margin-and-liquidation'); return false;" style="cursor:pointer"><td align="center"><strong>Margin &#x26; Liquidation</strong></td><td><a href="#" onclick="navigateTo('/trading/margin-and-liquidation'); return false;">margin-and-liquidation</a></td></tr><tr onclick="navigateTo('/trading/perpetuals'); return false;" style="cursor:pointer"><td align="center"><strong>Perpetuals</strong></td><td><a href="#" onclick="navigateTo('/trading/perpetuals'); return false;">perpetuals</a></td></tr><tr onclick="navigateTo('/trading/spot'); return false;" style="cursor:pointer"><td align="center"><strong>Spot</strong></td><td><a href="#" onclick="navigateTo('/trading/spot'); return false;">spot</a></td></tr><tr onclick="navigateTo('/api/api-overview'); return false;" style="cursor:pointer"><td align="center"><strong>API</strong></td><td><a href="#" onclick="navigateTo('/api/api-overview'); return false;">API</a></td></tr><tr onclick="navigateTo('/trading/xstocks-tokenized-stock-options-or-trade-tesla-nvidia-and-more'); return false;" style="cursor:pointer"><td align="center"><strong>Tokenized Stocks (xStocks)</strong></td><td><a href="#" onclick="navigateTo('/trading/xstocks-tokenized-stock-options-or-trade-tesla-nvidia-and-more'); return false;">Tokenized Stocks (xStocks)</a></td></tr></tbody></table>
 
 <hr>
 <h2>Legal</h2>
-<table data-column-title-hidden data-view="cards" data-full-width="false"><thead><tr><th align="center"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td align="center"><strong>Legal &#x26; Privacy Policies</strong></td><td><a href="#" onclick="navigateTo('/legal/legal-and-privacy-policies'); return false;">legal-and-privacy-policies</a></td></tr><tr><td align="center"><strong>Country Availability</strong></td><td><a href="#" onclick="navigateTo('/legal/country-availability'); return false;">country-availability</a></td></tr><tr><td align="center"><strong>Risk Disclosure</strong></td><td><a href="#" onclick="navigateTo('/legal/risk-disclosure'); return false;">risk-disclosure</a></td></tr><tr><td align="center"><strong>Security</strong></td><td><a href="#" onclick="navigateTo('/legal/security'); return false;">security</a></td></tr></tbody></table>
+<table data-column-title-hidden data-view="cards" data-full-width="false"><thead><tr><th align="center"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr onclick="navigateTo('/legal/legal-and-privacy-policies'); return false;" style="cursor:pointer"><td align="center"><strong>Legal &#x26; Privacy Policies</strong></td><td><a href="#" onclick="navigateTo('/legal/legal-and-privacy-policies'); return false;">legal-and-privacy-policies</a></td></tr><tr onclick="navigateTo('/legal/country-availability'); return false;" style="cursor:pointer"><td align="center"><strong>Country Availability</strong></td><td><a href="#" onclick="navigateTo('/legal/country-availability'); return false;">country-availability</a></td></tr><tr onclick="navigateTo('/legal/risk-disclosure'); return false;" style="cursor:pointer"><td align="center"><strong>Risk Disclosure</strong></td><td><a href="#" onclick="navigateTo('/legal/risk-disclosure'); return false;">risk-disclosure</a></td></tr><tr onclick="navigateTo('/legal/security'); return false;" style="cursor:pointer"><td align="center"><strong>Security</strong></td><td><a href="#" onclick="navigateTo('/legal/security'); return false;">security</a></td></tr></tbody></table>
 
 </div>
 <div class="page-content" id="page---api--api-overview" style="display:none">
