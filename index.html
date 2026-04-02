@@ -74,7 +74,19 @@ html, body {
   border-right: 1px solid var(--border-divider);
   overflow-y: auto; padding: 16px 0; scrollbar-width: thin;
   scrollbar-color: #333 transparent;
+  display: flex; flex-direction: column;
 }
+.sidebar-footer { margin-top: auto; flex-shrink: 0; }
+.breadcrumb { font-size: 12px; letter-spacing: 0.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+.breadcrumb a { color: var(--accent); text-decoration: none; cursor: pointer; }
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb .sep { margin: 0 6px; opacity: 0.6; }
+.helpful-section { margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--border-divider); }
+.helpful-section .helpful-label { color: var(--text-muted, #888); font-size: 13px; margin-bottom: 8px; }
+.helpful-section .helpful-buttons { display: flex; gap: 8px; }
+.helpful-section button { background: none; border: 1px solid var(--border-card); border-radius: 6px; padding: 4px 12px; cursor: pointer; font-size: 16px; transition: border-color 0.2s; }
+.helpful-section button:hover { border-color: var(--accent); }
+.helpful-section button.selected { border-color: var(--accent); background: rgba(191,255,0,0.1); }
 .sidebar::-webkit-scrollbar { width: 6px; }
 .sidebar::-webkit-scrollbar-track { background: transparent; }
 .sidebar::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
@@ -320,6 +332,7 @@ table[data-view="cards"] td:last-child:not(:first-child), table[data-view="cards
 
   <div class="body-wrap">
     <nav class="sidebar" id="sidebar">
+<div class="sidebar-nav-items" style="flex:1;overflow-y:auto;">
 <div class="nav-item" data-page="/index" style="padding-left:12px">Home</div>
 <div class="nav-section-title">HOW TO USE POWERTRADE</div>
 <div class="nav-group" data-depth="0">
@@ -610,6 +623,13 @@ table[data-view="cards"] td:last-child:not(:first-child), table[data-view="cards
   </div>
 </div>
 
+    </div><!-- end sidebar-nav-items -->
+    <div class="sidebar-footer">
+      <a href="https://www.gitbook.com" target="_blank" style="display:flex;align-items:center;gap:6px;color:var(--text-label);font-size:12px;text-decoration:none;padding:16px 12px;border-top:1px solid var(--border-divider);">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M10.802 17.77a.703.703 0 11-.002 1.406.703.703 0 01.002-1.406m11.024-4.347a.703.703 0 11.001-1.406.703.703 0 01-.001 1.406m0-2.876a2.176 2.176 0 00-2.174 2.174c0 .233.039.465.115.691l-7.181 3.823a2.165 2.165 0 00-1.784-.937c-.829 0-1.584.475-1.95 1.216l-6.451-3.402c-.682-.358-1.192-1.48-1.138-2.502.028-.533.212-.947.493-1.107.178-.1.392-.092.62.027l.042.023c1.71.9 7.304 3.847 7.54 3.956.363.168.565.237 1.185-.057l11.564-6.014c.17-.064.368-.227.368-.474 0-.342-.354-.477-.355-.477-.658-.315-1.669-.788-2.655-1.25-2.108-.987-4.497-2.105-5.546-2.655-.906-.474-1.635-.074-1.765.006l-.252.125C7.78 6.048 1.46 9.178 1.1 9.397.457 9.789.058 10.57.006 11.539c-.08 1.537.703 3.14 1.824 3.727l6.822 3.518a2.175 2.175 0 002.15 1.862 2.177 2.177 0 002.173-2.14l7.514-4.073c.38.298.853.461 1.337.461A2.176 2.176 0 0024 12.72a2.176 2.176 0 00-2.174-2.174z"/></svg>
+        Powered by GitBook
+      </a>
+    </div>
     </nav>
 
     <main class="main" id="main-content">
@@ -16718,6 +16738,97 @@ window.addEventListener('popstate', function() {
     navigateTo(window.location.hash.slice(1));
   }
 });
+
+// --- Breadcrumb & Helpful Section ---
+(function() {
+  // Build breadcrumb map from nav structure
+  var sectionMap = {};  // pageId -> { section, parents[] }
+  var sections = document.querySelectorAll('.nav-section-title');
+  sections.forEach(function(sec) {
+    var sectionName = sec.textContent.trim();
+    // Walk sibling nav-groups until next section title
+    var next = sec.nextElementSibling;
+    while (next && !next.classList.contains('nav-section-title')) {
+      var items = next.querySelectorAll ? next.querySelectorAll('.nav-item[data-page]') : [];
+      items.forEach(function(item) {
+        var pageId = item.getAttribute('data-page');
+        if (!pageId) return;
+        // Build parent chain
+        var chain = [sectionName];
+        var parentItem = item.closest('.nav-children');
+        while (parentItem) {
+          var parentNav = parentItem.previousElementSibling;
+          if (parentNav && parentNav.classList.contains('nav-item')) {
+            chain.splice(1, 0, parentNav.textContent.replace(/[▾▸]\s*/, '').trim());
+          }
+          var grandParent = parentItem.parentElement;
+          if (grandParent) {
+            parentItem = grandParent.closest('.nav-children');
+          } else {
+            parentItem = null;
+          }
+        }
+        sectionMap[pageId] = chain;
+      });
+      next = next.nextElementSibling;
+    }
+  });
+
+  // Inject breadcrumbs into all page-content divs
+  document.querySelectorAll('.page-content').forEach(function(page) {
+    var id = page.id; // e.g. page---how-to-use-powertrade--getting-started
+    var pageId = '/' + id.replace(/^page-/, '').replace(/--/g, '/').replace(/^\/+/, '');
+    var chain = sectionMap[pageId];
+    if (!chain || chain.length === 0 || pageId === '/index') return;
+
+    var bc = document.createElement('div');
+    bc.className = 'breadcrumb';
+    // Build clickable breadcrumb from chain (all items except the current page's own name)
+    // chain = [SECTION, parent1, parent2, ...]
+    // We show all of them as the breadcrumb path above the title
+    var parts = chain.map(function(name, i) {
+      if (i === 0) {
+        return '<span>' + name.toUpperCase() + '</span>';
+      }
+      // Try to find a matching nav item to make it clickable
+      var navItem = document.querySelector('.nav-item[data-page]');
+      // Search for a nav item matching this name
+      var allNavs = document.querySelectorAll('.nav-item[data-page]');
+      var targetPage = null;
+      for (var j = 0; j < allNavs.length; j++) {
+        var navText = allNavs[j].textContent.replace(/[▾▸]\s*/, '').trim();
+        if (navText === name) {
+          targetPage = allNavs[j].getAttribute('data-page');
+          break;
+        }
+      }
+      if (targetPage) {
+        return '<a onclick="navigateTo(\'' + targetPage.replace(/'/g, "\\'") + '\'); return false;" href="#">' + name.toUpperCase() + '</a>';
+      }
+      return '<span>' + name.toUpperCase() + '</span>';
+    });
+    bc.innerHTML = parts.join('<span class="sep">&gt;</span>');
+
+    // Insert before the first h1
+    var h1 = page.querySelector('h1');
+    if (h1) {
+      page.insertBefore(bc, h1);
+    } else {
+      page.insertBefore(bc, page.firstChild);
+    }
+
+    // Add helpful section at bottom
+    var helpful = document.createElement('div');
+    helpful.className = 'helpful-section';
+    helpful.innerHTML = '<div class="helpful-label">Was this helpful?</div>' +
+      '<div class="helpful-buttons">' +
+      '<button onclick="this.classList.toggle(\'selected\')">😀</button>' +
+      '<button onclick="this.classList.toggle(\'selected\')">😐</button>' +
+      '<button onclick="this.classList.toggle(\'selected\')">😞</button>' +
+      '</div>';
+    page.appendChild(helpful);
+  });
+})();
 
 // Global click interceptor for any remaining internal links
 document.addEventListener('click', function(e) {
