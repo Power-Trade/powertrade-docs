@@ -16841,8 +16841,22 @@ document.addEventListener('click', function(e) {
   if (!link) return;
   var href = link.getAttribute('href');
   if (!href) return;
-  // Skip external links, anchors, and already-handled onclick links
-  if (href === '#' || href.startsWith('http') || href.startsWith('mailto:')) return;
+  // Skip plain anchors and external links
+  if (href === '#' || href.startsWith('http')) return;
+  // Let mailto: links use default browser behavior
+  if (href.startsWith('mailto:')) return;
+  // Handle #page--- style hash links (e.g. #page---legal--country-availability)
+  if (href.startsWith('#page---')) {
+    var elId = href.slice(1); // remove leading #
+    var el = document.getElementById(elId);
+    if (el) {
+      e.preventDefault();
+      // Reverse the ID to a pageId: strip 'page-' prefix, then replace '--' with '/'
+      var pageId = elId.replace(/^page-/, '').replace(/--/g, '/');
+      navigateTo(pageId);
+    }
+    return;
+  }
   // Strip .md extension if present
   var pageId = href.replace(/\.md$/, '');
   // Ensure leading slash
