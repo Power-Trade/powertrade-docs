@@ -16560,8 +16560,16 @@ function navigateTo(pageId) {
   // Hide current
   document.querySelectorAll('.page-content').forEach(el => el.style.display = 'none');
   
-  // Show target
-  const targetId = 'page-' + pageId.replace(/\//g, '--');
+  // If pageId is already an element ID (e.g. "page---legal--country-availability"), use it directly
+  // Otherwise convert path to element ID (e.g. "/legal/country-availability" -> "page---legal--country-availability")
+  var targetId;
+  if (pageId.startsWith('page-')) {
+    targetId = pageId;
+    // Also convert back to path for nav highlighting: strip "page-" prefix, replace -- with /
+    pageId = pageId.replace(/^page-/, '').replace(/--/g, '/');
+  } else {
+    targetId = 'page-' + pageId.replace(/\//g, '--');
+  }
   const target = document.getElementById(targetId);
   if (target) {
     target.style.display = 'block';
