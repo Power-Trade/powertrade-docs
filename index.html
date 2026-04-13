@@ -16851,8 +16851,11 @@ document.addEventListener('click', function(e) {
   if (!href) return;
   // Skip plain anchors and external links
   if (href === '#' || href.startsWith('http')) return;
-  // Let mailto: links use default browser behavior
-  if (href.startsWith('mailto:')) return;
+  // Let mailto: and tel: links use default browser behavior
+  if (href.startsWith('mailto:') || href.startsWith('tel:')) {
+    window.location.href = href;
+    return;
+  }
   // Handle #page--- style hash links (e.g. #page---legal--country-availability)
   if (href.startsWith('#page---')) {
     var elId = href.slice(1); // remove leading #
