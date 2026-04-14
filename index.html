@@ -660,25 +660,25 @@ table[data-view="cards"] td:last-child:not(:first-child), table[data-view="cards
 <h2>PowerTrade API Overview | Automate Crypto Options Trading</h2>
 <h3>Public Endpoints</h3>
 <h4>a. Reference Data (static instrument/trading rules information)</h4>
-<p>WebSockets: <a href="https://power-trade.github.io/api-docs-source/ws_feeds.html#Market_Feeds_Reference_Data">Reference Data Documentation</a></p>
+<p>WebSockets: <a href="https://docs.api.power.trade/#Reference_Data">Reference Data Documentation</a></p>
 <h4>b. Top of Book, Order books, Risk, Settlement Price, Index Price</h4>
-<p>WebSockets: <a href="https://power-trade.github.io/api-docs-source/ws_feeds.html#Market_Feeds_Per_Symbol_Channels">Documentation</a></p>
+<p>WebSockets: <a href="https://docs.api.power.trade/#Service_Guide_Market_Data">Documentation</a></p>
 <h4>c. Public Trades</h4>
-<p>REST: <a href="https://power-trade.github.io/api-docs-source/rest_api.html#_get_v1historytrades">Documentation</a></p>
-<p>WebSockets: <a href="https://power-trade.github.io/api-docs-source/ws_feeds.html#rte_trade">Documentation</a></p>
+<p>REST: <a href="https://docs.api.power.trade/#trade">Documentation</a></p>
+<p>WebSockets: <a href="https://docs.api.power.trade/#trade">Documentation</a></p>
 <h4>d. Exchange Statistics (Volume, % Price Change)</h4>
-<p>REST: <a href="https://power-trade.github.io/api-docs-source/rest_api.html#_get_v1market_datacurrencyidsummary">Documentation</a></p>
+<p>REST: <a href="https://docs.api.power.trade/#Service_Guide_Market_Data">Documentation</a></p>
 <h3>Private Endpoints</h3>
 <p>(See the <a href="#page---api--authentication">Authentication</a> page for access token generation)</p>
 <h4>a. Order Management</h4>
-<p>Order Entry: <a href="https://power-trade.github.io/api-docs-source/fix_order_entry.html">Documentation</a></p>
-<p>Drop Copy: <a href="https://power-trade.github.io/api-docs-source/fix_drop_copy.html">Documentation</a></p>
+<p>Order Entry: <a href="https://docs.api.power.trade/#Service_Guide_Order_Management">Documentation</a></p>
+<p>Drop Copy: <a href="https://docs.api.power.trade/#Service_Guide_Order_Management">Documentation</a></p>
 <p>Examples in Go: <a href="https://github.com/Power-Trade/fix-api-clients">See on Github</a></p>
 <h4>b. Positions and Balances</h4>
-<p>WebSockets: <a href="https://power-trade.github.io/api-docs-source/ws_position_summary.html">Documentation</a></p>
-<p>REST: <a href="https://power-trade.github.io/api-docs-source/rest_api.html#_get_v1balancefunds_holdings">Documentation</a></p>
+<p>WebSockets: <a href="https://docs.api.power.trade/#Service_Guide_Position_Data">Documentation</a></p>
+<p>REST: <a href="https://docs.api.power.trade/#position_balance">Documentation</a></p>
 <h4>c. History (Trades, Deposits, Withdrawals, Settlement, Funding)</h4>
-<p>REST: <a href="https://power-trade.github.io/api-docs-source/rest_api.html#_get_v1reportingbalance_activity">Documentation</a></p>
+<p>REST: <a href="https://docs.api.power.trade/#position_balance">Documentation</a></p>
 <h3>Still have questions?</h3>
 <p><strong>Email Support:</strong> <a href="mailto:support@power.trade">support@power.trade</a></p>
 <p><strong>Telegram:</strong> <a href="https://t.me/power_trade">https://t.me/power_trade</a></p>
@@ -687,13 +687,13 @@ table[data-view="cards"] td:last-child:not(:first-child), table[data-view="cards
 <div class="page-content" id="page---api--authentication" style="display:none">
 <h1>API Authentication | Secure Access to PowerTrade Trading API</h1>
 <p>All private endpoints require a valid access token.</p>
-<h2>Generate an API Key and Private Key<a href="https://api-docs-5180b.web.app/docs/authentication#generate-an-api-key-and-private-key">​</a></h2>
+<h2>Generate an API Key and Private Key<a href="#generate-an-api-key-and-private-key">​</a></h2>
 <ul>
 <li>Create an account on the <a href="https://app.power.trade/api-keys">Power Trade&#39;s web application</a>.</li>
 <li>In the account profile menu in the top right and choose <code>API Keys</code></li>
 <li>The resulting API Key <code>api_key</code> and Private key <code>private_key</code> can be used to generate a JWT.</li>
 </ul>
-<h2>Generate an access token - JWT<a href="https://api-docs-5180b.web.app/docs/authentication#generate-an-access-token---jwt">​</a> <a href="#generate-an-access-token---jwt" id="generate-an-access-token---jwt"></a></h2>
+<h2>Generate an access token - JWT<a href="#generate-an-access-token---jwt">​</a> <a href="#generate-an-access-token---jwt" id="generate-an-access-token---jwt"></a></h2>
 <p>Use the <code>ES256</code> algorithm and add <code>{client: &quot;api&quot;}</code> to the payload when generating the token <code>jwt_token</code>.</p>
 <p><strong>Example in python</strong></p>
 <p>Using <a href="https://pyjwt.readthedocs.io/en/stable/">PyJWT</a></p>
@@ -773,7 +773,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <h3>🌐 Stay Connected</h3>
 <p>Even if we don’t have active openings today, you can:</p>
 <ul>
-<li>Join our <a href="https://chatgpt.com/c/t.me/power_trade/1"><strong>Telegram community</strong></a> for updates</li>
+<li>Join our <a href="https://t.me/power_trade"><strong>Telegram community</strong></a> for updates</li>
 <li>Follow us on <strong>X (Twitter)</strong> for announcements</li>
 <li>Connect with us on <strong>LinkedIn</strong></li>
 <li>Reach out via <a href="mailto:careers@power.trade"><strong>careers@power.trade</strong></a></li>
@@ -1093,7 +1093,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <li>Double check that the email didn&#39;t end up in your spam folder or in any spam filtering service you may be using. Whitelist <a href="mailto:support@power.trade"><em>support@power.trade</em></a> to prevent our emails from getting caught in your spam filter</li>
 <li>Check if your block list includes anything with <em>&quot;@power.trade&quot;</em></li>
 </ol>
-<p>If none of these steps helped to find our email, contact us at <a href="https://powertradehelp.zendesk.com/hc/en-us/articles/support">support@power.trade</a> from your registered email address and let us know which automated email you believe to be missing.</p>
+<p>If none of these steps helped to find our email, contact us at <a href="mailto:support@power.trade">support@power.trade</a> from your registered email address and let us know which automated email you believe to be missing.</p>
 
 </div>
 <div class="page-content" id="page---how-to-use-powertrade--fees" style="display:none">
@@ -1314,7 +1314,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <h4><strong>Android</strong></h4>
 <p>Our Android app is live and can be found <a href="https://play.google.com/store/apps/details?id=com.pt.powertrade">on the Google Play store</a>.</p>
 <h4><strong>Web</strong></h4>
-<p>Our web application can be accessed at <a href="https://app.power.trade/">https://app.power.trade/</a></p>
+<p>Our web application can be accessed at <a href="https://app.power.trade">https://app.power.trade</a></p>
 <h2>Still have questions?</h2>
 <p><strong>Email Support:</strong> <a href="mailto:support@power.trade">support@power.trade</a></p>
 <p><strong>Telegram:</strong> <a href="https://t.me/power_trade">https://t.me/power_trade</a></p>
@@ -1348,7 +1348,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 </ol>
 <h3>Web app</h3>
 <ol>
-<li>Verify that the URL is correct: <a href="https://app.power.trade/"><strong>https://app.power.trade</strong></a></li>
+<li>Verify that the URL is correct: <a href="https://app.power.trade"><strong>https://app.power.trade</strong></a></li>
 <li>Make sure that your browser is up-to-date</li>
 <li>Only one session can be active. If you have PowerTrade installed on a mobile device, ensure that the mobile app is not currently running.</li>
 <li>Use your browser&#39;s incognito mode to sign in. If that worked, clear your regular browser&#39;s cache and cookies before restarting your browser.</li>
@@ -1503,8 +1503,8 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <h3>How Many Subaccounts can I have?</h3>
 <p>There is currently no limit on the number of subaccounts you can create under your main account, but only your main account may have subaccounts — subaccounts cannot be nested under subaccounts.</p>
 <h2>Ready to start trading?</h2>
-<p>PowerTrade: <a href="https://power.trade/">https://power.trade</a></p>
-<p>PowerDEX: <a href="https://dex.power.trade/">https://dex.power.trade</a></p>
+<p>PowerTrade: <a href="https://power.trade">https://power.trade</a></p>
+<p>PowerDEX: <a href="https://dex.power.trade">https://dex.power.trade</a></p>
 <h2>Still have questions?</h2>
 <p><strong>Email Support:</strong> <a href="mailto:support@power.trade">support@power.trade</a></p>
 <p><strong>Telegram:</strong> <a href="https://t.me/power_trade">https://t.me/power_trade</a></p>
@@ -1836,7 +1836,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <h2><strong>How can I control cookies?</strong></h2>
 <p>You have the right to decide whether to accept or reject cookies. You can exercise your cookie rights by setting your preferences in the Cookie Consent Manager. The Cookie Consent Manager allows you to select which categories of cookies you accept or reject. Essential cookies cannot be rejected as they are strictly necessary to provide you with services.</p>
 <p>The Cookie Consent Manager can be found in the notification banner and on our website. If you choose to reject cookies, you may still use our website though your access to some functionality and areas of our website may be restricted. You may also set or amend your web browser controls to accept or refuse cookies. As the means by which you can refuse cookies through your web browser controls vary from browser-to-browser, you should visit your browser&#39;s help menu for more information.</p>
-<p>In addition, most advertising networks offer you a way to opt out of targeted advertising. If you would like to find out more information, please visit <a href="http://www.aboutads.info/choices/">http://www.aboutads.info/choices/</a> or <a href="http://www.youronlinechoices.com/">http://www.youronlinechoices.com</a>.</p>
+<p>In addition, most advertising networks offer you a way to opt out of targeted advertising. If you would like to find out more information, please visit <a href="https://www.aboutads.info/choices/">https://www.aboutads.info/choices/</a> or <a href="https://www.youronlinechoices.com/">http://www.youronlinechoices.com</a>.</p>
 <p>The specific types of first and third party cookies served through our Websites and the purposes they perform are described in the table below (please note that the specific cookies served may vary depending on the specific Online Properties you visit):</p>
 <h2><strong>Essential website cookies:</strong></h2>
 <p>These cookies are strictly necessary to provide you with services available through our Websites and to use some of its features, such as access to secure areas.</p>
@@ -2266,7 +2266,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <p>Cookies are not the only way to recognize or track visitors to a website. We may use other, similar technologies from time to time, like web beacons (sometimes called &quot;tracking pixels&quot; or &quot;clear gifs&quot;). These are tiny graphics files that contain a unique identifier that enable us to recognize when someone has visited our Websites or opened an e-mail including them. This allows us, for example, to monitor the traffic patterns of users from one page within a website to another, to deliver or communicate with cookies, to understand whether you have come to the website from an online advertisement displayed on a third-party website, to improve site performance, and to measure the success of e-mail marketing campaigns. In many instances, these technologies are reliant on cookies to function properly, and so declining cookies will impair their functioning.</p>
 <h2><strong>Do you use Flash cookies or Local Shared Objects?</strong></h2>
 <p>Websites may also use so-called &quot;Flash Cookies&quot; (also known as Local Shared Objects or &quot;LSOs&quot;) to, among other things, collect and store information about your use of our services, fraud prevention and for other site operations.</p>
-<p>If you do not want Flash Cookies stored on your computer, you can adjust the settings of your Flash player to block Flash Cookies storage using the tools contained in the <a href="http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager07.html">Website Storage Settings Panel</a>. You can also control Flash Cookies by going to the <a href="http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager03.html">Global Storage Settings Panel</a> and following the instructions (which may include instructions that explain, for example, how to delete existing Flash Cookies (referred to &quot;information&quot; on the Macromedia site), how to prevent Flash LSOs from being placed on your computer without your being asked, and (for Flash Player 8 and later) how to block Flash Cookies that are not being delivered by the operator of the page you are on at the time).</p>
+<p>If you do not want Flash Cookies stored on your computer, you can adjust the settings of your Flash player to block Flash Cookies storage using the tools contained in the <a href="https://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager07.html">Website Storage Settings Panel</a>. You can also control Flash Cookies by going to the <a href="https://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager03.html">Global Storage Settings Panel</a> and following the instructions (which may include instructions that explain, for example, how to delete existing Flash Cookies (referred to &quot;information&quot; on the Macromedia site), how to prevent Flash LSOs from being placed on your computer without your being asked, and (for Flash Player 8 and later) how to block Flash Cookies that are not being delivered by the operator of the page you are on at the time).</p>
 <p>Please note that setting the Flash Player to restrict or limit acceptance of Flash Cookies may reduce or impede the functionality of some Flash applications, including, potentially, Flash applications used in connection with our services or online content.</p>
 <h2><strong>Do you serve targeted advertising?</strong></h2>
 <p>Third parties may serve cookies on your computer or mobile device to serve advertising through our Websites. These companies may use information about your visits to this and other websites in order to provide relevant advertisements about goods and services that you may be interested in. They may also employ technology that is used to measure the effectiveness of advertisements. This can be accomplished by them using cookies or web beacons to collect information about your visits to this and other sites in order to provide relevant advertisements about goods and services of potential interest to you. The information collected through this process does not enable us or them to identify your name, contact details or other details that directly identify you unless you choose to provide these.</p>
@@ -2282,7 +2282,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <p>Power Fintech LLC (“<strong>PowerTrade</strong>”, “<strong>we</strong>”, “<strong>our</strong>” or “<strong>us</strong>”) collects information about you from various sources to provide the Services to you, to protect our legitimate interests, to analyze and improve our Services, to communicate with you, and to comply with our legal and regulatory obligations. This Privacy Policy (“<strong>Privacy Policy</strong>”) covers our treatment of the personally identifiable information that we gather when you access or use our Services.</p>
 <p>From time to time, we may revise or amend this Privacy Policy to reflect changes in law, our Personal Data collection and use practices, the features on the Services, or advances in technology. This Privacy Policy does not cover the practices of entities we do not own or control, or people we do not manage.</p>
 <p>Our Privacy Policy applies to all Services we offer, but excludes any products, applications or services that have separate privacy policies which do not incorporate this Privacy Policy. For the purposes of data protection laws of the European Union (“<strong>EU</strong>”), and other relevant jurisdictions where Customers are located (“<strong>Data Protection Laws</strong>”), PowerTrade is a data controller (i.e., the company who is responsible for, and controls the processing of, your Personal Data).</p>
-<p>The access and/or use of our Services implies acceptance of this Privacy Policy as well as the conditions and provisions included in the <a href="https://power.trade/terms/">Terms of Service</a>. The terms used in this Privacy Policy shall have the same meanings as in the <a href="https://power.trade/terms/">Terms of Service</a> except as otherwise provided herein. For the avoidance of doubt the term “<strong>Services</strong>” shall mean all the services provided by PowerTrade, including but not limited to the Trading Platform, the mobile applications, and the website <a href="https://power.trade/">https://power.trade</a>, and any subdomains, related domains, mobile applications, and all their downloadable material and e-mails, and all the services available through the Trading Platform and the Website.</p>
+<p>The access and/or use of our Services implies acceptance of this Privacy Policy as well as the conditions and provisions included in the <a href="https://power.trade/terms/">Terms of Service</a>. The terms used in this Privacy Policy shall have the same meanings as in the <a href="https://power.trade/terms/">Terms of Service</a> except as otherwise provided herein. For the avoidance of doubt the term “<strong>Services</strong>” shall mean all the services provided by PowerTrade, including but not limited to the Trading Platform, the mobile applications, and the website <a href="https://power.trade">https://power.trade</a>, and any subdomains, related domains, mobile applications, and all their downloadable material and e-mails, and all the services available through the Trading Platform and the Website.</p>
 <h2><strong>What data we collect</strong></h2>
 <p>To the fullest extent permitted under applicable Data Protection Laws, we collect ****the following data and information (collectively, “<strong>Personal Data</strong>”):</p>
 <ol>
@@ -2477,7 +2477,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <p>“<strong>US Person</strong>” shall mean (i) a U.S. citizen; (ii) a U.S. lawful permanent resident; (iii) a protected individual under section 1324b(a)(3) of the U.S. Immigration and Nationality Act, or individual who holds a passport issued by the United States Government; (iv) a corporation, company, partnership, or other legal entity established or organized in or under the Laws of the United States; (v) an individual, a corporation, company, partnership, or other legal entity which engages in a trade or business in the United States and generates income from sources within the United States connected with the conduct of that trade or business; (vi) any estate of a decedent who was a U.S. citizen or a U.S. lawful permanent resident; or a protected individual under section 1324b(a)(3) of the U.S. Immigration and Nationality Act; (vii) any trust if a court within the United States is able to exercise primary supervision over the administration of the trust, and/or one or more US Persons have the authority to control all substantial decisions of the trust, and/or one or US Persons are designated as settlors, trustees, protectors or beneficiaries; (viii) any Person organized or incorporated outside the United States and the Territory or Insular Possession of the United States in which any of the foregoing, whether singularly or in the aggregate, directly or indirectly holds a 50 percent or greater equity interest by votes or value, holds a majority of seats or memberships on the board of directors of the entity, or authorizes, establishes, directs, or otherwise controls the actions, policies, personnel decisions, or day-to-day operations of the Person; or (ix) any person who is subject to taxes in the US.</p>
 <p>“<strong>Virtual Asset Derivatives</strong>” shall mean contracts between two or more parties whose value is based on an underlying Virtual Asset. Virtual Asset Derivatives include but are not limited to Options, Perpetual Swaps, Futures, and other instruments such as forwards, and contracts for difference.</p>
 <p>“<strong>Virtual Assets</strong>&#39;&#39; shall mean encrypted currencies or digital assets or digital tokens or virtual currencies or cryptocurrencies which are based on distributed ledger technology and can be digitally traded, or transferred. For the avoidance of doubt, Bitcoin and Ether are Virtual Assets.</p>
-<p>“<strong>Website</strong>” shall mean <a href="https://power.trade/">https://power.trade</a>, any subdomains, related domains, mobile applications, and all their downloadable material and e-mails.</p>
+<p>“<strong>Website</strong>” shall mean <a href="https://power.trade">https://power.trade</a>, any subdomains, related domains, mobile applications, and all their downloadable material and e-mails.</p>
 <p><strong>1.2. Construction.</strong> In this Agreement, unless the context otherwise requires</p>
 <p>a). words importing the singular include the plural and vice versa;</p>
 <p>b). words importing a gender include both gender and the neuter;</p>
@@ -2912,7 +2912,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <div class="page-content" id="page---polaris--using-powerdex--sign-in-to-powerdex" style="display:none">
 <h1>Sign in to Polaris | Connect Wallet &amp; Authenticate</h1>
 <ol>
-<li>Navigate to <a href="https://polaris.trade/">Polaris</a> and click on “Connect Wallet”.</li>
+<li>Navigate to <a href="https://polaris.trade">Polaris</a> and click on “Connect Wallet”.</li>
 </ol>
 <figure><img src="images/connect_61189c98.png" alt=""><figcaption></figcaption></figure>
 
@@ -2943,7 +2943,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 </div>
 <div class="page-content" id="page---polaris--what-is-powerdex" style="display:none">
 <h1>What is Polaris? | Decentralized Altcoin Options Exchange</h1>
-<p>We built <a href="https://polaris.trade/">Polaris</a> to keep all trader&#39;s assets safe throughout the trading cycle - transparently, securely, and in a decentralized manner. Polaris is a rebrand of PowerDEX. Here’s how it works:</p>
+<p>We built <a href="https://polaris.trade">Polaris</a> to keep all trader&#39;s assets safe throughout the trading cycle - transparently, securely, and in a decentralized manner. Polaris is a rebrand of PowerDEX. Here’s how it works:</p>
 <ul>
 <li>Your assets are stored in a segregated wallet created by you on the blockchain.</li>
 <li>Your funds are kept separate from others and visible on-chain at all times.</li>
@@ -3347,7 +3347,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <td>40%</td>
 </tr>
 </tbody></table>
-<p>PowerTrade offers a Testnet where you could enter options and outright positions to see the margin calculations for a portfolio. <a href="https://powertrade-web-test.web.app/">https://powertrade-web-test.web.app</a></p>
+<p>PowerTrade offers a Testnet where you could enter options and outright positions to see the margin calculations for a portfolio. <a href="https://app.power.trade">https://app.power.trade</a></p>
 <h2>Main Account / Sub accounts Margin</h2>
 <p>The PowerTrade Margin engine calculates the margin required for each (sub)account.</p>
 <p>To benefit from margin offset, futures and options contracts should be traded in the same (sub)account.</p>
@@ -3396,7 +3396,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <p>The PowerTrade Margin engine calculates the margin required for each (sub)account.</p>
 <p>Clients can benefit from a margin offset by trading, futures and options contracts in the same (sub)account. Different positions in sub-accounts will be margined separately.</p>
 <h2>Testnet</h2>
-<p>PowerTrade offers a Testnet (<a href="https://powertrade-web-test.web.app">https://powertrade-web-test.web.app</a>) where you could enter options and outright positions to simulate different portfolios.</p>
+<p>PowerTrade offers a Testnet (<a href="https://app.power.trade">https://app.power.trade</a>) where you could enter options and outright positions to simulate different portfolios.</p>
 <h2>Still have questions?</h2>
 <p><strong>Email Support:</strong> <a href="mailto:support@power.trade">support@power.trade</a></p>
 <p><strong>Telegram:</strong> <a href="https://t.me/power_trade">https://t.me/power_trade</a></p>
@@ -3524,7 +3524,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <h1>ADA Options Trading – Contract Specs, Strategies &amp; Market Insights on PowerTrade</h1>
 <h2>📄 ADA Options Trading – Contract Specs, Strategies &amp; Market Insights on PowerTrade</h2>
 <p>Cardano (ADA) is one of the most widely adopted Layer 1 blockchains, and with <strong>ADA options</strong> listed on PowerTrade, traders can hedge, speculate, or capture volatility with precision. With <strong>expirations up to 12 months</strong>, institutional RFQ execution, and retail-friendly order book access, ADA options are a flexible tool for both long-term investors and active traders.</p>
-<p>👉 <a href="https://power.trade/trade/options/ADA/">Start trading ADA options on PowerTrade</a> or <a href="https://dex.power.trade/trade/options/ADA/">PowerDEX</a>.</p>
+<p>👉 <a href="https://power.trade/trade/options/ADA">Start trading ADA options on PowerTrade</a> or <a href="https://dex.power.trade/trade/options/ADA">PowerDEX</a>.</p>
 <hr>
 <h3>What Are ADA Options?</h3>
 <p>ADA options are derivatives that give the holder the <strong>right, but not the obligation</strong>, to buy or sell Cardano at a set strike price before expiry.</p>
@@ -3583,11 +3583,11 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 </tr>
 <tr>
 <td><strong>Order Book Link</strong></td>
-<td><a href="https://power.trade/trade/options/ADA/">PowerTrade ADA Options</a></td>
+<td><a href="https://power.trade/trade/options/ADA">PowerTrade ADA Options</a></td>
 </tr>
 <tr>
 <td><strong>DEX Link</strong></td>
-<td><a href="https://dex.power.trade/trade/options/ADA/">PowerDEX ADA Options</a></td>
+<td><a href="https://dex.power.trade/trade/options/ADA">PowerDEX ADA Options</a></td>
 </tr>
 <tr>
 <td><strong>Supported RFQ Strategies</strong></td>
@@ -3609,7 +3609,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>Why Trade ADA Options on PowerTrade?</h3>
 <p>✅ Expirations from 0DTE → 12 months<br>✅ Institutional RFQ for block trades<br>✅ Retail-friendly order book<br>✅ Full ADA strategy coverage (spreads, butterflies, condors, straddles, calendars)<br>✅ 80+ altcoin markets (largest coverage in crypto)<br>✅ No liquidation risk vs perps<br>✅ Available on <strong>both CEX (PowerTrade)</strong> &amp; <strong>DEX (PowerDEX)</strong></p>
-<p>👉 <a href="https://power.trade/trade/options/ADA/">Start trading ADA options today</a>.</p>
+<p>👉 <a href="https://power.trade/trade/options/ADA">Start trading ADA options today</a>.</p>
 <hr>
 <h3>Example ADA Option Strategies</h3>
 <ul>
@@ -3628,16 +3628,16 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
-<li>Navigate to the <a href="https://power.trade/trade/options/ADA/">ADA options page</a>.</li>
+<li>Navigate to the <a href="https://power.trade/trade/options/ADA">ADA options page</a>.</li>
 <li>Select expirations and strikes.</li>
 <li>Trade via order book or RFQ.</li>
 </ol>
 <hr>
 <h3>Conclusion</h3>
 <p><strong>ADA options</strong> provide a powerful way to hedge, speculate, or express views on Cardano’s long-term growth. With <strong>8 expirations, institutional RFQ liquidity, and retail order book support</strong>, PowerTrade is the leading venue for Cardano options.</p>
-<p>👉 <a href="https://power.trade/trade/options/ADA/">Start trading ADA options now on PowerTrade</a> or <a href="https://dex.power.trade/trade/options/ADA/">PowerDEX</a>.</p>
+<p>👉 <a href="https://power.trade/trade/options/ADA">Start trading ADA options now on PowerTrade</a> or <a href="https://dex.power.trade/trade/options/ADA">PowerDEX</a>.</p>
 
 </div>
 <div class="page-content" id="page---trading--options--options-contract-specifications--ada-options-trading-contract-specs-strategies-and-market-insights-on-powertrade-1" style="display:none">
@@ -3752,7 +3752,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/ADA">ADA options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -3872,7 +3872,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/AERO/">AERO options page</a>.</li>
 <li>Choose expirations and strikes.</li>
@@ -3888,7 +3888,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <h1>AEVO Options Trading – Contract Specs, Strategies &amp; Market Insights on PowerTrade</h1>
 <h2>📄 AEVO Options Trading – Contract Specs, Strategies &amp; Market Insights on PowerTrade</h2>
 <p>Aevo ($AEVO) is a derivatives-focused token powering one of the fastest-growing decentralized trading venues. With <strong>AEVO options</strong> available on PowerTrade, traders can hedge, speculate, and capture volatility in the broader derivatives narrative. PowerTrade offers <strong>expirations up to 12 months</strong>, institutional-grade RFQ execution, and retail-friendly order book access.</p>
-<p>👉 <a href="https://power.trade/trade/options/AEVO/">Start trading AEVO options on PowerTrade</a> or <a href="https://dex.power.trade/trade/options/AEVO/">PowerDEX</a>.</p>
+<p>👉 <a href="https://power.trade/trade/options/AEVO">Start trading AEVO options on PowerTrade</a> or <a href="https://dex.power.trade/trade/options/AEVO">PowerDEX</a>.</p>
 <hr>
 <h3>What Are AEVO Options?</h3>
 <p>AEVO options are derivatives that give you the <strong>right, but not the obligation</strong>, to buy or sell AEVO at a predetermined strike price before expiry.</p>
@@ -3947,11 +3947,11 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 </tr>
 <tr>
 <td><strong>Order Book Link</strong></td>
-<td><a href="https://power.trade/trade/options/AEVO/">PowerTrade AEVO Options</a></td>
+<td><a href="https://power.trade/trade/options/AEVO">PowerTrade AEVO Options</a></td>
 </tr>
 <tr>
 <td><strong>DEX Link</strong></td>
-<td><a href="https://dex.power.trade/trade/options/AEVO/">PowerDEX AEVO Options</a></td>
+<td><a href="https://dex.power.trade/trade/options/AEVO">PowerDEX AEVO Options</a></td>
 </tr>
 <tr>
 <td><strong>Supported RFQ Strategies</strong></td>
@@ -3973,7 +3973,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>Why Trade AEVO Options on PowerTrade?</h3>
 <p>✅ Expirations from 0DTE → 12 months<br>✅ Institutional RFQ access with full strategy coverage<br>✅ Retail-friendly order book trading<br>✅ 80+ altcoin option markets (largest in crypto)<br>✅ Strategies from basic calls/puts to advanced condors &amp; calendars<br>✅ No liquidation risk vs perps<br>✅ Trade on <strong>CEX (PowerTrade)</strong> &amp; <strong>DEX (PowerDEX)</strong></p>
-<p>👉 <a href="https://power.trade/trade/options/AEVO/">Start trading AEVO options now</a>.</p>
+<p>👉 <a href="https://power.trade/trade/options/AEVO">Start trading AEVO options now</a>.</p>
 <hr>
 <h3>Example AEVO Option Strategies</h3>
 <ul>
@@ -3992,16 +3992,16 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
-<li>Navigate to the <a href="https://power.trade/trade/options/AEVO/">AEVO options page</a>.</li>
+<li>Navigate to the <a href="https://power.trade/trade/options/AEVO">AEVO options page</a>.</li>
 <li>Select expirations and strikes.</li>
 <li>Trade via order book or RFQ.</li>
 </ol>
 <hr>
 <h3>Conclusion</h3>
 <p><strong>AEVO options</strong> give traders the ability to hedge, speculate, and capture volatility in the decentralized derivatives narrative. With <strong>8 expirations, RFQ block trade execution, and retail-friendly access</strong>, PowerTrade is the best venue for trading AEVO options.</p>
-<p>👉 <a href="https://power.trade/trade/options/AEVO/">Start trading AEVO options on PowerTrade</a> or <a href="https://dex.power.trade/trade/options/AEVO/">PowerDEX</a>.</p>
+<p>👉 <a href="https://power.trade/trade/options/AEVO">Start trading AEVO options on PowerTrade</a> or <a href="https://dex.power.trade/trade/options/AEVO">PowerDEX</a>.</p>
 
 </div>
 <div class="page-content" id="page---trading--options--options-contract-specifications--aevo-options-trading-contract-specs-strategies-and-market-insights-on-powertrade-1" style="display:none">
@@ -4117,7 +4117,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/AEVO">AEVO options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -4237,7 +4237,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/ALGO/">ALGO options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -4357,7 +4357,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/API3/">API3 options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -4477,7 +4477,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/APT/">APT options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -4597,7 +4597,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/ARB/">ARB options page</a>.</li>
 <li>Choose expirations and strikes.</li>
@@ -4717,7 +4717,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/AR/">AR options page</a>.</li>
 <li>Choose expirations and strikes.</li>
@@ -4837,7 +4837,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/ATH/">ATH options page</a>.</li>
 <li>Choose expirations and strikes.</li>
@@ -4853,7 +4853,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <h1>AVAX Options Trading – Contract Specs, Strategies &amp; Market Insights on PowerTrade</h1>
 <h2>📄 AVAX Options Trading – Contract Specs, Strategies &amp; Market Insights on PowerTrade</h2>
 <p>Avalanche ($AVAX) is a high-performance Layer 1 blockchain designed for speed, scalability, and multi-chain interoperability. With <strong>AVAX options</strong> listed on PowerTrade, traders can hedge, speculate, and capture volatility in one of the most established alternative L1 ecosystems. PowerTrade offers <strong>expirations up to 12 months</strong>, institutional RFQ block-trading, and retail-friendly order book access.</p>
-<p>👉 <a href="https://power.trade/trade/options/AVAX/">Start trading AVAX options on PowerTrade</a> or <a href="https://dex.power.trade/trade/options/AVAX/">PowerDEX</a>.</p>
+<p>👉 <a href="https://power.trade/trade/options/AVAX">Start trading AVAX options on PowerTrade</a> or <a href="https://dex.power.trade/trade/options/AVAX">PowerDEX</a>.</p>
 <hr>
 <h3>What Are AVAX Options?</h3>
 <p>AVAX options are derivatives that grant the <strong>right, but not the obligation</strong>, to buy or sell Avalanche’s native token at a chosen strike price before expiry.</p>
@@ -4912,11 +4912,11 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 </tr>
 <tr>
 <td><strong>Order Book Link</strong></td>
-<td><a href="https://power.trade/trade/options/AVAX/">PowerTrade AVAX Options</a></td>
+<td><a href="https://power.trade/trade/options/AVAX">PowerTrade AVAX Options</a></td>
 </tr>
 <tr>
 <td><strong>DEX Link</strong></td>
-<td><a href="https://dex.power.trade/trade/options/AVAX/">PowerDEX AVAX Options</a></td>
+<td><a href="https://dex.power.trade/trade/options/AVAX">PowerDEX AVAX Options</a></td>
 </tr>
 <tr>
 <td><strong>Supported RFQ Strategies</strong></td>
@@ -4938,7 +4938,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>Why Trade AVAX Options on PowerTrade?</h3>
 <p>✅ Expirations up to 12 months<br>✅ Institutional RFQ execution with multi-leg support<br>✅ Retail-friendly order book access<br>✅ Wide coverage of strategies (AVAX spreads, butterflies, straddles, condors, calendars)<br>✅ 80+ altcoin option markets<br>✅ Defined downside, no liquidation risk<br>✅ Trade on <strong>CEX (PowerTrade)</strong> &amp; <strong>DEX (PowerDEX)</strong></p>
-<p>👉 <a href="https://power.trade/trade/options/AVAX/">Start trading AVAX options today</a>.</p>
+<p>👉 <a href="https://power.trade/trade/options/AVAX">Start trading AVAX options today</a>.</p>
 <hr>
 <h3>Example AVAX Option Strategies</h3>
 <ul>
@@ -4957,16 +4957,16 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
-<li>Navigate to the <a href="https://power.trade/trade/options/AVAX/">AVAX options page</a>.</li>
+<li>Navigate to the <a href="https://power.trade/trade/options/AVAX">AVAX options page</a>.</li>
 <li>Select expirations and strikes.</li>
 <li>Execute trades via order book or RFQ.</li>
 </ol>
 <hr>
 <h3>Conclusion</h3>
 <p><strong>AVAX options</strong> give traders exposure to one of the most innovative Layer 1 ecosystems in crypto. With <strong>8 expirations, institutional RFQ support, and retail-friendly order book execution</strong>, PowerTrade is the best venue for trading Avalanche options.</p>
-<p>👉 <a href="https://power.trade/trade/options/AVAX/">Start trading AVAX options on PowerTrade</a> or <a href="https://dex.power.trade/trade/options/AVAX/">PowerDEX</a>.</p>
+<p>👉 <a href="https://power.trade/trade/options/AVAX">Start trading AVAX options on PowerTrade</a> or <a href="https://dex.power.trade/trade/options/AVAX">PowerDEX</a>.</p>
 
 </div>
 <div class="page-content" id="page---trading--options--options-contract-specifications--avax-options-trading-contract-specs-strategies-and-market-insights-on-powertrade-1" style="display:none">
@@ -5081,7 +5081,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/AVAX">AVAX options page</a>.</li>
 <li>Choose expirations and strikes.</li>
@@ -5201,7 +5201,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/AXL/">AXL options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -5321,7 +5321,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/AXS/">AXS options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -5441,7 +5441,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/BCH/">BCH options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -5677,7 +5677,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/BONK/">BONK options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -6044,7 +6044,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/ETC/">ETC options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -6164,7 +6164,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/FIL/">FIL options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -6284,7 +6284,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/GALA/">GALA options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -6404,7 +6404,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/GOAT/">GOAT options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -6524,7 +6524,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/HBAR/">HBAR options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -6644,7 +6644,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/HYPE/">HYPE options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -6765,7 +6765,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/HYPE/">HYPE options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -6885,7 +6885,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/IMX/">IMX options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -7005,7 +7005,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/JUP/">JUP options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -7125,7 +7125,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/LDO/">LDO options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -7245,7 +7245,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/LINK/">LINK options page</a>.</li>
 <li>Choose expirations and strikes.</li>
@@ -7365,7 +7365,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/MASA/">MASA options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -7485,7 +7485,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/MINA/">MINA options page</a>.</li>
 <li>Choose expirations and strikes.</li>
@@ -7605,7 +7605,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/MNT/">MNT options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -7725,7 +7725,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/MORPHO/">MORPHO options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -7845,7 +7845,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/ONDO/">ONDO options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -7965,7 +7965,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/OP/">OP options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -8085,7 +8085,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/ORDI/">ORDI options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -8205,7 +8205,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/FLOKI/">FLOKI options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -8325,7 +8325,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/STX/">STX options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -8445,7 +8445,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/ICP/">ICP options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -8565,7 +8565,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/KAS/">KAS options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -8809,7 +8809,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/PAXG/">PAXG options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -8929,7 +8929,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/TRUMP/">TRUMP options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -9049,7 +9049,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/MOG/">MOG options page</a>.</li>
 <li>Choose expirations and strikes.</li>
@@ -9169,7 +9169,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/EIGEN/">EIGEN options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -9289,7 +9289,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/NEAR/">NEAR options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -9409,7 +9409,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/LTC/">LTC options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -9529,7 +9529,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/INJ/">INJ options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -9650,7 +9650,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/PUMP/">PUMP options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -9770,7 +9770,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/ENA/">ENA options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -9890,7 +9890,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/PENDLE/">PENDLE options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -10010,7 +10010,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/PEPE/">PEPE options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -10130,7 +10130,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/POL/">POL options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -10250,7 +10250,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/POPCAT/">POPCAT options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -10370,7 +10370,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/PYTH/">PYTH options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -10490,7 +10490,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/RNDR/">RNDR options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -10610,7 +10610,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/SEI/">SEI options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -10730,7 +10730,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/SHIB/">SHIB options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -10974,7 +10974,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/SUI/">SUI options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -11094,7 +11094,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/TAIKO/">TAIKO options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -11214,7 +11214,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/TAO/">TAO options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -11334,7 +11334,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/TIA/">TIA options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -11454,7 +11454,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/TON/">TON options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -11576,7 +11576,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/TRX/">TRX options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -11696,7 +11696,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/VIRTUAL/">VIRTUAL options page</a>.</li>
 <li>Choose expirations and strikes.</li>
@@ -11816,7 +11816,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/WLD/">WLD options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -12068,7 +12068,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3>How to Get Started</h3>
 <ol>
-<li>Create an account on <a href="https://power.trade/">PowerTrade</a> or <a href="https://dex.power.trade/">PowerDEX</a>.</li>
+<li>Create an account on <a href="https://power.trade">PowerTrade</a> or <a href="https://dex.power.trade">PowerDEX</a>.</li>
 <li>Deposit USDC.</li>
 <li>Navigate to the <a href="https://power.trade/trade/options/ZRO/">ZRO options page</a>.</li>
 <li>Select expirations and strikes.</li>
@@ -12449,7 +12449,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <p>👉 Learn more: PowerTrade Funding Rate Calculation Guide</p>
 <hr>
 <h3>AAVE/USDC Index Price Methodology</h3>
-<p>The AAVE/USDC Index Price represents the fair and real-time market value of AAVE against USDC, calculated from aggregated spot prices.<br>📌 Reference Source: <a href="https://www.coingecko.com/en/coins/aave?utm_source=chatgpt.com">AAVE on CoinGecko</a> <a href="https://www.coingecko.com/en/coins/aave?utm_source=chatgpt.com">CoinGecko+1</a></p>
+<p>The AAVE/USDC Index Price represents the fair and real-time market value of AAVE against USDC, calculated from aggregated spot prices.<br>📌 Reference Source: <a href="https://www.coingecko.com/en/coins/aave">AAVE on CoinGecko</a> <a href="https://www.coingecko.com/en/coins/aave">CoinGecko+1</a></p>
 <h4>Purpose of the Index</h4>
 <p>The Index Price serves as the reference price for AAVE perpetual contracts, ensuring that mark prices and liquidation levels reflect the broader market rather than the activity of a single exchange.<br>This design helps maintain market integrity, prevents price manipulation, and improves fairness in derivatives pricing.</p>
 <h4>Index Construction</h4>
@@ -14799,7 +14799,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h2><strong>BTC Perpetual Futures on PowerTrade – Funding Rate, Contract Specs &amp; Trading Guide</strong></h2>
 <p><strong>Trade Bitcoin perpetual futures on PowerTrade with zero fees, hourly settlements, and transparent, benchmark-aligned funding rates.</strong><br>BTC perpetuals let traders speculate or hedge BTC price movements without holding the underlying coin — combining flexibility, liquidity, and capital efficiency in one of crypto’s most active markets.</p>
-<p>👉 <strong>Start trading BTC Perpetual Futures now on</strong> <a href="https://power.trade/"><strong>PowerTrade</strong></a> or its decentralized counterpart <a href="https://polaris.exchange/"><strong>Polaris</strong></a><strong>.</strong></p>
+<p>👉 <strong>Start trading BTC Perpetual Futures now on</strong> <a href="https://power.trade"><strong>PowerTrade</strong></a> or its decentralized counterpart <a href="https://polaris.trade"><strong>Polaris</strong></a><strong>.</strong></p>
 <hr>
 <h3><strong>What Are BTC Perpetual Futures?</strong></h3>
 <p>BTC perpetual futures are derivative contracts that allow traders to <strong>go long or short on Bitcoin with leverage</strong>, without ever taking delivery of BTC.</p>
@@ -14883,7 +14883,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <li><strong>Clamp:</strong> Caps rate changes to ±0.05% to maintain stability.</li>
 </ul>
 <p>Funding applies <strong>hourly</strong> to open positions only.<br>If you close your position before the funding timestamp, <strong>no funding fees</strong> are charged.</p>
-<p>👉 Learn more: <a href="https://docs.power.trade/funding-rate-calculation">PowerTrade Funding Rate Calculation Guide</a></p>
+<p>👉 Learn more: <a href="#/trading/perpetuals/powertrade-perpetual-funding-rate-methodology-migration-overview">PowerTrade Funding Rate Calculation Guide</a></p>
 <hr>
 <h3><strong>Mark Price and Fair Liquidations</strong></h3>
 <p>PowerTrade’s <strong>mark price</strong> ensures accurate PnL and fair liquidation logic:</p>
@@ -14914,11 +14914,11 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3><strong>Funding Transparency and Reproducibility</strong></h3>
 <p>PowerTrade is the <strong>only exchange where funding rates are fully reproducible</strong> from public historical data.<br>All order book snapshots, index prices, and premium indices are <strong>accessible for verification and backtesting</strong>.</p>
-<p>👉 Check the <a href="https://docs.power.trade/funding-rate-calculation">PowerTrade Perpetual Funding Rate Methodology</a> for the full formula, tiers, and transparency details.</p>
+<p>👉 Check the <a href="#/trading/perpetuals/powertrade-perpetual-funding-rate-methodology-migration-overview">PowerTrade Perpetual Funding Rate Methodology</a> for the full formula, tiers, and transparency details.</p>
 <hr>
 <h3><strong>How to Start Trading BTC Perpetuals</strong></h3>
 <ol>
-<li><strong>Create an account</strong> on <a href="https://power.trade/">PowerTrade</a> or <a href="https://polaris.exchange/">Polaris</a>.</li>
+<li><strong>Create an account</strong> on <a href="https://power.trade">PowerTrade</a> or <a href="https://polaris.trade">Polaris</a>.</li>
 <li><strong>Deposit</strong> USDC, BTC, or ETH as margin.</li>
 <li><strong>Select BTC-PERPETUAL</strong> in the trading dashboard.</li>
 <li><strong>Trade instantly</strong> — with 0% fees and transparent hourly funding.</li>
@@ -14927,7 +14927,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <h3><strong>Conclusion</strong></h3>
 <p>PowerTrade’s BTC Perpetual Futures deliver a <strong>professional-grade trading experience</strong> with zero fees, hourly settlements, and transparent, benchmark-aligned funding.</p>
 <p>Whether you’re <strong>hedging BTC exposure</strong>, <strong>running funding arbitrage</strong>, or <strong>scalping intraday volatility</strong>, PowerTrade and Polaris provide the <strong>most efficient, fair, and reproducible BTC perpetual markets</strong> in crypto.</p>
-<p>👉 <strong>Start trading BTC Perpetual Futures today</strong> on <a href="https://power.trade/">PowerTrade</a> or <a href="https://polaris.exchange/">Polaris</a>.</p>
+<p>👉 <strong>Start trading BTC Perpetual Futures today</strong> on <a href="https://power.trade">PowerTrade</a> or <a href="https://polaris.trade">Polaris</a>.</p>
 <hr>
 <h4>🔑 <strong>SEO Metadata Summary</strong></h4>
 <p><strong>Title:</strong><br>BTC Perpetual Futures on PowerTrade – Funding Rate, Contract Specs &amp; Trading Guide</p>
@@ -14937,7 +14937,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 </div>
 <div class="page-content" id="page---trading--perpetuals--perpetuals-contract-specifications--doge-perpetual-futures-on-powertrade-funding-rate-contract-specs-and-trading-guide" style="display:none">
 <h1>DOGE Perpetual Futures on PowerTrade – Funding Rate, Contract Specs &amp; Trading Guide</h1>
-<p>Trade <strong>DOGE perpetual futures</strong> on <a href="https://power.trade">PowerTrade</a> with <strong>zero fees</strong>, <strong>hourly settlements</strong>, and <strong>benchmark-aligned funding rates</strong> based on the <strong>CoinGecko DOGE/USDC Index</strong>.<br>DOGE perpetuals allow traders to <strong>speculate or hedge Dogecoin price movements</strong> with <strong>leverage</strong>, <strong>multi-collateral margining</strong>, and <strong>transparent, reproducible funding</strong>.<br>📌 Reference on CoinGecko: <a href="https://www.coingecko.com/en/coins/dogecoin?utm_source=chatgpt.com">Dogecoin (DOGE)</a> <a href="https://www.coingecko.com/en/coins/dogecoin?utm_source=chatgpt.com">CoinGecko+1</a></p>
+<p>Trade <strong>DOGE perpetual futures</strong> on <a href="https://power.trade">PowerTrade</a> with <strong>zero fees</strong>, <strong>hourly settlements</strong>, and <strong>benchmark-aligned funding rates</strong> based on the <strong>CoinGecko DOGE/USDC Index</strong>.<br>DOGE perpetuals allow traders to <strong>speculate or hedge Dogecoin price movements</strong> with <strong>leverage</strong>, <strong>multi-collateral margining</strong>, and <strong>transparent, reproducible funding</strong>.<br>📌 Reference on CoinGecko: <a href="https://www.coingecko.com/en/coins/dogecoin">Dogecoin (DOGE)</a> <a href="https://www.coingecko.com/en/coins/dogecoin">CoinGecko+1</a></p>
 <p>👉 Start trading DOGE Perpetual Futures now on <a href="https://power.trade">PowerTrade</a> or its decentralized counterpart <a href="https://polaris.trade">Polaris</a>.</p>
 <hr>
 <h3>What Are DOGE Perpetual Futures?</h3>
@@ -15016,7 +15016,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <li>Historical data reliability and uptime</li>
 <li>Price consistency relative to global market averages</li>
 </ul>
-<p>Stale or outlier data are automatically excluded to ensure high accuracy. <a href="https://www.coingecko.com/en/coins/dogecoin?utm_source=chatgpt.com">CoinGecko+1</a><br>The final index price is updated frequently to reflect real-time market conditions.</p>
+<p>Stale or outlier data are automatically excluded to ensure high accuracy. <a href="https://www.coingecko.com/en/coins/dogecoin">CoinGecko+1</a><br>The final index price is updated frequently to reflect real-time market conditions.</p>
 <h4>Fallback Mechanism</h4>
 <p>If external spot data becomes temporarily unavailable, PowerTrade switches to a <strong>pre-market internal index</strong>, derived from bid/ask prices in the DOGE perpetual order book alone.<br>This ensures continuous mark-price coverage and reliable liquidations during data outages.</p>
 <hr>
@@ -15696,7 +15696,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <h1>ETH Perpetual Futures on PowerTrade – Funding Rate, Contract Specs &amp; Trading Guide</h1>
 <h2><strong>ETH Perpetual Futures on PowerTrade – Funding Rate, Contract Specs &amp; Trading Guide</strong></h2>
 <p><strong>Trade Ethereum perpetual futures on PowerTrade with zero fees, hourly settlements, and transparent, benchmark-aligned funding rates.</strong><br>ETH perpetuals give traders the flexibility to speculate or hedge ETH price movements without owning the underlying asset — offering deep liquidity, multi-collateral margining, and the industry’s fairest funding model.</p>
-<p>👉 <strong>Start trading ETH Perpetual Futures now on</strong> <a href="https://power.trade/"><strong>PowerTrade</strong></a> or on its decentralized counterpart <a href="https://polaris.exchange/">Polaris</a>.</p>
+<p>👉 <strong>Start trading ETH Perpetual Futures now on</strong> <a href="https://power.trade"><strong>PowerTrade</strong></a> or on its decentralized counterpart <a href="https://polaris.trade">Polaris</a>.</p>
 <hr>
 <h3><strong>What Are ETH Perpetual Futures?</strong></h3>
 <p>ETH perpetual futures are derivatives that let traders <strong>go long or short on Ethereum with leverage</strong>, without ever holding ETH directly.</p>
@@ -15759,7 +15759,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <li><strong>Clamp:</strong> Limits changes to ±0.05% to avoid distortions.</li>
 </ul>
 <p>Funding is applied <strong>hourly</strong> and only affects positions open at settlement.<br>Traders who close positions before the funding timestamp pay <strong>no funding fees</strong>.</p>
-<p>👉 Learn more: <a href="https://docs.power.trade/funding-rate-calculation">PowerTrade Funding Rate Calculation Guide</a></p>
+<p>👉 Learn more: <a href="#/trading/perpetuals/powertrade-perpetual-funding-rate-methodology-migration-overview">PowerTrade Funding Rate Calculation Guide</a></p>
 <h3><strong>BTCUSDT Index Price Methodology</strong></h3>
 <p>The <strong>BTCUSDT Index</strong> represents the fair and real-time market value of Bitcoin against USDT, calculated from the <strong>average spot prices across multiple major exchanges</strong>.<br>It is updated every second to ensure accurate and transparent pricing for all BTCUSDT-denominated products.</p>
 <h4><strong>Purpose of the Index</strong></h4>
@@ -15812,11 +15812,11 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <hr>
 <h3><strong>Funding Transparency and Reproducibility</strong></h3>
 <p>PowerTrade stands out as the <strong>only exchange where funding rates are fully reproducible</strong> from public order book and index data.<br>Every rate is independently verifiable — reinforcing transparency and fairness.</p>
-<p>👉 Check the <a href="https://docs.power.trade/funding-rate-calculation">PowerTrade Perpetual Funding Rate Methodology</a> for the complete formula, tiers, and reproducibility process.</p>
+<p>👉 Check the <a href="#/trading/perpetuals/powertrade-perpetual-funding-rate-methodology-migration-overview">PowerTrade Perpetual Funding Rate Methodology</a> for the complete formula, tiers, and reproducibility process.</p>
 <hr>
 <h3><strong>How to Start Trading ETH Perpetuals</strong></h3>
 <ol>
-<li><strong>Create an account</strong> on <a href="https://power.trade/">PowerTrade</a> or <a href="https://polaris.exchange/">Polaris</a>.</li>
+<li><strong>Create an account</strong> on <a href="https://power.trade">PowerTrade</a> or <a href="https://polaris.trade">Polaris</a>.</li>
 <li><strong>Deposit collateral</strong> — USDC, ETH, or BTC.</li>
 <li><strong>Select ETH-PERPETUAL</strong> in the perpetual markets tab.</li>
 <li><strong>Trade instantly</strong> with 0% fees and hourly funding transparency.</li>
@@ -15825,7 +15825,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <h3><strong>Conclusion</strong></h3>
 <p>PowerTrade’s ETH Perpetual Futures deliver <strong>maximum efficiency, full transparency, and zero trading fees</strong> — empowering traders to speculate, hedge, or arbitrage with precision.</p>
 <p>Whether you’re hedging ETH exposure, capturing funding yield, or trading short-term moves, <strong>PowerTrade and Polaris</strong> provide the <strong>most advanced, fair, and liquid ETH perpetual markets</strong> in crypto.</p>
-<p>👉 <strong>Start trading ETH Perpetual Futures today</strong> on <a href="https://power.trade/">PowerTrade</a> or <a href="https://polaris.exchange/">Polaris</a>.</p>
+<p>👉 <strong>Start trading ETH Perpetual Futures today</strong> on <a href="https://power.trade">PowerTrade</a> or <a href="https://polaris.trade">Polaris</a>.</p>
 <hr>
 <h4>🔑 <strong>SEO Metadata Summary</strong></h4>
 <p><strong>Title:</strong><br>ETH Perpetual Futures on PowerTrade – Funding Rate, Contract Specs &amp; Trading Guide</p>
@@ -16527,7 +16527,7 @@ return rs.KJUR.jws.JWS.sign(&quot;ES256&quot;, headerString, payloadString, priv
 <li><strong>No waiting for settlement and low fees:</strong> xStocks are designed to clear instantly; the site highlights that there is no waiting for trades to settle and that there are no commissions apart from the fees on screen.</li>
 </ol>
 <h3>Key takeaways about xStocks</h3>
-<p>xStocks represent a fusion of traditional equities and blockchain technology. By offering fractional, freely transferable tokens that can be traded 24/7, they give traders new ways to express views on major companies and indices without leaving the crypto ecosystem. <a href="https://power.trade/?utm_source=GB"><strong>PowerTrade</strong></a> and <a href="https://dex.power.trade/?utm_source=GB"><strong>PowerDEX</strong></a> (where you can connect more than 400 wallets on Solana, ETH and Base directly, with no KYX) expand on this by providing options on xStocks with expiries ranging from daily to three months and contract sizes as low as 0.01. Single‑leg or multi‑leg strategies — along with RFQ block trades — allow users to tailor risk profiles and potentially generate income by selling options. As always, conduct thorough research and consider your risk tolerance before trading.</p>
+<p>xStocks represent a fusion of traditional equities and blockchain technology. By offering fractional, freely transferable tokens that can be traded 24/7, they give traders new ways to express views on major companies and indices without leaving the crypto ecosystem. <a href="https://power.trade"><strong>PowerTrade</strong></a> and <a href="https://dex.power.trade"><strong>PowerDEX</strong></a> (where you can connect more than 400 wallets on Solana, ETH and Base directly, with no KYX) expand on this by providing options on xStocks with expiries ranging from daily to three months and contract sizes as low as 0.01. Single‑leg or multi‑leg strategies — along with RFQ block trades — allow users to tailor risk profiles and potentially generate income by selling options. As always, conduct thorough research and consider your risk tolerance before trading.</p>
 <h3>Where to trade xStocks Options</h3>
 <table><thead><tr><th width="209.60003662109375">Asset Name</th><th width="115.2000732421875">Ticker</th><th width="213.6666259765625">CEX Link</th><th>DEX Link</th></tr></thead><tbody><tr><td>DeFi Development Corp</td><td>DFDVx</td><td><a href="https://power.trade/trade/options/DFDVX">Trade DFDVx on CEX</a></td><td><a href="https://dex.power.trade/trade/options/DFDVX">Trade DFDVx on DEX</a></td></tr><tr><td>Nasdaq 100 Index</td><td>QQQx</td><td><a href="https://power.trade/trade/options/QQQX">Trade QQQx on CEX</a></td><td><a href="https://dex.power.trade/trade/options/QQQX">Trade QQQx on DEX</a></td></tr><tr><td>S&#x26;P 500 Index</td><td>SPYx</td><td><a href="https://power.trade/trade/options/SPYX">Trade SPYx on CEX</a></td><td><a href="https://dex.power.trade/trade/options/SPYX">Trade SPYx on DEX</a></td></tr><tr><td>Meta</td><td>METAx</td><td><a href="https://power.trade/trade/options/METAX">Trade METAx on CEX</a></td><td><a href="https://dex.power.trade/trade/options/METAX">Trade METAx on DEX</a></td></tr><tr><td>Amazon</td><td>AMZNx</td><td><a href="https://power.trade/trade/options/AMZNX">Trade AMZNx on CEX</a></td><td><a href="https://dex.power.trade/trade/options/AMZNX">Trade AMZNx on DEX</a></td></tr><tr><td>Coinbase</td><td>COINx</td><td><a href="https://power.trade/trade/options/COINX">Trade COINx on CEX</a></td><td><a href="https://dex.power.trade/trade/options/COINX">Trade COINx on DEX</a></td></tr><tr><td>Google (Alphabet)</td><td>GOOGLx</td><td><a href="https://power.trade/trade/options/GOOGLX">Trade GOOGLx on CEX</a></td><td><a href="https://dex.power.trade/trade/options/GOOGLX">Trade GOOGLx on DEX</a></td></tr><tr><td>Robinhood</td><td>HOODx</td><td><a href="https://power.trade/trade/options/HOODX">Trade HOODx on CEX</a></td><td><a href="https://dex.power.trade/trade/options/HOODX">Trade HOODx on DEX</a></td></tr><tr><td>MicroStrategy</td><td>MSTRx</td><td><a href="https://power.trade/trade/options/MSTRX">Trade MSTRx on CEX</a></td><td><a href="https://dex.power.trade/trade/options/MSTRX">Trade MSTRx on DEX</a></td></tr><tr><td>Nvidia</td><td>NVDAx</td><td><a href="https://power.trade/trade/options/NVDAX">Trade NVDAx on CEX</a></td><td><a href="https://dex.power.trade/trade/options/NVDAX">Trade NVDAx on DEX</a></td></tr><tr><td>Circle</td><td>CRCLx</td><td><a href="https://power.trade/trade/options/CRCLX">Trade CRCLx on CEX</a></td><td><a href="https://dex.power.trade/trade/options/CRCLX">Trade CRCLx on DEX</a></td></tr><tr><td>Apple</td><td>AAPLx</td><td><a href="https://power.trade/trade/options/AAPLX">Trade AAPLx on CEX</a></td><td><a href="https://dex.power.trade/trade/options/AAPLX">Trade AAPLx on DEX</a></td></tr><tr><td>Tesla</td><td>TSLAx</td><td><a href="https://power.trade/trade/options/TSLAX">Trade TSLAx on CEX</a></td><td><a href="https://dex.power.trade/trade/options/TSLAX">Trade TSLAx on DEX</a></td></tr></tbody></table>
 
