@@ -51,6 +51,11 @@ All PowerTrade options are cash-settled in USDC:
 - ✅ Simple settlement in USDC
 
 
+## Popular Altcoin Options Markets
+
+- [Trade BNB options](./options-bnb)
+- [Trade DOGE options](./options-doge)
+
 ## Get Started Today
 
 - **Email Support:** support@power.trade

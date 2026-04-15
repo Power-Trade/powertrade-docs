@@ -34,6 +34,7 @@ Our web application can be accessed at https://app.power.trade/
 - [Account Verification](account-verification) - Complete KYC process
 - [Make a Deposit](deposits) - Fund your account  
 - [Start Trading](../trading/options) - Begin with options trading
+- [Read the Whitepaper](../legal/whitepaper) - Learn platform design and product details
 
 ## Still have questions?
 
