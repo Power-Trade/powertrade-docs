@@ -50,6 +50,7 @@ const sidebars: SidebarsConfig = {
         'legal/country-availability',
         'legal/risk-disclosure',
         'legal/security',
+        'legal/whitepaper',
       ],
     },
   ],
