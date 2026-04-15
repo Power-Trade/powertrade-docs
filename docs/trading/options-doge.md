@@ -3,7 +3,7 @@ title: DOGE Options
 sidebar_label: DOGE Options
 ---
 
-# DOGE Options
+# DOGE Options Trading
 
 Trade DOGE options on PowerTrade with USDC settlement, flexible expiries, and defined risk.
 

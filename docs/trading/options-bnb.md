@@ -3,7 +3,7 @@ title: BNB Options
 sidebar_label: BNB Options
 ---
 
-# BNB Options
+# BNB Options Trading
 
 Trade BNB options on PowerTrade with USDC settlement, flexible expiries, and defined risk.
 
