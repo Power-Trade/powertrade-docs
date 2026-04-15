@@ -1,3 +1,8 @@
+---
+title: PowerTrade Whitepaper
+sidebar_label: Whitepaper
+---
+
 # PowerTrade Whitepaper
 
 ## Whitepaper Link
