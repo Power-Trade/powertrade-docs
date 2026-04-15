@@ -50,6 +50,7 @@ All PowerTrade options are cash-settled in USDC:
 - ✅ Flexible expirations — daily to 3 months forward
 - ✅ Simple settlement in USDC
 
+
 ## Get Started Today
 
 - **Email Support:** support@power.trade
