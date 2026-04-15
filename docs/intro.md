@@ -25,6 +25,7 @@ If you have any questions, [don't hesitate to reach out](mailto:support@power.tr
 - **[Country Availability](legal/country-availability)** - Supported jurisdictions
 - **[Risk Disclosure](legal/risk-disclosure)** - Trading risks
 - **[Security](legal/security)** - Platform security measures
+- **[Whitepaper](legal/whitepaper)** - Product overview and architecture
 
 ## Need Help?
 

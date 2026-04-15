@@ -50,6 +50,12 @@ All PowerTrade options are cash-settled in USDC:
 - ✅ Flexible expirations — daily to 3 months forward
 - ✅ Simple settlement in USDC
 
+
+## Popular Altcoin Options Markets
+
+- [Trade BNB options](./options-bnb)
+- [Trade DOGE options](./options-doge)
+
 ## Get Started Today
 
 - **Email Support:** support@power.trade
