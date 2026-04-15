@@ -31,6 +31,7 @@ const sidebars: SidebarsConfig = {
       collapsed: false,
       items: [
         'trading/options',
+        'trading/options-btc',
         'trading/options-bnb',
         'trading/options-doge',
         'trading/futures',
