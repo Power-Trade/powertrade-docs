@@ -31,6 +31,8 @@ const sidebars: SidebarsConfig = {
       collapsed: false,
       items: [
         'trading/options',
+        'trading/options-bnb',
+        'trading/options-doge',
         'trading/futures',
         'trading/margin-and-liquidation',
         'trading/perpetuals',
@@ -48,6 +50,7 @@ const sidebars: SidebarsConfig = {
         'legal/country-availability',
         'legal/risk-disclosure',
         'legal/security',
+        'legal/whitepaper',
       ],
     },
   ],
