@@ -52,10 +52,17 @@ All PowerTrade options are cash-settled in USDC:
 
 
 
-## Popular Altcoin Options Markets
+## Popular Options Markets
 
+- [BTC Options](./options-btc)
 - [BNB Options](./options-bnb)
 - [DOGE Options](./options-doge)
+
+## Contract Specifications
+
+- [BTC Options Trading](./options/options-contract-specifications/btc-options-trading-contract-specs-degen-options-and-strategies)
+- [BNB Options Trading](./options/options-contract-specifications/bnb-options-trading-contract-specs-degen-options-and-strategies)
+- [DOGE Options Trading](./options/options-contract-specifications/doge-options-trading-contract-specs-degen-options-and-strategies)
 
 ## Get Started Today
 
